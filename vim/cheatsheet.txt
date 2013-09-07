@@ -1,0 +1,65 @@
+---------------------------------------
+
+expand() - expand a wildcard under the cursor.
+	With the help of it you can get current:
+	* file
+	* word
+	with different options.
+	
+
+:undol - list nodes of undo tree.
+g- - restore earlier state of text in history
+g+ - restore later state of text in history
+
+>i{ - indent inner {} block
+
+
+---------------------------------------
+:set list -> swithces vim to list mode (tabs displayed as ^I, end of lines as $)
+
+----------------------------------------
+-- Tabs and buffers
+----------------------------------------
+
+\mbe - mini buffer explorer
+
+:bd - delete current buffer
+
+:tab sb opens current buffer in a new tab
+
+----------------------------------------
+-- Folds
+----------------------------------------
+zf{motion}  or
+{Visual}zf	Operator to create a fold.
+			This only works when 'foldmethod' is "manual" or "marker".
+
+zd		Delete one fold at the cursor
+zD		Delete folds recursively at the cursor
+
+zo		Open one fold under the cursor
+zO		Open all folds under the cursor recursively
+
+zc		Close one fold under the cursor
+zC		Close all folds under the cursor recursively
+
+zm		Fold more: Subtract one from 'foldlevel'
+
+zM		Close all folds: set 'foldlevel' to 0.
+		'foldenable' will be set.
+
+zr		Reduce folding: Add one to 'foldlevel'.
+zR		Open all folds
+
+----------------------------------------
+-- Development
+----------------------------------------
+
+[i - next word under the cursor
+[I - find all ocurrences of the keyword under the cursor
+
+[D [d ]D ]d - look for macro definitions
+Ctrl-] Jump to tag definition ( increases tag stack)
+Ctrl-N -  goes one level upper in the tag stack
+
+:ts or g] - tag select for a word under a cursor
