@@ -53,7 +53,7 @@ nmap <leader>g :!gedit %<CR>
 nmap <Leader>r "zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r>z/g<cr>`x
 
 " Send to clouddesktop server
-nmap <Leader>/ :w<CR> :<C-U>R bash ~/zshconfigs/sync.sh <C-R>=expand("%:p:t") <CR><CR>
+nmap <Leader>/ :w<CR> :<C-U>R bash ~/vim/sync.sh <C-R>=expand("%:p:t") <CR><CR>
 " python 
 " ====================
 " Compiling commands
