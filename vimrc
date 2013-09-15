@@ -183,13 +183,6 @@ noremap <silent> <C-k> <C-W>-
 noremap <silent> <C-j> <C-W>+
 noremap <silent> <C-l> <C-W>>
 
-" ==================================
-" Make horizontal scrolling easier
-" ==================================
-
-nmap <silent> <C-o> 10zl
-nmap <silent> <C-i> 10zh
-
 " ==============================
 " Bubble single&multiple lines
 " ==============================
@@ -314,6 +307,7 @@ set shiftwidth=4                       " but an indent level is 4 spaces wide.
 set softtabstop=4                      " <BS> over an autoindent deletes both spaces.
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
+set grepprg=ack
 
 " ====================
 " Reading/Writing
