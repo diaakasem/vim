@@ -239,7 +239,7 @@ set isfname-=:            " Set the filename:linenumber delimiter to be colon
 set noerrorbells visualbell t_vb=
 set ofu=syntaxcomplete#Complete
 set cindent
-set tags=./tags
+set tags=tags
 
 " ==================
 " Printing options
