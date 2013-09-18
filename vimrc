@@ -452,7 +452,7 @@ au BufNewFile,BufRead,BufEnter *.js let @f='^df f=d2fn^Pa ^2xf(hx^f{%lx%^'
 " Converts function to variable
 au BufNewFile,BufRead,BufEnter *.js let @v='^df f(PFfi ^ivar f i =f{%a;h%^'
 " Converts double qoutes to single quotes
-au BufNewFile,BufRead,BufEnter *.js let @s='0:s:":'':g
+au BufNewFile,BufRead,BufEnter *.js let @s=':s:":'':g'
 
 " Converts ascii 9 '\%x9' to be four spaces
 au BufNewFile,BufRead,BufEnter *.py let @s=':%s:\%x9:    :g'
@@ -491,5 +491,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/FuzzyFinder'
+Bundle ''
 
 filetype plugin indent on     " required!
