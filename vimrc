@@ -488,5 +488,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'statusline.vim'
 Bundle 'surround.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'UltiSnips'
 
 filetype plugin indent on     " required!
