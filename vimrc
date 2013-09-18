@@ -444,8 +444,37 @@ au BufNewFile,BufRead,BufEnter *.js let @f='^df f=d2fn^Pa ^2xf(hx^f{%lx%^'
 " Converts function to variable
 au BufNewFile,BufRead,BufEnter *.js let @v='^df f(PFfi ^ivar f i =f{%a;h%^'
 " Converts double qoutes to single quotes
-au BufNewFile,BufRead,BufEnter *.js let @s='0:s:":'':g'
+au BufNewFile,BufRead,BufEnter *.js let @s='0:s:":'':g
+
 " Converts ascii 9 '\%x9' to be four spaces
 au BufNewFile,BufRead,BufEnter *.py let @s=':%s:\%x9:    :g'
-" Replces the for of the label and the id  to the model name after the dot
-au BufNewFile,BufRead,BufEnter *.html let @f='/modelf"f.lye4k/for=f"plcf""F"lye/id=f"plcf""/controls'
+
+
+
+ set nocompatible               " be iMproved
+ filetype off                   " required!
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+ " let Vundle manage Vundle
+ " required! 
+ Bundle 'gmarik/vundle'
+
+ " My Bundles here:
+ "
+ " original repos on github
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'Lokaltog/vim-easymotion'
+ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Bundle 'tpope/vim-rails.git'
+ " vim-scripts repos
+ Bundle 'L9'
+ Bundle 'FuzzyFinder'
+ " non github repos
+ Bundle 'git://git.wincent.com/command-t.git'
+ " git repos on your local machine (ie. when working on your own plugin)
+ Bundle 'file:///Users/gmarik/path/to/plugin'
+ " ...
+
+ filetype plugin indent on     " required!
