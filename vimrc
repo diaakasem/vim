@@ -449,32 +449,25 @@ au BufNewFile,BufRead,BufEnter *.js let @s='0:s:":'':g
 " Converts ascii 9 '\%x9' to be four spaces
 au BufNewFile,BufRead,BufEnter *.py let @s=':%s:\%x9:    :g'
 
+filetype off                   " required!
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
- set nocompatible               " be iMproved
- filetype off                   " required!
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'statusline.vim'
+Bundle 'bash-support.vim'
+Bundle 'Commnad-T'
 
- " let Vundle manage Vundle
- " required! 
- Bundle 'gmarik/vundle'
-
- " My Bundles here:
- "
- " original repos on github
- Bundle 'tpope/vim-fugitive'
- Bundle 'Lokaltog/vim-easymotion'
- Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- Bundle 'tpope/vim-rails.git'
- " vim-scripts repos
- Bundle 'L9'
- Bundle 'FuzzyFinder'
- " non github repos
- Bundle 'git://git.wincent.com/command-t.git'
- " git repos on your local machine (ie. when working on your own plugin)
- Bundle 'file:///Users/gmarik/path/to/plugin'
- " ...
-
- filetype plugin indent on     " required!
+filetype plugin indent on     " required!
