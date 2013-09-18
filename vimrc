@@ -138,6 +138,12 @@ noremap <CR> :
 nnoremap <C-e> 4<C-e>
 nnoremap <C-y> 4<C-y>
 
+" ================
+" numbers config
+" ================
+nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
+
 " ======================================
 " Make shift-insert work like in Xterm
 " ======================================
@@ -468,6 +474,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'statusline.vim'
 Bundle 'bash-support.vim'
-Bundle 'Commnad-T'
+Bundle 'Command-T'
+Bundle 'myusuf3/numbers.vim'
 
 filetype plugin indent on     " required!
