@@ -216,10 +216,9 @@ au BufRead,BufEnter vimrc nmap <silent> <leader>u- :t.\|s/./-/g\|:nohls<cr>gcc
 " Load pathogen with docs for all plugins
 " ==========================================================
 
-" filetype off
-call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
 
 " ===============
 " Basic Settings
@@ -470,18 +469,24 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'statusline.vim'
-Bundle 'bash-support.vim'
 Bundle 'Command-T'
-Bundle 'myusuf3/numbers.vim'
+Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'MRU'
+Bundle 'bash-support.vim'
+Bundle 'bling/vim-airline'
+Bundle 'bufexplorer.zip'
 Bundle 'filetype.vim'
-Bundle 'Lokaltog/powerline'
-Bundle 'scrooloose/nerdtree'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'neocomplcache'
+Bundle 'pathogen.vim'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'scrooloose/nerdtree'
+Bundle 'statusline.vim'
+Bundle 'surround.vim'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on     " required!
