@@ -147,7 +147,6 @@ nnoremap <F4> :NumbersOnOff<CR>
 " ======================================
 " Make shift-insert work like in Xterm
 " ======================================
-
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
@@ -278,6 +277,7 @@ set textwidth=80      " Set text width to 120 chars
 set colorcolumn=80
 
 set fillchars = ""                     " get rid of the silly characters in separators
+set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -423,6 +423,7 @@ endif
 " UTF 8 
 " ==========
 set encoding=utf-8
+set termencoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
@@ -437,6 +438,8 @@ endif
 " Enable 256 Colors in terminals
 set t_Co=256
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+set term=xterm-256color
+
 
 
 " Macros 
@@ -476,5 +479,9 @@ Bundle 'statusline.vim'
 Bundle 'bash-support.vim'
 Bundle 'Command-T'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'filetype.vim'
+Bundle 'Lokaltog/powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on     " required!
