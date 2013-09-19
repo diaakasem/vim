@@ -96,6 +96,13 @@ noremap <F9> :w<CR> :!thg log <C-R>% & <CR> gtgt
 map <leader>h :<C-U>R hg blame -nfu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line(".") <CR>,<C-R>=line(".") <CR>p <CR> 18<C-W>- " Shows the owner of the current line for mercurial
 " map <leader>H :r!hg blame -nfu <C-R>=expand("%:p")<CR> \| sed -n <C-R>=line(".") <CR>,<C-R>=line(".") <CR>p <CR> 
 
+
+" =====================
+" Open ctags TagBar
+" =====================
+
+noremap <F5> :TagbarToggle  <CR>
+
 " ====================
 " Execution commands
 " ====================
