@@ -72,7 +72,7 @@ au BufNewFile,BufRead,BufEnter *.uml    nmap <leader>c :w<CR> :!java -jar ~/zshc
 " linting commands
 " ==================
 
-au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :R jshint <C-R>%<CR> 15<C-W>-      " Execute jshint on the current js file
+au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :JSHint<CR>     " Execute jshint on the current js file
 au BufNewFile,BufRead,BufEnter *.coffee,*.COFFFEE nmap <leader>l :w<CR> :R coffeelint -f ~/zshconfigs/coffeelint_config.json --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
 au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>             " Execute jsonlint on the current coffe file
 
@@ -124,12 +124,6 @@ nmap <leader>re :e <CR>
 " ==============
 
 map <silent> <leader>x <C-W>
-
-" ==================================
-" Have Enter to go to command line
-" ==================================
-
-noremap <CR> :
 
 " ================
 " Scroll faster 
@@ -469,21 +463,25 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
-Bundle 'Command-T'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Python-mode-klen'
+Bundle 'Raimondi/delimitMate'
 Bundle 'bash-support.vim'
 Bundle 'bling/vim-airline'
 Bundle 'bufexplorer.zip'
+Bundle 'docunext/closetag.vim'
+Bundle 'ervandew/supertab'
 Bundle 'filetype.vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kevinw/pyflakes-vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'neocomplcache'
 Bundle 'pathogen.vim'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'statusline.vim'
 Bundle 'surround.vim'
@@ -491,6 +489,11 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'jshint.vim'
+
+"
+" Bundle 'neocomplcache'
+" Bundle 'Command-T'
 
 
 filetype plugin indent on     " required!
