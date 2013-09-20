@@ -499,9 +499,5 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'jshint.vim'
 Bundle 'ZoomWin'
 
-"
-" Bundle 'neocomplcache'
-" Bundle 'Command-T'
-
 
 filetype plugin indent on     " required!
