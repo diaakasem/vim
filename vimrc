@@ -498,6 +498,7 @@ Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'jshint.vim'
 Bundle 'ZoomWin'
+Bundle 'vim-scripts/Align'
 
 "
 " Bundle 'neocomplcache'
