@@ -500,9 +500,5 @@ Bundle 'jshint.vim'
 Bundle 'ZoomWin'
 Bundle 'vim-scripts/Align'
 
-"
-" Bundle 'neocomplcache'
-" Bundle 'Command-T'
-
 
 filetype plugin indent on     " required!
