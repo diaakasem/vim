@@ -245,6 +245,7 @@ set noerrorbells visualbell t_vb=
 set ofu=syntaxcomplete#Complete
 set cindent
 set tags=tags
+set showtabline=2      " Allways show the tab page "
 
 " ==================
 " Printing options
@@ -499,6 +500,7 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'jshint.vim'
 Bundle 'ZoomWin'
 Bundle 'vim-scripts/Align'
+Bundle 'tabpage.vim'
 
 
 filetype plugin indent on     " required!
