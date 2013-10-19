@@ -73,7 +73,7 @@ au BufNewFile,BufRead,BufEnter *.uml    nmap <leader>c :w<CR> :!java -jar ~/zshc
 " ==================
 
 au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :JSHint<CR>     " Execute jshint on the current js file
-au BufNewFile,BufRead,BufEnter *.coffee,*.COFFFEE nmap <leader>l :w<CR> :R coffeelint -f ~/zshconfigs/coffeelint_config.json --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
+au BufNewFile,BufRead,BufEnter *.coffee,*.COFFFEE nmap <leader>l :w<CR> :R coffeelint --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
 au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>             " Execute jsonlint on the current coffe file
 
 au BufNewFile,BufRead,BufEnter *.js nmap <leader>= :w<CR>:!fixjsstyle %<CR>
