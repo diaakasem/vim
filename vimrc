@@ -54,7 +54,7 @@ nmap <Leader>r "zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r
 
 " Send to clouddesktop server
 nmap <Leader>/ :w<CR> :<C-U>R bash ~/vim/sync.sh <C-R>=expand("%:p:t") <CR><CR>
-" python 
+
 " ====================
 " Compiling commands
 " ====================
