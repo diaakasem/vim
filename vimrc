@@ -502,5 +502,3 @@ Bundle 'ZoomWin'
 Bundle 'vim-scripts/Align'
 Bundle 'tabpage.vim'
 
-
-filetype plugin indent on     " required!
