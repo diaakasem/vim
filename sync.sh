@@ -21,6 +21,5 @@ set -o nounset                              # Treat unset variables as an error
 
 #!/bin/bash
 filename="$@";
-# scp "$filename" 'user@192.168.123.123:/home/user/clouddesktop/clouddesktop-appcatalog'${PWD#$(hg root)}/"$filename"
 echo 'user@192.168.123.123:/home/user/clouddesktop/clouddesktop-appcatalog'${PWD#$(hg root)}/"$filename"
 scp "$filename" 'user@192.168.123.123:/home/user/clouddesktop/clouddesktop-appcatalog'${PWD#$(hg root)}/"$filename"
