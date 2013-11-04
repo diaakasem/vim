@@ -16,4 +16,4 @@ Installation
 - :BundleInstall
 - Restart Vim
 
-Have Fun
+Have Fun.
