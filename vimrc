@@ -501,3 +501,5 @@ Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
+
+filetype plugin indent on " enable loading indent file for filetype
