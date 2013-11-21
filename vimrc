@@ -9,7 +9,13 @@ let NERDTreeShowBookmarks=1   " By default show bookmarks
 let g:acp_enableAtStartup = 0 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
 " let NERDTreeChDirMode=2
+" " Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/vim/NERDTreeBookmarks")
 
 " ==========================
 " Refactor a variable name
@@ -37,44 +43,56 @@ cmap w!! w !sudo tee % >/dev/null
 
 nmap <leader>n :NERDTreeToggle<CR>   " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>     " Open NerdTree
-nmap <leader>m :MRU<CR>              " Opem Most Recently Used :MRU
+" Opem Most Recently Used :MRU  - Dont add comments afterwards
+nmap <leader>m :CtrlPMRU<CR>
 nmap <leader>p <C-R><C-P>.           " Paste from clipboard
-nmap <leader>T <Plug>TaskList        " Toggle the tasklist
 nmap <leader>t :tabnew<CR>           " Opens a new empty tab
-nmap <leader>o :BufExplorer<CR>      " Toggle the BufExplorer
+" Toggle the BufExplorer
+nmap <leader>o :CtrlPBuffer<CR>
 nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
-nmap <leader>sp :!/home/diknows/bin/reader/src/writer.py `cat %` <CR>
 nmap <leader>a :Align 
-nmap <leader>f :CtrlP<CR>
-nmap <leader>D :Egrep (\s*\|=\|\()(def\|class\|function)(:\|\s\|\() % <CR>
-nmap <leader>g :!gedit %<CR>
+"nmap <leader>f :CtrlP<CR>
+nmap <leader>f :CtrlPMixed<CR>
+nmap <leader>G :bprev<CR>
+nmap <leader>g :bnext<CR>
 
 " Locally (local to block) rename a variable
 nmap <Leader>r "zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r>z/g<cr>`x
 
-" Send to clouddesktop server
-nmap <Leader>/ :w<CR> :<C-U>R bash ~/vim/sync.sh <C-R>=expand("%:p:t") <CR><CR>
+" ====================
+" Git Commands
+" ====================
+
+nmap <leader>gL :Glog<CR>
+nmap <leader>gP :Gpull<CR>
+nmap <leader>ga :!git add . --all<CR>
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gg :Ggrep<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Gpull<CR>
+nmap <leader>gs :Gstatus<CR>
 
 " ====================
 " Compiling commands
 " ====================
 
-au BufNewFile,BufRead,BufEnter *.less   nmap <leader>c :w<CR> :!lessc % > %:r.css <CR>                                  " Execute lessc on the current file
-au BufNewFile,BufRead,BufEnter *.jade   nmap <leader>c :w<CR> :!jade -P % > %:r.html <CR>                                  " Execute jade on the current file
-au BufNewFile,BufRead,BufEnter *.html   nmap <leader>c :w<CR> :!html2jade % > %:r.jade <CR>                             " Convert the html to jade
-au BufNewFile,BufRead,BufEnter *.js     nmap <leader>c :w<CR> :!js2coffee % > %:r.coffee <CR>                           " converts js to coffeescript
-au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>C :w<CR> :!coffee -b -cm % & <CR>                                  " Execute coffe on the current file
-au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>c :w<CR> :!coffee -cm % & <CR>                                     " Execute coffe on the current file
-au BufNewFile,BufRead,BufEnter *.uml    nmap <leader>c :w<CR> :!java -jar ~/zshconfigs/plantuml.jar -quite -tpng % <CR> " Generate PNG for the plant uml
-
+au BufNewFile,BufRead,BufEnter *.less   nmap <leader>c :w<CR> :silent !lessc % > %:r.css <CR>                                  " Execute lessc on the current file
+au BufNewFile,BufRead,BufEnter *.jade   nmap <leader>c :w<CR> :silent !jade -P % > %:r.html <CR>                                  " Execute jade on the current file
+au BufNewFile,BufRead,BufEnter *.html   nmap <leader>c :w<CR> :silent !html2jade % > %:r.jade <CR>                             " Convert the html to jade
+au BufNewFile,BufRead,BufEnter *.js     nmap <leader>c :w<CR> :silent !js2coffee % > %:r.coffee <CR>                           " converts js to coffeescript
+au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>C :w<CR> :silent !coffee -b -cm % & <CR>                                  " Execute coffe on the current file
+au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>c :w<CR> :silent !coffee -cm % & <CR>                                     " Execute coffe on the current file
 
 " ==================
 " linting commands
 " ==================
 
 au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :JSHint<CR>     " Execute jshint on the current js file
-au BufNewFile,BufRead,BufEnter *.coffee,*.COFFFEE nmap <leader>l :w<CR> :R coffeelint --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
-au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>             " Execute jsonlint on the current coffe file
+au BufNewFile,BufRead,BufEnter *.coffee,*.COFFEE  nmap <leader>l :w<CR> :R coffeelint -f ~/zshconfigs/coffeelint_config.json --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
+au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>             " Execute jsonlint on the current json file
+au BufNewFile,BufRead,BufEnter *.less,*.LESS      nmap <leader>l :w<CR> :R lesslint <C-R>%<CR>             " Execute lesslint on the current lesscss file
 
 au BufNewFile,BufRead,BufEnter *.js nmap <leader>= :w<CR>:!fixjsstyle %<CR>
 
@@ -90,19 +108,6 @@ au BufNewFile,BufRead,BufEnter *.py nmap <Leader>r zyiw:call Refactor()<cr>mx:si
 " Rename in block
 au BufNewFile,BufRead,BufEnter *.py nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
 
-noremap <F7> :w<CR> :!hg meld % & <CR>
-noremap <F8> :w<CR> :R hg status <CR>
-noremap <F9> :w<CR> :!thg log <C-R>% & <CR> gtgt
-map <leader>h :<C-U>R hg blame -nfu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line(".") <CR>,<C-R>=line(".") <CR>p <CR> 18<C-W>- " Shows the owner of the current line for mercurial
-" map <leader>H :r!hg blame -nfu <C-R>=expand("%:p")<CR> \| sed -n <C-R>=line(".") <CR>,<C-R>=line(".") <CR>p <CR> 
-
-
-" =====================
-" Open ctags TagBar
-" =====================
-
-noremap <F5> :TagbarToggle  <CR>
-
 " ====================
 " Execution commands
 " ====================
@@ -117,8 +122,6 @@ au BufNewFile,BufRead,BufEnter *.sh     nmap <leader>e :.!bash <CR>   " Execute 
 " ==============
 
 au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-" HINT AFTER SAVING is BufWritePost
-au BufWritePost .vimrc so ~/.vimrc
 
 " ==============
 " Reload buffer
@@ -132,6 +135,12 @@ nmap <leader>re :e <CR>
 
 map <silent> <leader>x <C-W>
 
+" ==================================
+" Have Enter to go to command line
+" ==================================
+
+noremap <CR> :
+
 " ================
 " Scroll faster 
 " ================
@@ -144,6 +153,7 @@ nnoremap <C-y> 4<C-y>
 " ================
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <F4> :NumbersOnOff<CR>
+nnoremap <F7> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 
 " ======================================
 " Make shift-insert work like in Xterm
@@ -196,7 +206,8 @@ noremap <silent> <C-l> <C-W>>
 nmap <S-Down> ddp
 vmap <S-Up> xkP`[V`]
 vmap <S-Down> xp`[V`]
-nmap<S-Up> ddkP
+vmap <S-s> !say --voice ava --rate=220<C-M>u
+nmap <S-Up> ddkP
 
 " ============================================
 " Reselect visual block after indent/outdent
@@ -217,6 +228,7 @@ au BufRead,BufEnter vimrc nmap <silent> <leader>u- :t.\|s/./-/g\|:nohls<cr>gcc
 " Load pathogen with docs for all plugins
 " ==========================================================
 
+" filetype off
 " call pathogen#infect()
 " call pathogen#runtime_append_all_bundles()
 " call pathogen#helptags()
@@ -227,6 +239,7 @@ au BufRead,BufEnter vimrc nmap <silent> <leader>u- :t.\|s/./-/g\|:nohls<cr>gcc
 
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
+set pastetoggle=<F6>
 set nocp                  " For Align plugin
 set number                " Display line numbers
 set nrformats=            " Set number formats to only decimal
@@ -244,8 +257,6 @@ set isfname-=:            " Set the filename:linenumber delimiter to be colon
 set noerrorbells visualbell t_vb=
 set ofu=syntaxcomplete#Complete
 set cindent
-set tags=tags
-set showtabline=2      " Allways show the tab page "
 
 " ==================
 " Printing options
@@ -349,19 +360,21 @@ set incsearch                          " Incrementally search while typing a /re
 " ============================
 " Set ft based on extensions
 " ============================
-au BufNewFile,BufRead,BufEnter *.tmpl setlocal ft=html
-au BufNewFile,BufRead,BufEnter *.less setlocal ft=css
-au BufNewFile,BufRead,BufEnter *.coffee setlocal ft=coffee
+au! BufNewFile,BufRead,BufEnter *.tmpl setlocal ft=html
+au! BufNewFile,BufRead,BufEnter *.less setlocal ft=css
+au! BufNewFile,BufRead,BufEnter *.coffee setlocal ft=coffee
+au! BufNewFile,BufRead *.ino setlocal ft=arduino
 
-au FileType css,javascript,js setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au FileType htm,html,xhtml,xml,coffee,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au! FileType arduino setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au! FileType css,javascript,js setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au! FileType htm,html,xhtml,xml,coffee,jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ============================================================
 " Auto change directory to where the opened file is opened
 " ============================================================
-au BufNewFile,BufRead,BufEnter * silent! lcd %:p:h
+au! BufNewFile,BufRead,BufEnter * silent! lcd %:p:h
 set autochdir
-au GUIEnter * set visualbell t_vb=
+au! GUIEnter * set visualbell t_vb=
 
 " ================================================
 " Use tab to scroll through autocomplete menus
@@ -372,10 +385,12 @@ au GUIEnter * set visualbell t_vb=
 " ==========================
 " Python Related Actions
 " ==========================
-au BufNewFile,BufRead,BufEnter *.py set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au! BufNewFile,BufRead,BufEnter *.py set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
+au! FileType python set omnifunc=pythoncomplete#Complete
+au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
+
 
 " ============================================
 " Don't let pyflakes use the quickfix window
@@ -438,7 +453,6 @@ endif
 " Enable 256 Colors in terminals
 set t_Co=256
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set term=xterm-256color
 
 
 
@@ -449,14 +463,21 @@ set term=xterm-256color
 " Java Script
 "
 " Converts variable to function
-au BufNewFile,BufRead,BufEnter *.js let @f='^df f=d2fn^Pa ^2xf(hx^f{%lx%^'
+au! BufNewFile,BufRead,BufEnter *.js let @f='^df f=d2fn^Pa ^2xf(hx^f{%lx%^'
 " Converts function to variable
-au BufNewFile,BufRead,BufEnter *.js let @v='^df f(PFfi ^ivar f i =f{%a;h%^'
+au! BufNewFile,BufRead,BufEnter *.js let @v='^df f(PFfi ^ivar f i =f{%a;h%^'
 " Converts double qoutes to single quotes
-au BufNewFile,BufRead,BufEnter *.js let @s=':s:":'':g'
+"au! BufNewFile,BufRead,BufEnter *.js let @j='0jA, role: ''sme'', title: [3k0f''llyt''3j0f[pa''F/s'',''F[a''va{J0j'
+au! BufNewFile,BufRead,BufEnter *.js let @c='9jO(function() {}).call(null);3jd4jd2kPjffJ0f,ldf}kOp0f(icontrollerllxf)i, Servicebiparams, $location, Common, f{ajkojjf,a[''$scope'', ''$routeParams'', ''$location'', ''Common'', ''User'', controller]vkkkkk=Ojo:w'
+au! BufNewFile,BufRead,BufEnter *.js let @l='bi{{$root.lang.ea}}:w'
+au! BufNewFile,BufRead,BufEnter *.js let @r='o       scope.onSuccess = function onSuccess(result) {};scope.onError = function onError(error) {};kkkkOconsole.log(result);yy3jpf(ci(errorjo:wv{{=}}'
+au! BufNewFile,BufRead,BufEnter *.js let @h='f/lyt/2jA, role: ''pA, title: ''''va{J0f,hyT/$F''P0j'
+au! BufNewFile,BufRead,BufEnter *.js let @d='G$h%kO(function() {A.call(null);j0dGP/templatef:iUrlf''ci''views/directives/XXXXX.htmljj^cecontrollerffv$%c[''$scope'', controller6kopfpcecontrollerf,dt)Ojvjj==G2jokkD8jvk>vjf,a ''$rootScope'',ko   replace:true, scope: {A,komodel: ''=9kkf)i, rootj:w'
+au! BufNewFile,BufRead,BufEnter *.js let @o=',a:vi{:sort:w'
+au! BufNewFile,BufRead,BufEnter *.js let @j='f/lyt/2jA, role: ''pA, title: [2kF''yi''ya''2jf[pF''lx:s:/:'', '':gva{J0j'
 
-" Converts ascii 9 '\%x9' to be four spaces
-au BufNewFile,BufRead,BufEnter *.py let @s=':%s:\%x9:    :g'
+" Replces the for of the label and the id  to the model name after the dot
+au! BufNewFile,BufRead,BufEnter *.html let @f='/modelf"f.lye4k/for=f"plcf""F"lye/id=f"plcf""/controls'
 
 filetype off                   " required!
 
@@ -471,35 +492,34 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 
-Bundle 'FuzzyFinder'
-Bundle 'L9'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Python-mode-klen'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ZoomWin'
-Bundle 'bash-support.vim'
-Bundle 'bling/vim-airline'
-Bundle 'bufexplorer.zip'
-Bundle 'docunext/closetag.vim'
-Bundle 'ervandew/supertab'
-Bundle 'filetype.vim'
-Bundle 'jshint.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'pathogen.vim'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'statusline.vim'
-Bundle 'surround.vim'
-Bundle 'tabpage.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/mru.vim'
-Bundle 'vim-scripts/taglist.vim'
+Plugin 'L9'
+Plugin 'Raimondi/delimitMate'
+Plugin 'ZoomWin'
+Plugin 'bash-support.vim'
+Plugin 'bling/vim-airline'
+Plugin 'docunext/closetag.vim'
+Plugin 'ervandew/supertab'
+Plugin 'filetype.vim'
+Plugin 'jshint.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'pathogen.vim'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'statusline.vim'
+Plugin 'surround.vim'
+"Plugin 'tabpage.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/Align'
+Plugin 'Arduino-syntax-file'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'virtualenv.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 filetype plugin indent on " enable loading indent file for filetype

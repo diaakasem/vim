@@ -1,9 +1,9 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/diknows/lab/hairyt/hairyt'
-let g:netrw_dirhist_2='/home/diknows/lab/craedone/assets/jade'
-let g:netrw_dirhist_3='/etc/nginx/conf.d'
-let g:netrw_dirhist_4='/home/diknows/lab/rethink'
-let g:netrw_dirhist_5='/home/diknows/repo/clouddesktop-appcatalog/adminconsole-ui/app'
-let g:netrw_dirhist_6='/home/diknows/lab/bosaatt/static'
-let g:netrw_dirhist_7='/home/diknows/repo/clouddesktop-appcatalog'
+let g:netrw_dirhist_1='/Users/dino/zshconfigs/tmux'
+let g:netrw_dirhist_2='/Users/dino/Dropbox/projects/77/ui/angular'
+let g:netrw_dirhist_3='/Users/dino/Dropbox/projects/kpifire'
+let g:netrw_dirhist_4='/Users/dino/Dropbox/projects/77/ui/angular'
+let g:netrw_dirhist_5='/Users/dino/Dropbox/projects/77/seventy-seven'
+let g:netrw_dirhist_6='/Users/dino/Dropbox/projects/kpifire'
+let g:netrw_dirhist_7='/Users/dino/Dropbox/projects/77/seventy-seven'
