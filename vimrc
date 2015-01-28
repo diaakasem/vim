@@ -13,6 +13,22 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=5
+" the other mode choice is 'passive'
+let g:syntastic_mode_map = { 'mode': 'passive',
+                          \ 'active_filetypes': ['js'],
+                          \ 'passive_filetypes': ['py'] } 
+let g:syntastic_auto_loc_list=1 
+nnoremap <silent> <F5> :SyntasticCheck<CR>    
+
+
 " let NERDTreeChDirMode=2
 " " Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/vim/NERDTreeBookmarks")
@@ -72,6 +88,7 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gg :Ggrep<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gp :Gpull<CR>
+nmap <leader>gP :Gpush<CR>
 nmap <leader>gs :Gstatus<CR>
 
 " ====================
@@ -138,8 +155,8 @@ map <silent> <leader>x <C-W>
 " ==================================
 " Have Enter to go to command line
 " ==================================
-
-noremap <CR> :
+" Affects all plugins 
+"noremap <CR> :
 
 " ================
 " Scroll faster 
@@ -510,9 +527,7 @@ Plugin 'pathogen.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'statusline.vim'
 Plugin 'surround.vim'
-"Plugin 'tabpage.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/Align'
 Plugin 'Arduino-syntax-file'
@@ -521,5 +536,8 @@ Plugin 'virtualenv.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'Syntastic'
+Plugin 'pep8'
+Plugin 'davidhalter/jedi-vim'
 
 filetype plugin indent on " enable loading indent file for filetype
