@@ -26,7 +26,6 @@ let g:syntastic_mode_map = { 'mode': 'passive',
                           \ 'active_filetypes': ['js'],
                           \ 'passive_filetypes': ['py'] } 
 let g:syntastic_auto_loc_list=1 
-nnoremap <silent> <F5> :SyntasticCheck<CR>    
 
 
 " let NERDTreeChDirMode=2
@@ -134,6 +133,19 @@ au BufNewFile,BufRead,BufEnter *.py     nmap <leader>e :.!python <CR> " Execute 
 au BufNewFile,BufRead,BufEnter *.js     nmap <leader>e :.!node <CR>   " Execute node on the current line
 au BufNewFile,BufRead,BufEnter *.sh     nmap <leader>e :.!bash <CR>   " Execute bash on the current line
 
+
+" ==============
+" Beautify
+" ==============
+autocmd FileType javascript noremap <buffer>  <leader>; :call JsBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <leader>; :call RangeJsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <leader>; :call HtmlBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
+
 " ==============
 " Reload Vimrc
 " ==============
@@ -168,9 +180,12 @@ nnoremap <C-y> 4<C-y>
 " ================
 " numbers config
 " ================
-nnoremap <F3> :NumbersToggle<CR>
-nnoremap <F4> :NumbersOnOff<CR>
-nnoremap <F7> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
+nnoremap <silent> <F3> :NumbersToggle<CR>
+nnoremap <silent> <F4> :NumbersOnOff<CR>
+set pastetoggle=<F6>
+nnoremap <silent> <F7> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
+au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
+nnoremap <silent> <F9> :SyntasticCheck<CR>    
 
 " ======================================
 " Make shift-insert work like in Xterm
@@ -256,7 +271,6 @@ au BufRead,BufEnter vimrc nmap <silent> <leader>u- :t.\|s/./-/g\|:nohls<cr>gcc
 
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
-set pastetoggle=<F6>
 set nocp                  " For Align plugin
 set number                " Display line numbers
 set nrformats=            " Set number formats to only decimal
@@ -349,7 +363,7 @@ set grepprg=ack
 " ====================
 set noautowrite                        " Never write a file unless I request it.
 set noautowriteall                     " NEVER.
-set autoread                           " Set auto read file changes
+" set auto                           " Set auto read file changes
 " set noautoread                         " Don't automatically re-read changed files.
 set modeline                           " Allow vim options to be embedded in files;
 set modelines=3                        " they must be within the first or last 5 lines.
@@ -406,7 +420,6 @@ au! BufNewFile,BufRead,BufEnter *.py set smartindent cinwords=ifelifelseforwhile
 au! FileType python set omnifunc=pythoncomplete#Complete
 au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
 
 
 " ============================================
@@ -424,23 +437,20 @@ if has("unix")
   set runtimepath+=~/.vim/personal
 endif
 
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " ============
 " Display
 " ============
 if has("gui_running")
-    colorscheme Monokai
-    " ====================
-    " Setup gui font
-    " ====================
-    if has('mac')
-        set guifont=Monaco:h13
-        " set guifont=Andale\ Mono:h13
-        " set guifont=Menlo\ Regular:h13
-        set guifont=Courier\ New:h13
-    else
-        " set guifont=Monospace\ 13
-        set guifont=Ubuntu\ Mono\ 13
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set guifont=Inconsolata\ for\ Powerline:h15
     endif
+    colorscheme Monokai
     " ===============================
     " Removing GUI Menu and Toolbar
     " ===============================
@@ -451,6 +461,7 @@ else
     colorscheme Monokai
 endif
 
+
 " ==========
 " UTF 8 
 " ==========
@@ -459,47 +470,38 @@ set termencoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
-if has("mac")
-  let g:main_font = "Anonymous\\ Pro:h13"
-  let g:small_font = "Anonymous\\ Pro:h2"
-else
-  let g:main_font = "DejaVu\\ Sans\\ Mono\\ 13"
-  let g:small_font = "DejaVu\\ Sans\\ Mono\\ 2"
-endif
+let g:main_font = "Monofur\\ for\\ Powerline:h13"
+let g:small_font = "Monofur\\ for\\ Powerline:h13"
 
 " Enable 256 Colors in terminals
 set t_Co=256
+"set term=xterm-256color
+set term=screen-256color
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-
-
-" Macros 
-"
-" To paste the current macro created in q register, do in norm mode "qp
-" 
-" Java Script
-"
-" Converts variable to function
-au! BufNewFile,BufRead,BufEnter *.js let @f='^df f=d2fn^Pa ^2xf(hx^f{%lx%^'
-" Converts function to variable
-au! BufNewFile,BufRead,BufEnter *.js let @v='^df f(PFfi ^ivar f i =f{%a;h%^'
-" Converts double qoutes to single quotes
-"au! BufNewFile,BufRead,BufEnter *.js let @j='0jA, role: ''sme'', title: [3k0f''llyt''3j0f[pa''F/s'',''F[a''va{J0j'
-au! BufNewFile,BufRead,BufEnter *.js let @c='9jO(function() {}).call(null);3jd4jd2kPjffJ0f,ldf}kOp0f(icontrollerllxf)i, Servicebiparams, $location, Common, f{ajkojjf,a[''$scope'', ''$routeParams'', ''$location'', ''Common'', ''User'', controller]vkkkkk=Ojo:w'
-au! BufNewFile,BufRead,BufEnter *.js let @l='bi{{$root.lang.ea}}:w'
-au! BufNewFile,BufRead,BufEnter *.js let @r='o       scope.onSuccess = function onSuccess(result) {};scope.onError = function onError(error) {};kkkkOconsole.log(result);yy3jpf(ci(errorjo:wv{{=}}'
-au! BufNewFile,BufRead,BufEnter *.js let @h='f/lyt/2jA, role: ''pA, title: ''''va{J0f,hyT/$F''P0j'
-au! BufNewFile,BufRead,BufEnter *.js let @d='G$h%kO(function() {A.call(null);j0dGP/templatef:iUrlf''ci''views/directives/XXXXX.htmljj^cecontrollerffv$%c[''$scope'', controller6kopfpcecontrollerf,dt)Ojvjj==G2jokkD8jvk>vjf,a ''$rootScope'',ko   replace:true, scope: {A,komodel: ''=9kkf)i, rootj:w'
-au! BufNewFile,BufRead,BufEnter *.js let @o=',a:vi{:sort:w'
-au! BufNewFile,BufRead,BufEnter *.js let @j='f/lyt/2jA, role: ''pA, title: [2kF''yi''ya''2jf[pF''lx:s:/:'', '':gva{J0j'
-
-" Replces the for of the label and the id  to the model name after the dot
-au! BufNewFile,BufRead,BufEnter *.html let @f='/modelf"f.lye4k/for=f"plcf""F"lye/id=f"plcf""/controls'
-
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+if has('python')
+  let g:jedi#force_py_version = 2
+  let g:syntastic_python_python_exec = 'python2'
+  let g:pymode_python = 'python2'
+elseif has('python3')
+  let g:jedi#force_py_version = 3
+  let g:syntastic_python_python_exec = 'python3'
+  let g:pymode_python = 'python3'
+else
+  let g:loaded_jedi = 1
+endif
+
+autocmd! BufWritePost ~/.vimrc nested :source ~/.vimrc
+let g:miniBufExplForceSyntaxEnable = 1
+
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\
+
 
 " let Vundle manage Vundle
 " required! 
@@ -513,7 +515,6 @@ Plugin 'L9'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ZoomWin'
 Plugin 'bash-support.vim'
-Plugin 'bling/vim-airline'
 Plugin 'docunext/closetag.vim'
 Plugin 'ervandew/supertab'
 Plugin 'filetype.vim'
@@ -539,5 +540,13 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'Syntastic'
 Plugin 'pep8'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+Plugin 'autoload/UltiSnips'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+
 
 filetype plugin indent on " enable loading indent file for filetype
+

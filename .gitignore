@@ -1,3 +1,5 @@
 *.pyc
 vim/.netrwhist
 vim/bundle
+vim/.netrwhist
+NERDTreeBookmarks
