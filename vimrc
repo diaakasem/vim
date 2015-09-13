@@ -545,6 +545,7 @@ Plugin 'einars/js-beautify'
 Plugin 'autoload/UltiSnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Vim-R-plugin'
 
 
 
