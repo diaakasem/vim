@@ -62,6 +62,7 @@ let g:NERDCommentEmptyLines = 0
 " ==========================
 " Fixes HTML attributes format
 let @w='2f"a'
+let @g='*ggnf''lgfggn<CR>'
 
 py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
 function! IndentHTMLTagAttrs()
@@ -120,7 +121,6 @@ nmap <leader>f :CtrlPMixed<CR>
 " nmap <leader>g :bnext<CR>
 
 " nmap <leader>g :ALEGoToDefinition<CR>
-nmap <leader>g *ggnf'lgfggn<CR>
 
 
 " ====================
