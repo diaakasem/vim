@@ -460,7 +460,7 @@ set incsearch                          " Incrementally search while typing a /re
 " Set ft based on extensions
 " ============================
 
-au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript
+au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript  shiftwidth=4 tabstop=4 softtabstop=4
 au! BufNewFile,BufRead,BufEnter *.ts      setlocal filetype=typescript
 au! BufNewFile,BufRead,BufEnter *.yml     setlocal filetype=yaml
 au! BufNewFile,BufRead,BufEnter *.coffee setlocal ft=coffee
