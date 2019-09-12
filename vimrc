@@ -670,6 +670,7 @@ Plugin 'vimagit'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
 " Plugin 'flowtype/vim-flow'
+Plugin 'Chiel92/vim-autoformat'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
