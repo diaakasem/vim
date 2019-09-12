@@ -684,6 +684,8 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
+Plugin 'isRuslan/vim-es6'
+
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'othree/es.next.syntax.vim'
