@@ -204,6 +204,9 @@ autocmd FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
+
+noremap <leader>= :Autoformat<CR>
+
 " ==============
 " Reload Vimrc
 " ==============
