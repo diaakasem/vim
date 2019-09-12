@@ -685,6 +685,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 Plugin 'isRuslan/vim-es6'
+Plugin 'heavenshell/vim-jsdoc'
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
