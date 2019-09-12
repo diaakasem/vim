@@ -208,8 +208,8 @@ autocmd FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 " Reload Vimrc
 " ==============
 
-au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :read !cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au BufNewFile,BufRead,BufEnter .vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :read !cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au BufNewFile,BufRead,BufEnter .vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " ==============
 " Reload buffer
