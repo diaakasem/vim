@@ -386,8 +386,10 @@ set showfulltag       " When completing by tag, show the whole tag, not just the
 set foldmethod=manual " fold based on indent
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
-set textwidth=80      " Set text width to 120 chars
-set colorcolumn=80
+" set textwidth=80      " Set text width to 120 chars
+" set colorcolumn=80
+set textwidth=100      " Set text width to 120 chars
+set colorcolumn=100
 
 " get rid of the silly characters in separators
 set fillchars = ""
@@ -714,15 +716,15 @@ let g:UltiSnipsEditSplit="vertical"
 " let b:ale_linters = ['eslint', 'flow-language-server']
 " let g:ale_fixers = ['eslint', 'flow-language-server']
 
-let b:ale_linters = ['eslint', 'flow']
-let g:ale_fixers = ['eslint', 'flow']
+let b:ale_linters = ['eslint']
+let g:ale_fixers = ['eslint']
 let g:ale_echo_msg_format = '%linter% says %s'
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_rust_cargo_use_check = 0
 " let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_delay = 5000
+let g:ale_lint_delay = 1000
 let g:ale_lint_on_text_changed = 0
 " use Ctrl-k and Ctrl-j to jump up and down between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
