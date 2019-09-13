@@ -649,40 +649,40 @@ Bundle 'gmarik/vundle'
 
 " Plugin 'Quramy/tsuquyomi'
 
-" Plugin 'EasyMotion'
-" Plugin 'Raimondi/delimitMate'
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'bash-support.vim'
+Plugin 'EasyMotion'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'bash-support.vim'
 " Plugin 'chemzqm/vim-jsx-improve'
-" Plugin 'docunext/closetag.vim'
-" Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'edkolev/tmuxline.vim'
-" Plugin 'filetype.vim'
-" Plugin 'jisaacks/GitGutter'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'mhinz/vim-signify'
-" Plugin 'myusuf3/numbers.vim'
-" Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'posva/vim-vue'
-" Plugin 'rust-lang/rust.vim'
-" Plugin 'scrooloose/nerdcommenter'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'surround.vim'
-" Plugin 'tacahiroy/ctrlp-funky'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-repeat'
-" Plugin 'unimpaired.vim'
-" Plugin 'vim-scripts/Align'
-" Plugin 'vimagit'
-" Plugin 'wakatime/vim-wakatime'
-" Plugin 'yaml.vim'
-" Plugin 'Chiel92/vim-autoformat'
+Plugin 'docunext/closetag.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'filetype.vim'
+Plugin 'jisaacks/GitGutter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-signify'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'posva/vim-vue'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'surround.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'unimpaired.vim'
+Plugin 'vim-scripts/Align'
+Plugin 'vimagit'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'yaml.vim'
+Plugin 'Chiel92/vim-autoformat'
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'
 
 "
 " Track the engine.
@@ -716,6 +716,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 let b:ale_linters = ['eslint']
 let g:ale_fixers = ['eslint']
+let g:ale_echo_msg_format = '%linter% says %s'
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
