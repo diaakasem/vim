@@ -62,7 +62,7 @@ let g:NERDCommentEmptyLines = 0
 " ==========================
 " Fixes HTML attributes format
 let @f='ggO// @flowxx'
-let @i='0ct import elcf(from f''lx'
+let @i='0ct importellcf(from f''x'
 let @w='2f"a'
 let @g='*ggnf''lgfggn<CR>'
 
