@@ -682,7 +682,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dense-analysis/ale'
+" Plugin 'dense-analysis/ale'
 
 "
 " Track the engine.
@@ -714,8 +714,8 @@ let g:UltiSnipsEditSplit="vertical"
 " let b:ale_linters = ['eslint', 'flow-language-server']
 " let g:ale_fixers = ['eslint', 'flow-language-server']
 
-" let b:ale_linters = ['eslint']
-" let g:ale_fixers = ['eslint']
+let b:ale_linters = ['eslint']
+let g:ale_fixers = ['eslint']
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
