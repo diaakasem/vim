@@ -714,8 +714,8 @@ let g:UltiSnipsEditSplit="vertical"
 " let b:ale_linters = ['eslint', 'flow-language-server']
 " let g:ale_fixers = ['eslint', 'flow-language-server']
 
-let b:ale_linters = ['eslint']
-let g:ale_fixers = ['eslint']
+let b:ale_linters = ['eslint', 'flow']
+let g:ale_fixers = ['eslint', 'flow']
 let g:ale_echo_msg_format = '%linter% says %s'
 
 let g:ale_lint_on_save = 1
