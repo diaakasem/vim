@@ -648,6 +648,7 @@ Bundle 'gmarik/vundle'
 " Plugin 'vim-multiple-cursors'
 
 " Plugin 'Quramy/tsuquyomi'
+
 Plugin 'EasyMotion'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -675,10 +676,9 @@ Plugin 'vim-scripts/Align'
 Plugin 'vimagit'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
-" Plugin 'flowtype/vim-flow'
 Plugin 'Chiel92/vim-autoformat'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
