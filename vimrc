@@ -113,8 +113,13 @@ nmap <leader>t :tabnew<CR>           " Opens a new empty tab
 
 " Toggle the BufExplorer
 nmap <leader>o :CtrlPBuffer<CR>
-nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+au BufNewFile,BufRead,BufEnter *.json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+
+" Align with a letter 
 nmap <leader>a :Align 
+
+" ALEFix  use ALE Fixers
+au BufNewFile,BufRead,BufEnter *.js nmap <leader>F :ALEFix<CR>
 
 "nmap <leader>f :CtrlP<CR>
 nmap <leader>f :CtrlPMixed<CR>
@@ -724,7 +729,7 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
 let g:ale_rust_cargo_use_check = 0
 " let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_delay = 1000
+let g:ale_lint_delay = 2000
 let g:ale_lint_on_text_changed = 0
 " use Ctrl-k and Ctrl-j to jump up and down between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
