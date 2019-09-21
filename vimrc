@@ -494,6 +494,8 @@ au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 
 " ============================================================
 "au! BufNewFile,BufRead,BufEnter * silent! lcd %:p:h
 "set autochdir
+" Better than autochdir
+autocmd BufEnter * silent! lcd %:p:h
 "au! GUIEnter * set visualbell t_vb=
 
 " ================================================
