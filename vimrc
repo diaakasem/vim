@@ -65,7 +65,7 @@ let @f='ggO// @flowxx'
 let @d=':JsDoc'
 let @i='0ct importellcf(from 2f''lx'
 let @w='2f"a'
-let @g='*ggnf''l<c-w>fggn<CR>'
+let @g='*ggnf''lgfggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
 let @m='gg/models0f{da{iDBýaG?import tykbkboconst DBkbkbpa = DB;0,w'
 
@@ -76,6 +76,20 @@ function! IndentHTMLTagAttrs()
   call inputrestore()
 endfunction
 au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
+
+" Sets extensions for files
+augroup suffixes
+    autocmd!
+
+    let associations = [
+                \["javascript", ".js,.javascript,.es,.esx,.json"],
+                \["python", ".py,.pyw"]
+                \]
+
+    for ft in associations
+        execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+    endfor
+augroup END
 
 
 " ==========================
