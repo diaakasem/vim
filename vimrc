@@ -67,7 +67,7 @@ let @i='0ct importellcf(from 2f''lx'
 let @w='2f"a'
 let @g='*ggnf''lgfggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
-let @m='gg/models0f{da{iDBýaG?import tykbkboconst DBkbkbpa = DB;0,w'
+let @m='gg/models0f{da{imodelsG?import oconst pa = DB;0,w'
 
 py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
 function! IndentHTMLTagAttrs()
@@ -77,7 +77,7 @@ function! IndentHTMLTagAttrs()
 endfunction
 au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
 
-" Sets extensions for files
+" Sets extensions for files with goto file to help with js imports
 augroup suffixes
     autocmd!
 
