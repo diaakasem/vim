@@ -67,7 +67,7 @@ let @i='0ct importellcf(from 2f''lx'
 let @w='2f"a'
 let @g='*ggnf''lgfggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
-let @m='gg/models0f{da{imodelsG?import oconst pa = DB;0,w'
+" let @m='gg/models0f{da{imodelsG?import oconst pa = DB;0,w'
 let @m='gg/models''0f{ca{modelsG?ipkbmport joconst pa = models;0,w'
 
 py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
