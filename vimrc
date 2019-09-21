@@ -65,7 +65,7 @@ let @f='ggO// @flowxx'
 let @d=':JsDoc'
 let @i='0ct importellcf(from 2f''lx'
 let @w='2f"a'
-let @g='*ggnf''lgfggn<CR>'
+let @g='*ggnf''l<c-w>fggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
 let @m='gg/models0f{da{iDBýaG?import tykbkboconst DBkbkbpa = DB;0,w'
 
