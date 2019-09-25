@@ -703,6 +703,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
 Plugin 'Chiel92/vim-autoformat'
 
+Plugin 'SQLUtilities'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plugin 'vim-airline/vim-airline'
