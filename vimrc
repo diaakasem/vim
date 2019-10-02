@@ -699,7 +699,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'unimpaired.vim'
 Plugin 'vim-scripts/Align'
 Plugin 'vimagit'
-Plugin 'wakatime/vim-wakatime'
+" Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
 Plugin 'Chiel92/vim-autoformat'
 
