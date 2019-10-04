@@ -68,6 +68,7 @@ let @w='2f"a'
 let @g='*ggnf''lgfggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
 let @m='gg/models''0f{ca{modelsG?import oconst pa = models;0'
+let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 
 py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
 function! IndentHTMLTagAttrs()
