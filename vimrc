@@ -480,11 +480,11 @@ set laststatus=2                       " Always show statusline, even if only 1 
 " ========================
 " Searching and Patterns
 " ========================
-set ignorecase                         " Default to using case insensitive searches,
-set smartcase                          " unless uppercase letters are used in the regex.
-set smarttab                           " Handle tabs more intelligently 
-set hlsearch                           " Highlight searches by default.
-set incsearch                          " Incrementally search while typing a /regex
+" set ignorecase                         " Default to using case insensitive searches,
+" set smartcase                          " unless uppercase letters are used in the regex.
+" set smarttab                           " Handle tabs more intelligently
+" set hlsearch                           " Highlight searches by default.
+" set incsearch                          " Incrementally search while typing a /regex
 
 " ============================
 " Set ft based on extensions
