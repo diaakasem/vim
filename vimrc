@@ -726,15 +726,15 @@ Plugin 'haya14busa/incsearch-easymotion.vim'
 
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-map <leader>/ <Plug>(incsearch-easymotion-/)
-map <leader>? <Plug>(incsearch-easymotion-?)
-map <leader>g/ <Plug>(incsearch-easymotion-stay)
+nnoremap n  <Plug>(incsearch-nohl-n)
+nnoremap N  <Plug>(incsearch-nohl-N)
+nnoremap *  <Plug>(incsearch-nohl-*)
+nnoremap #  <Plug>(incsearch-nohl-#)
+nnoremap g* <Plug>(incsearch-nohl-g*)
+nnoremap g# <Plug>(incsearch-nohl-g#)
+nnoremap <leader>z/ <Plug>(incsearch-easymotion-/)
+nnoremap <leader>z? <Plug>(incsearch-easymotion-?)
+nnoremap <leader>zg/ <Plug>(incsearch-easymotion-stay)
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
