@@ -721,6 +721,17 @@ Plugin 'honza/vim-snippets'
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
 
+" Incremental Search plugin
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-easymotion.vim'
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'othree/es.next.syntax.vim'
