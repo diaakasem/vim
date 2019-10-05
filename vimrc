@@ -732,9 +732,9 @@ nnoremap *  <Plug>(incsearch-nohl-*)
 nnoremap #  <Plug>(incsearch-nohl-#)
 nnoremap g* <Plug>(incsearch-nohl-g*)
 nnoremap g# <Plug>(incsearch-nohl-g#)
-nnoremap <leader>z/ <Plug>(incsearch-easymotion-/)
-nnoremap <leader>z? <Plug>(incsearch-easymotion-?)
-nnoremap <leader>zg/ <Plug>(incsearch-easymotion-stay)
+nnoremap <leader>z/ <Plugin>(incsearch-easymotion-/)
+nnoremap <leader>z? <Plugin>(incsearch-easymotion-?)
+nnoremap <leader>zg/ <Plugin>(incsearch-easymotion-stay)
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
