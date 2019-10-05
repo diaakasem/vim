@@ -63,7 +63,7 @@ let g:NERDCommentEmptyLines = 0
 " Fixes HTML attributes format
 let @f='ggO// @flowxx'
 let @d=':JsDoc'
-let @i='0ct importellcf(from 2f''lx'
+let @i='0ceimporta/=cf(from a/)x0j'
 let @w='2f"a'
 let @g='*ggnf''lgfggn<CR>'
 " convert - muso import {... }  from models; to import DB from models;
