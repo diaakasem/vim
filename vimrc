@@ -310,7 +310,7 @@ nnoremap <leader>W :w<CR>
 " =======================
 
 nmap <silent> <leader>H :sp<CR>
-nmap <silent> <leader>s :vsp<CR>
+" nmap <silent> <leader>s :vsp<CR>
 nmap <silent> <leader>sb :windo set scrollbind! <CR>
 
 " ============================================
