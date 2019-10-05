@@ -287,7 +287,7 @@ map! <S-Insert> <MiddleMouse>
 " =========================
 " Turning off highlighing
 " =========================
-nmap <silent> <leader>b :silent :nohlsearch<CR>
+" nmap <silent> <leader>b :silent :nohlsearch<CR>
 " nnoremap ' `
 " nnoremap ` '
 
@@ -444,7 +444,7 @@ set virtualedit=block                  " Let cursor move past the last char in <
 set scrolloff=8                        " Keep 8 context lines above and below the cursor
 set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
 set showmatch                          " Briefly jump to a paren once it's balanced
-set wrapscan                           " set the search scan to wrap lines
+" set wrapscan                           " set the search scan to wrap lines
 set ch=2                               " Make command line two lines high
 set nowrap                             " don't wrap text
 set autoindent                         " always set autoindenting on
