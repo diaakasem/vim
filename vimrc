@@ -287,7 +287,7 @@ map! <S-Insert> <MiddleMouse>
 " =========================
 " Turning off highlighing
 " =========================
-" nmap <silent> <leader>b :silent :nohlsearch<CR>
+nmap <silent> <leader>b :silent :nohlsearch<CR>
 " nnoremap ' `
 " nnoremap ` '
 
@@ -444,7 +444,7 @@ set virtualedit=block                  " Let cursor move past the last char in <
 set scrolloff=8                        " Keep 8 context lines above and below the cursor
 set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
 set showmatch                          " Briefly jump to a paren once it's balanced
-" set wrapscan                           " set the search scan to wrap lines
+set wrapscan                           " set the search scan to wrap lines
 set ch=2                               " Make command line two lines high
 set nowrap                             " don't wrap text
 set autoindent                         " always set autoindenting on
@@ -480,11 +480,11 @@ set laststatus=2                       " Always show statusline, even if only 1 
 " ========================
 " Searching and Patterns
 " ========================
-" set ignorecase                         " Default to using case insensitive searches,
-" set smartcase                          " unless uppercase letters are used in the regex.
-" set smarttab                           " Handle tabs more intelligently
-" set hlsearch                           " Highlight searches by default.
-" set incsearch                          " Incrementally search while typing a /regex
+set ignorecase                         " Default to using case insensitive searches,
+set smartcase                          " unless uppercase letters are used in the regex.
+set smarttab                           " Handle tabs more intelligently 
+set hlsearch                           " Highlight searches by default.
+set incsearch                          " Incrementally search while typing a /regex
 
 " ============================
 " Set ft based on extensions
@@ -721,26 +721,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
 
-" Incremental Search plugin
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/incsearch-easymotion.vim'
-
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map z/ <Plug>(incsearch-easymotion-/)
-map z? <Plug>(incsearch-easymotion-?)
-map zg/ <Plug>(incsearch-easymotion-stay)
-
-" :h g:incsearch#auto_nohlsearch
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
@@ -787,18 +769,3 @@ let g:rustfmt_autosave = 1
 filetype plugin indent on " enable loading indent file for filetype
 filetype plugin on
 
-
-
- " incsearch.vim x fuzzy x vim-easymotion
-
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzy#converter()],
-  \   'modules': [incsearch#config#easymotion#module()],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
