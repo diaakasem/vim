@@ -310,8 +310,8 @@ nnoremap <leader>W :w<CR>
 " =======================
 
 nmap <silent> <leader>H :sp<CR>
-" nmap <silent> <leader>s :vsp<CR>
-" nmap <silent> <leader>sb :windo set scrollbind! <CR>
+nmap <silent> <leader>s :vsp<CR>
+nmap <silent> <leader>sb :windo set scrollbind! <CR>
 
 " ============================================
 " Maps to make handling windows a bit easier
@@ -720,21 +720,6 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
-
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch-easymotion.vim'
-
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-nnoremap n  <Plug>(incsearch-nohl-n)
-nnoremap N  <Plug>(incsearch-nohl-N)
-nnoremap *  <Plug>(incsearch-nohl-*)
-nnoremap #  <Plug>(incsearch-nohl-#)
-nnoremap g* <Plug>(incsearch-nohl-g*)
-nnoremap g# <Plug>(incsearch-nohl-g#)
-nnoremap <leader>z/ <Plugin>(incsearch-easymotion-/)
-nnoremap <leader>z? <Plugin>(incsearch-easymotion-?)
-nnoremap <leader>zg/ <Plugin>(incsearch-easymotion-stay)
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
