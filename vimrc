@@ -657,7 +657,6 @@ Bundle 'gmarik/vundle'
 "Plugin 'ervandew/supertab'
 "Plugin 'fatih/vim-go'
 "Plugin 'godlygeek/tabular'
-"Plugin 'honza/vim-snippets'
 "Plugin 'imkmf/ctrlp-branches'
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'leafgarland/typescript-vim'
@@ -728,6 +727,7 @@ Plugin 'heavenshell/vim-jsdoc'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsSnippetsDir = "~/UltiSnips"
 
 let g:UltiSnipsListSnippets = "<leader>whatever"
 let g:UltiSnipsExpandTrigger = "<c-j>"
