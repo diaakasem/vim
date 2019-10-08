@@ -158,7 +158,7 @@ nmap <leader>gb :Gblame<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gg :Ggrep<CR>
-nmap <leader>gl :Glog<CR>
+nmap <leader>gl :Glog --follow %<CR>
 nmap <leader>gp :Gpull<CR>
 nmap <leader>gP :Gpush<CR>
 nmap <leader>gs :Gstatus<CR>
