@@ -153,14 +153,16 @@ nmap <leader>f :CtrlPMixed<CR>
 " ====================
 
 nmap <leader>gL :Glog<CR>
-nmap <leader>ga :!git add . --all<CR>
+nmap <leader>gA :!git add . --all<CR>
+nmap <leader>ga :!git add %<CR>
 nmap <leader>gb :Gblame<CR>
+nmap <leader>ge :Gedit<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gg :Ggrep<CR>
 nmap <leader>gl :Glog --follow %<CR>
-nmap <leader>gp :Gpull<CR>
-nmap <leader>gP :Gpush<CR>
+nmap <leader>gP :Gpull<CR>
+nmap <leader>gp :Gpush<CR>
 nmap <leader>gs :Gstatus<CR>
 
 " ====================
