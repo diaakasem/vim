@@ -635,7 +635,6 @@ Bundle 'gmarik/vundle'
 " Plugin 'L9'
 " Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'MaxMEllon/vim-jsx-pretty'
-" Plugin 'SirVer/ultisnips'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Vim-R-plugin'
 " Plugin 'ZoomWin'
@@ -728,7 +727,7 @@ Plugin 'heavenshell/vim-jsdoc'
 " Plugin 'othree/es.next.syntax.vim'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
 
 let g:UltiSnipsListSnippets = "<leader>whatever"
 let g:UltiSnipsExpandTrigger = "<c-j>"
