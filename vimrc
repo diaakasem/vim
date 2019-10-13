@@ -728,7 +728,7 @@ Plugin 'heavenshell/vim-jsdoc'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir = "~/UltiSnips"
 " let g:UltiSnipsListSnippets = "<leader>whatever"
-let g:UltiSnipsExpandTrigger = "<c-e>"
+let g:UltiSnipsExpandTrigger = "<c-l>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
