@@ -784,7 +784,8 @@ function! NERDTreeLivePreview()
   else
     " set previewpopup=height:10,width:60
     " set previewpopup=width:120
-    exe 'botright vertical pedit +1'.current_file.path.str()
+    exe 'botright vertical pedit '.current_file.path.str()
+    exe <C-W>=
   endif
 endfunction
 
