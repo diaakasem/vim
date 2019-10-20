@@ -274,6 +274,7 @@ nnoremap <silent> <F3> :NumbersToggle<CR>
 nnoremap <silent> <F4> :NumbersOnOff<CR>
 nnoremap <silent> <F7> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
+au! BufRead,BufEnter *.js nmap <leader>T :TagbarToggle<CR>
 
 nnoremap <F6> :set invpaste paste?<CR>
 imap <F6> <C-O>:set invpaste paste?<CR>
@@ -668,7 +669,7 @@ Bundle 'gmarik/vundle'
 "Plugin 'tpope/vim-eunuch'
 "Plugin 'vim-flake8'
 "Plugin 'virtualenv.vim'
-"Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 "Plugin 'sgur/ctrlp-extensions.vim'
 "Plugin 'tpope/vim-commentary'
 " Plugin 'vim-multiple-cursors'
@@ -720,6 +721,7 @@ Plugin 'honza/vim-snippets'
 
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin 'skywind3000/vim-preview'
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
