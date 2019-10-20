@@ -340,9 +340,7 @@ nmap <S-Up> ddkP
 " ============================================
 " Read visual block
 " ============================================
-vmap <leader>S silent !say --voice ava --rate=220<C-M>
-
-" vmap <leader>S silent exec "!(say --voice ava --rate=220 '<C-M>'&) > /dev/null"
+vmap <leader>S AsyncRun! say --voice ava --rate=220<CR>
 
 " ============================================
 " Reselect visual block after indent/outdent
@@ -716,7 +714,6 @@ Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'SQLUtilities'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'dense-analysis/ale'
@@ -731,6 +728,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'skywind3000/vim-preview'
+Plugin 'skywind3000/asyncrun.vim'
 
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'othree/javascript-libraries-syntax.vim'
