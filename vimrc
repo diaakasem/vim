@@ -785,7 +785,7 @@ function! NERDTreeLivePreview()
     " set previewpopup=height:10,width:60
     " set previewpopup=width:120
     exe 'botright vertical pedit '.current_file.path.str()
-    exe 'horizontal resize +120'
+    exe 'winfixwidth'
   endif
 endfunction
 
