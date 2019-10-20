@@ -787,12 +787,7 @@ function! NERDTreeLivePreview()
 endfunction
 
 call NERDTreeAddKeyMap({
-      \ 'key':           '<up>',
-      \ 'callback':      'NERDTreeLivePreview',
-      \ 'quickhelpText': 'preview',
-      \ })
-call NERDTreeAddKeyMap({
-      \ 'key':           '<down>',
+      \ 'key':           'l',
       \ 'callback':      'NERDTreeLivePreview',
       \ 'quickhelpText': 'preview',
       \ })
