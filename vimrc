@@ -792,5 +792,5 @@ call NERDTreeAddKeyMap({
       \ 'quickhelpText': 'preview',
       \ })
 
-" autocmd FileType nerdtree nnoremap <buffer> <up> :call NERDTreeLivePreview()<cr>
+autocmd FileType nerdtree nnoremap <buffer> l :call NERDTreeLivePreview()<cr>
 " autocmd FileType nerdtree nnoremap <buffer> <down> :call NERDTreeLivePreview()<cr>
