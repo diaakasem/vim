@@ -782,7 +782,7 @@ function! NERDTreeLivePreview()
   if current_file == {}
     return
   else
-    exe 'botright pedit '.current_file.path.str()
+    exe 'botright vertical pedit '.current_file.path.str()
   endif
 endfunction
 
