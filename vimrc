@@ -782,6 +782,8 @@ function! NERDTreeLivePreview()
   if current_file == {}
     return
   else
+    " set previewpopup=height:10,width:60
+    set previewpopup=width:120
     exe 'botright vertical pedit '.current_file.path.str()
   endif
 endfunction
