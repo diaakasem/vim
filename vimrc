@@ -786,6 +786,18 @@ function! NERDTreeLivePreview()
   endif
 endfunction
 
+
+call NERDTreeAddKeyMap({
+      \ 'key':           'j',
+      \ 'callback':      'NERDTreeLivePreview',
+      \ 'quickhelpText': 'preview',
+      \ })
+
+call NERDTreeAddKeyMap({
+      \ 'key':           'k',
+      \ 'callback':      'NERDTreeLivePreview',
+      \ 'quickhelpText': 'preview',
+      \ })
 call NERDTreeAddKeyMap({
       \ 'key':           'l',
       \ 'callback':      'NERDTreeLivePreview',
@@ -793,4 +805,6 @@ call NERDTreeAddKeyMap({
       \ })
 
 autocmd FileType nerdtree nnoremap <buffer> l :call NERDTreeLivePreview()<cr>
+autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr>
+autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr>
 " autocmd FileType nerdtree nnoremap <buffer> <down> :call NERDTreeLivePreview()<cr>
