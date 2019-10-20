@@ -787,24 +787,23 @@ function! NERDTreeLivePreview()
 endfunction
 
 
-call NERDTreeAddKeyMap({
-      \ 'key':           'j',
-      \ 'callback':      'NERDTreeLivePreview',
-      \ 'quickhelpText': 'preview',
-      \ })
+" call NERDTreeAddKeyMap({
+      " \ 'key':           'j',
+      " \ 'callback':      'NERDTreeLivePreview',
+      " \ 'quickhelpText': 'preview',
+      " \ })
 
-call NERDTreeAddKeyMap({
-      \ 'key':           'k',
-      \ 'callback':      'NERDTreeLivePreview',
-      \ 'quickhelpText': 'preview',
-      \ })
-call NERDTreeAddKeyMap({
-      \ 'key':           'l',
-      \ 'callback':      'NERDTreeLivePreview',
-      \ 'quickhelpText': 'preview',
-      \ })
+" call NERDTreeAddKeyMap({
+      " \ 'key':           'k',
+      " \ 'callback':      'NERDTreeLivePreview',
+      " \ 'quickhelpText': 'preview',
+      " \ })
+" call NERDTreeAddKeyMap({
+      " \ 'key':           'l',
+      " \ 'callback':      'NERDTreeLivePreview',
+      " \ 'quickhelpText': 'preview',
+      " \ })
 
-autocmd FileType nerdtree nnoremap <buffer> l :call NERDTreeLivePreview()<cr>
-autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr>
-autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr>
+autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
+autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
 " autocmd FileType nerdtree nnoremap <buffer> <down> :call NERDTreeLivePreview()<cr>
