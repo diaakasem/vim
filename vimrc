@@ -12,6 +12,9 @@ let g:neocomplcache_enable_smart_case = 1
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 0
 
+" Enable man pages
+runtime ftplugin/man.vim
+
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -332,8 +335,14 @@ noremap <silent> <C-l> <C-W>>
 nmap <S-Down> ddp
 vmap <S-Up> xkP`[V`]
 vmap <S-Down> xp`[V`]
-vmap <leader>S !say --voice ava --rate=220<C-M>u
 nmap <S-Up> ddkP
+
+" ============================================
+" Read visual block
+" ============================================
+vmap <leader>S silent !say --voice ava --rate=220<C-M>
+
+" vmap <leader>S silent exec "!(say --voice ava --rate=220 '<C-M>'&) > /dev/null"
 
 " ============================================
 " Reselect visual block after indent/outdent
@@ -782,8 +791,8 @@ function! NERDTreeLivePreview()
   if current_file == {}
     return
   else
+    "  Nice pop up , but not useful here
     " set previewpopup=height:10,width:60
-    set columns=120
     exe 'botright vertical pedit '.current_file.path.str()
   endif
 endfunction
@@ -805,6 +814,10 @@ endfunction
       " \ 'callback':      'NERDTreeLivePreview',
       " \ 'quickhelpText': 'preview',
       " \ })
+augroup PreviewAutocmds
+  autocmd!
+  autocmd WinEnter * if &previewwindow | setlocal nonumber | endif
+augroup END
 
 autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
 autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
