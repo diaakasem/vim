@@ -340,7 +340,7 @@ nmap <S-Up> ddkP
 " ============================================
 " Read visual block
 " ============================================
-vmap <leader>S AsyncRun! say --voice ava --rate=220<CR>
+vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
 
 " ============================================
 " Reselect visual block after indent/outdent
@@ -795,28 +795,5 @@ function! NERDTreeLivePreview()
   endif
 endfunction
 
-
-" call NERDTreeAddKeyMap({
-      " \ 'key':           'j',
-      " \ 'callback':      'NERDTreeLivePreview',
-      " \ 'quickhelpText': 'preview',
-      " \ })
-
-" call NERDTreeAddKeyMap({
-      " \ 'key':           'k',
-      " \ 'callback':      'NERDTreeLivePreview',
-      " \ 'quickhelpText': 'preview',
-      " \ })
-" call NERDTreeAddKeyMap({
-      " \ 'key':           'l',
-      " \ 'callback':      'NERDTreeLivePreview',
-      " \ 'quickhelpText': 'preview',
-      " \ })
-augroup PreviewAutocmds
-  autocmd!
-  autocmd WinEnter * if &previewwindow | setlocal nonumber | endif
-augroup END
-
-autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
-autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
-" autocmd FileType nerdtree nnoremap <buffer> <down> :call NERDTreeLivePreview()<cr>
+" autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
+" autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
