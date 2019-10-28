@@ -529,6 +529,8 @@ autocmd BufEnter * silent! lcd %:p:h
 " au VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
 " au VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
 
+
+
 " ==========================
 " Python Related Actions
 " ==========================
@@ -711,7 +713,7 @@ Plugin 'vimagit'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
 Plugin 'Chiel92/vim-autoformat'
-
+Plug 'maralla/completor.vim'
 Plugin 'SQLUtilities'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'vim-airline/vim-airline'
