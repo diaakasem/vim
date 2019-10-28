@@ -808,37 +808,7 @@ endfunction
 " find Colemak K (Qwerty N) much easier to reach than Colemak J (Qwerty Y).
 
 " The first five mappings are basically all one needs to remember.
-
-noremap K J
-noremap J K
-
-noremap h k
-noremap j h
-noremap k j
-
-noremap gh gk
-noremap gj gh
-noremap gk gj
-
-noremap zh zk
-"zK does not exist
-noremap zj zh
-noremap zJ zH
-noremap zk zj
-"zJ does not exist
-noremap z<Space> zl
-noremap z<S-Space> zL
-noremap z<BS> zh
-noremap z<S-BS> zH
-
-noremap <C-w>h <C-w>k
-noremap <C-w>H <C-w>K
-noremap <C-w>j <C-w>h
-noremap <C-w>J <C-w>H
-noremap <C-w>k <C-w>j
-noremap <C-w>K <C-w>J
-noremap <C-w><Space> <C-w>l
-noremap <C-w><S-Space> <C-w>L
-noremap <C-w><S-BS> <C-w>H
+set langmap=fpgjluyrstdneikFPGJLUYRSTDNEIKoO;ertyuiosdfgjklnERTYUIOSDFGJKLNpP
+"
 " autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
 " autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
