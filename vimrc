@@ -810,7 +810,7 @@ endfunction
 " find Colemak K (Qwerty N) much easier to reach than Colemak J (Qwerty Y).
 
 " The first five mappings are basically all one needs to remember.
-set langmap=fpgjluyrstdneikFPGJLUYRSTDNEIKoO;ertyuiosdfgjklnERTYUIOSDFGJKLNpP
+"getCollaboratorBySongId set langmap=fpgjluyrstdneikFPGJLUYRSTDNEIKoO;ertyuiosdfgjklnERTYUIOSDFGJKLNpP
 "
 " autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
 " autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
