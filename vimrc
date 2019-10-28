@@ -684,7 +684,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'Quramy/tsuquyomi'
 
 Plugin 'EasyMotion'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'bash-support.vim'
 " Plugin 'chemzqm/vim-jsx-improve'
