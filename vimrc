@@ -1,3 +1,4 @@
+
 "=======================================================================
 " Author : Diaa Mohamed Kasem
 " Date   : 24 May 2012
@@ -480,7 +481,9 @@ set term=screen-256color
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+" Do not use ~
+" set rtp+=~/.vim/bundle/vundle/
+set rtp+=/home/pi/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 if has('python')
