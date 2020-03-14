@@ -73,13 +73,13 @@ let @g='*ggnf''lgfggn<CR>'
 let @m='gg/models''0f{ca{modelsG?import oconst pa = models;0'
 let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 
-py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
-function! IndentHTMLTagAttrs()
-  call inputsave()
-  py3 IndentHTMLTagAttrs()
-  call inputrestore()
-endfunction
-au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
+" py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
+" function! IndentHTMLTagAttrs()
+  " call inputsave()
+  " py3 IndentHTMLTagAttrs()
+  " call inputrestore()
+" endfunction
+" au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
 
 " Sets extensions for files with goto file to help with js imports
 augroup suffixes
@@ -113,7 +113,9 @@ inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 "
 " Sample command W - save as root
 " 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+" command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+" command! W w !sudo tee % > /dev/null
+" command! W :execute 'w !sudo tee % > /dev/null' | :edit!
 
 " ====================================================
 " Leader Assignments
@@ -139,7 +141,7 @@ au BufNewFile,BufRead,BufEnter *.json nmap <leader>F :% !cat % \| json<CR> " For
 nmap <leader>a :Align 
 
 " ALEFix  use ALE Fixers
-au BufNewFile,BufRead,BufEnter *.js nmap <leader>F :ALEFix<CR>
+noremap <leader>l :ALEFix<CR> :w<CR>
 
 "nmap <leader>f :CtrlP<CR>
 nmap <leader>f :CtrlPMixed<CR>
@@ -241,8 +243,8 @@ noremap <leader>= :Autoformat<CR>
 " Reload Vimrc
 " ==============
 
-au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au BufNewFile,BufRead,BufEnter .vimrc map <silent> <leader>v :w <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au BufNewFile,BufRead,BufEnter .vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " ==============
 " Reload buffer
@@ -398,8 +400,8 @@ set printoptions=header:0,duplex:long,paper:letter
 " ==================
 " Change backupdir
 " ==================
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
+set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 
 
 " ======================
@@ -462,7 +464,7 @@ set smartindent                        " use smart indent if there is no indent 
 set tabstop=2                          " <tab> inserts 4 spaces 
 set shiftwidth=2                       " but an indent level is 4 spaces wide.
 set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
-set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
+" set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
 set grepprg=ack
 
@@ -678,7 +680,7 @@ Bundle 'gmarik/vundle'
 "Plugin 'tpope/vim-eunuch'
 "Plugin 'vim-flake8'
 "Plugin 'virtualenv.vim'
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 "Plugin 'sgur/ctrlp-extensions.vim'
 "Plugin 'tpope/vim-commentary'
 " Plugin 'vim-multiple-cursors'
@@ -692,29 +694,29 @@ Plugin 'bash-support.vim'
 " Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'docunext/closetag.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'filetype.vim'
 Plugin 'jisaacks/GitGutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'posva/vim-vue'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'surround.vim'
-Plugin 'tacahiroy/ctrlp-funky'
+" Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'unimpaired.vim'
-Plugin 'vim-scripts/Align'
+" Plugin 'vim-scripts/Align'
 Plugin 'vimagit'
 " Plugin 'wakatime/vim-wakatime'
 Plugin 'yaml.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plug 'maralla/completor.vim'
-Plugin 'SQLUtilities'
+" Plugin 'SQLUtilities'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -722,10 +724,10 @@ Plugin 'dense-analysis/ale'
 
 "
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 Plugin 'isRuslan/vim-es6'
 Plugin 'heavenshell/vim-jsdoc'
@@ -737,14 +739,14 @@ Plugin 'skywind3000/asyncrun.vim'
 " Plugin 'othree/es.next.syntax.vim'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetsDir = "~/UltiSnips"
+" let g:UltiSnipsSnippetsDir = "~/UltiSnips"
 " let g:UltiSnipsListSnippets = "<leader>whatever"
-let g:UltiSnipsExpandTrigger = "<c-l>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+" let g:UltiSnipsExpandTrigger = "<c-l>"
+" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 " Ale syntax checking
 " let b:ale_linters = ['cargo']
