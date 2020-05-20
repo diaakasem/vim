@@ -725,15 +725,17 @@ Plug 'fugitive.vim'
 Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 call plug#end()
 
 
 " ============
 " Display
 " ============
-" colorscheme Monokai
-colorscheme xcodedarkhc
-colorscheme gruvbox
+colorscheme Molokai
+" colorscheme xcodedarkhc
+" colorscheme gruvbox
+" colorscheme one
 " ====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " let g:UltiSnipsSnippetsDir = '~/UltiSnips'
