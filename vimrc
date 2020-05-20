@@ -422,8 +422,8 @@ set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
 " set textwidth=80      " Set text width to 120 chars
 " set colorcolumn=80
-set textwidth=100      " Set text width to 120 chars
-set colorcolumn=100
+set textwidth=80      " Set text width to 120 chars
+set colorcolumn=80
 
 " get rid of the silly characters in separators
 set fillchars = ""
@@ -464,7 +464,7 @@ set smartindent                        " use smart indent if there is no indent 
 set tabstop=2                          " <tab> inserts 4 spaces 
 set shiftwidth=2                       " but an indent level is 4 spaces wide.
 set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
-" set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
+set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
 set grepprg=ack
 
@@ -726,6 +726,7 @@ Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
+Plug 'tomasr/molokai'
 call plug#end()
 
 
