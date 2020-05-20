@@ -105,7 +105,6 @@ function! Refactor()
     call inputrestore()
 endfunction
 
-call plug#begin('~/.vim/plugged')
 
 " Making command R that opens a new window with the output of the following command
 command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | silent r !<args> 
@@ -130,6 +129,7 @@ nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 
 " Opem Most Recently Used :MRU  - Dont add comments afterwards
 nmap <leader>m :CtrlPMRU<CR>
+" nmap <leader>m :MRU<CR>
 nmap <leader>p <C-R><C-P>.           " Paste from clipboard
 nmap <leader>t :tabnew<CR>           " Opens a new empty tab
 
@@ -407,7 +407,7 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 " ======================
 " Set the status line 
 " ======================
-set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+" set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 set showmode                           " Show the current mode
 
 " =================
@@ -550,9 +550,11 @@ au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%
 " ================================================
 " Add xptemplate global personal directory value
 " ================================================
-if has("unix")
-  set runtimepath+=~/.vim/personal
-endif
+" if has("unix")
+set runtimepath+=~/.vim/plugged
+" 	set runtimepath+=~/.vim/bundle
+set runtimepath+=~/.vim/personal
+" endif
 
 "python from powerline.vim import setup as powerline_setup
 "python powerline_setup()
@@ -573,13 +575,8 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " ==============
 " Editor config
 " ==============
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-
-" ============
-" Display
-" ============
-colorscheme Monokai
 " ====================================
 " Yank into the system's clipboard
 " ====================================
@@ -603,12 +600,9 @@ let g:small_font = "Monofur\\ for\\ Powerline:h13"
 "set t_Co=256
 "set term=xterm-256color
 "set term=screen-256color
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath%=~/.vim/bundle/ctrlp.vim
 
 filetype off                   " required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
 autocmd! BufWritePost ~/.vimrc nested :source ~/.vimrc
 let g:miniBufExplForceSyntaxEnable = 1
@@ -635,115 +629,118 @@ let g:ctrlp_working_path_mode = 'ra'
 " Instead of using fuzzy search
 let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
 " original repos on github
 
-" Plugin 'DirDiff'
-" Plugin 'L9'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'MaxMEllon/vim-jsx-pretty'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Vim-R-plugin'
-" Plugin 'ZoomWin'
-" Plugin 'davidhalter/jedi-vim'
-" Plugin 'einars/js-beautify'
-" Plugin 'fatih/vim-go'
-" Plugin 'jade.vim'
-" Plugin 'jshint.vim'
-" Plugin 'jtratner/vim-flavored-markdown'
-" Plugin 'maksimr/vim-jsbeautify'
-" Plugin 'mattn/emmet-vim'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'pathogen.vim'
-" Plugin 'vim-syntastic/syntastic'
-"Plugin 'Arduino-syntax-file'
-"Plugin 'Quramy/tsuquyomi'
-"Plugin 'amiel/vim-tmux-navigator'
-"Plugin 'davidoc/taskpaper.vim'
-"Plugin 'ervandew/supertab'
-"Plugin 'fatih/vim-go'
-"Plugin 'godlygeek/tabular'
-"Plugin 'imkmf/ctrlp-branches'
-"Plugin 'kchmck/vim-coffee-script'
-"Plugin 'leafgarland/typescript-vim'
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
-"Plugin 'rking/ag.vim'
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plugin 'tomlion/vim-solidity'
-"Plugin 'tpope/vim-abolish'
-"Plugin 'tpope/vim-eunuch'
-"Plugin 'vim-flake8'
-"Plugin 'virtualenv.vim'
-" Plugin 'majutsushi/tagbar'
-"Plugin 'sgur/ctrlp-extensions.vim'
-"Plugin 'tpope/vim-commentary'
-" Plugin 'vim-multiple-cursors'
-
-" Plugin 'Quramy/tsuquyomi'
-
-Plugin 'EasyMotion'
-" Plugin 'Raimondi/delimitMate'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'bash-support.vim'
-" Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'docunext/closetag.vim'
-Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'edkolev/tmuxline.vim'
-Plugin 'filetype.vim'
-Plugin 'jisaacks/GitGutter'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-signify'
-Plugin 'myusuf3/numbers.vim'
-" Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'posva/vim-vue'
-" Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'surround.vim'
-" Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'unimpaired.vim'
-" Plugin 'vim-scripts/Align'
-Plugin 'vimagit'
-" Plugin 'wakatime/vim-wakatime'
-Plugin 'yaml.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plug 'maralla/completor.vim'
-" Plugin 'SQLUtilities'
+call plug#begin('~/.vim/plugged')
+" Plug 'Arduino-syntax-file'
+" Plug 'DirDiff'
+" Plug 'L9'
+" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Raimondi/delimitMate'
+" Plug 'SQLUtilities'
+" Plug 'SirVer/ultisnips'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'Vim-R-plugin'
+" Plug 'ZoomWin'
+" Plug 'amiel/vim-tmux-navigator'
+" Plug 'chemzqm/vim-jsx-improve'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'davidoc/taskpaper.vim'
+" Plug 'edkolev/tmuxline.vim'
+" Plug 'einars/js-beautify'
+" Plug 'ervandew/supertab'
+" Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
+" Plug 'godlygeek/tabular'
+" Plug 'honza/vim-snippets'
+" Plug 'imkmf/ctrlp-branches'
+" Plug 'jade.vim'
+" Plug 'jshint.vim'
+" Plug 'jtratner/vim-flavored-markdown'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'majutsushi/tagbar'
+" Plug 'maksimr/vim-jsbeautify'
+" Plug 'mattn/emmet-vim'
+" Plug 'mxw/vim-jsx'
+" Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dense-analysis/ale'
+" Plug 'nsf/gocode', {'rtp': 'vim/'}
+" Plug 'othree/es.next.syntax.vim'
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'pathogen.vim'
+" Plug 'rking/ag.vim'
+" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plug 'rust-lang/rust.vim'
+" Plug 'sgur/ctrlp-extensions.vim'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'tacahiroy/ctrlp-funky'
+" Plug 'tomlion/vim-solidity'
+" Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-eunuch'
+" Plug 'vim-flake8'
+" Plug 'vim-multiple-cursors'
+" Plug 'vim-scripts/Align'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'virtualenv.vim'
+" Plug 'wakatime/vim-wakatime'
+Plug 'Chiel92/vim-autoformat'
+Plug 'EasyMotion'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'bash-support.vim'
+Plug 'dense-analysis/ale'
+Plug 'docunext/closetag.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'filetype.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'isRuslan/vim-es6'
+Plug 'jisaacks/GitGutter'
+Plug 'kien/ctrlp.vim'
+" Plug 'maralla/completor.vim'
+Plug 'mhinz/vim-signify'
+Plug 'mru'
+Plug 'myusuf3/numbers.vim'
+Plug 'posva/vim-vue'
+Plug 'rstacruz/vim-xtract'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/vim-preview'
+Plug 'surround.vim'
+Plug 'tpope/vim-repeat'
+Plug 'unimpaired.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vimagit'
+Plug 'yaml.vim'
+Plug 'fugitive.vim'
+Plug 'tomlion/vim-solidity'
+Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
+call plug#end()
 
-"
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
 
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-Plugin 'isRuslan/vim-es6'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'skywind3000/vim-preview'
-Plugin 'skywind3000/asyncrun.vim'
-
-" Plugin 'sheerun/vim-polyglot'
-" Plugin 'othree/javascript-libraries-syntax.vim'
-" Plugin 'othree/es.next.syntax.vim'
-
+" ============
+" Display
+" ============
+" colorscheme Monokai
+colorscheme xcodedarkhc
+colorscheme gruvbox
+" ====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsSnippetsDir = "~/UltiSnips"
-" let g:UltiSnipsListSnippets = "<leader>whatever"
-" let g:UltiSnipsExpandTrigger = "<c-l>"
-" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+" let g:UltiSnipsSnippetsDir = '~/UltiSnips'
+" let g:UltiSnipsListSnippets = '<leader>whatever'
+" let g:UltiSnipsExpandTrigger = '<c-l>'
+" let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+" let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 " If you want :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
