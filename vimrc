@@ -613,6 +613,9 @@ set fillchars+=stl:\ ,stlnc:\
 
 set clipboard=unnamed
 
+" highlight the 80th column
+hi ColorColumn guibg=#2d2d2d ctermbg=8
+
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 let g:indent_guides_auto_colors = 0
