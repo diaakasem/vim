@@ -466,7 +466,15 @@ set shiftwidth=2                       " but an indent level is 4 spaces wide.
 set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
-set grepprg=ack
+if executable('ag')
+  " Use ag over grep or ack
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  " Use ag in CtrlP for listing files.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP does't need to cache
+  let g:ctrl_user_caching = 0
+endif
+
 
 " ====================
 " Reading/Writing
@@ -735,14 +743,23 @@ Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Theme
+syntax enable
+colorscheme tender
 
 " ============
 " Display
 " ============
-colorscheme Molokai
-" colorscheme xcodedarkhc
+" colorscheme Molokai
 " colorscheme gruvbox
-" colorscheme one
 "
 " ====================
 " highlight the 80th column
