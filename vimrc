@@ -613,8 +613,6 @@ set fillchars+=stl:\ ,stlnc:\
 
 set clipboard=unnamed
 
-" highlight the 80th column
-hi ColorColumn ctermbg=8
 
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
@@ -679,7 +677,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'pangloss/vim-javascript'
 " Plug 'pathogen.vim'
-" Plug 'rking/ag.vim'
+Plug 'rking/ag.vim'
 " Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Plug 'rust-lang/rust.vim'
 " Plug 'sgur/ctrlp-extensions.vim'
@@ -695,6 +693,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'vim-syntastic/syntastic'
 " Plug 'virtualenv.vim'
 " Plug 'wakatime/vim-wakatime'
+" Plug 'maralla/completor.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'EasyMotion'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -707,7 +706,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'isRuslan/vim-es6'
 Plug 'jisaacks/GitGutter'
 Plug 'kien/ctrlp.vim'
-" Plug 'maralla/completor.vim'
+Plug 'git@github.com:ajh17/VimCompletesMe.git'
+Plug 'git@github.com:Valloric/YouCompletesMe.git'
 Plug 'mhinz/vim-signify'
 Plug 'mru'
 Plug 'myusuf3/numbers.vim'
@@ -715,6 +715,7 @@ Plug 'posva/vim-vue'
 Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'jacoborus/tender.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/vim-preview'
 Plug 'surround.vim'
@@ -730,6 +731,8 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
+Plug 'jceb/vim-orgmode'
+
 call plug#end()
 
 
@@ -740,6 +743,11 @@ colorscheme Molokai
 " colorscheme xcodedarkhc
 " colorscheme gruvbox
 " colorscheme one
+"
+" ====================
+" highlight the 80th column
+" ====================
+hi ColorColumn ctermbg=8
 " ====================
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " let g:UltiSnipsSnippetsDir = '~/UltiSnips'
