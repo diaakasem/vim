@@ -1,6 +1,8 @@
 *.pyc
 vim/.netrwhist
 vim/bundle
+vim/tmp
+vim/plugged
 vim/.netrwhist
 NERDTreeBookmarks
 vim/view

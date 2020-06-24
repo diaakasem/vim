@@ -189,7 +189,7 @@ au BufNewFile,BufRead,BufEnter *.css,*.CSS       nmap <leader>c :w<CR> :silent !
 "au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :JSHint<CR>                                                               " Execute jshint on the current js file
 "au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :R npm run lint <C-R>%<CR>                                                               " Execute jshint on the current js file
 " au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :SyntasticReset<CR> :SyntasticCheck<CR>                                    " Execute Syntastic check for pytho on the current bash file
-" au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                                               " Execute jshint on the current js file
+au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                                               " Execute jshint on the current js file
 " au BufNewFile,BufRead,BufEnter *.ts,*.TS,*.Ts     nmap <leader>l :w<CR> :R tslint <C-R>%<CR>                                                      " Execute jshint on the current js file
 " au BufNewFile,BufRead,BufEnter *.coffee,*.COFFEE  nmap <leader>l :w<CR> :R coffeelint -f ~/zshconfigs/coffeelint_config.json --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
 " au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>                                                    " Execute jsonlint on the current json file
@@ -421,8 +421,6 @@ set foldmethod=manual " fold based on indent
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
 " set textwidth=80      " Set text width to 120 chars
-" set colorcolumn=80
-set textwidth=80      " Set text width to 120 chars
 set colorcolumn=80
 
 " get rid of the silly characters in separators
@@ -457,7 +455,7 @@ set scrolloff=8                        " Keep 8 context lines above and below th
 set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
 set showmatch                          " Briefly jump to a paren once it's balanced
 set wrapscan                           " set the search scan to wrap lines
-set ch=2                               " Make command line two lines high
+set ch=1                               " Make command line two lines high
 set nowrap                             " don't wrap text
 set autoindent                         " always set autoindenting on
 set smartindent                        " use smart indent if there is no indent file
@@ -481,8 +479,8 @@ endif
 " ====================
 set noautowrite                        " Never write a file unless I request it.
 set noautowriteall                     " NEVER.
-" set auto                           " Set auto read file changes
-" set noautoread                         " Don't automatically re-read changed files.
+" set auto                             " Set auto read file changes
+" set noautoread                       " Don't automatically re-read changed files.
 set modeline                           " Allow vim options to be embedded in files;
 set modelines=3                        " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
@@ -533,14 +531,6 @@ au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 
 autocmd BufEnter * silent! lcd %:p:h
 "au! GUIEnter * set visualbell t_vb=
 
-" ================================================
-" Use tab to scroll through autocomplete menus
-" ================================================
-" au VimEnter * imap <expr> <Tab> pumvisible() ? "<C-N>" : "<Tab>"
-" au VimEnter * imap <expr> <S-Tab> pumvisible() ? "<C-P>" : "<S-Tab>"
-
-
-
 " ==========================
 " Python Related Actions
 " ==========================
@@ -549,24 +539,11 @@ au! BufNewFile,BufRead,BufEnter *.py set smartindent cinwords=ifelifelseforwhile
 au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
-"let &cpo = s:save_cpo
-"unlet s:save_cpo
-
-" vim: set sw=4 sts=4 et fdm=marker:
-
-
 " ================================================
 " Add xptemplate global personal directory value
 " ================================================
-" if has("unix")
 set runtimepath+=~/.vim/plugged
-" 	set runtimepath+=~/.vim/bundle
 set runtimepath+=~/.vim/personal
-" endif
-
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 
 " ================================================
 " Remove pyc files from NERDTree View
@@ -621,7 +598,6 @@ set fillchars+=stl:\ ,stlnc:\
 
 set clipboard=unnamed
 
-
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 let g:indent_guides_auto_colors = 0
@@ -635,73 +611,13 @@ let g:indent_guides_auto_colors = 0
 "       a direct ancestor of the directory of the current file.
 "  0 or '' (empty string) - disable this feature.
 let g:ctrlp_working_path_mode = 'ra'
-" Instead of using fuzzy search
-let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-
 
 " My Bundles here:
 "
 " original repos on github
 
 call plug#begin('~/.vim/plugged')
-" Plug 'Arduino-syntax-file'
-" Plug 'DirDiff'
-" Plug 'L9'
-" Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plug 'MaxMEllon/vim-jsx-pretty'
-" Plug 'Quramy/tsuquyomi'
-" Plug 'Quramy/tsuquyomi'
-" Plug 'Raimondi/delimitMate'
-" Plug 'SQLUtilities'
-" Plug 'SirVer/ultisnips'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'Vim-R-plugin'
-" Plug 'ZoomWin'
-" Plug 'amiel/vim-tmux-navigator'
-" Plug 'chemzqm/vim-jsx-improve'
-" Plug 'davidhalter/jedi-vim'
-" Plug 'davidoc/taskpaper.vim'
-" Plug 'edkolev/tmuxline.vim'
-" Plug 'einars/js-beautify'
-" Plug 'ervandew/supertab'
-" Plug 'fatih/vim-go'
-" Plug 'fatih/vim-go'
-" Plug 'godlygeek/tabular'
-" Plug 'honza/vim-snippets'
-" Plug 'imkmf/ctrlp-branches'
-" Plug 'jade.vim'
-" Plug 'jshint.vim'
-" Plug 'jtratner/vim-flavored-markdown'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'majutsushi/tagbar'
-" Plug 'maksimr/vim-jsbeautify'
-" Plug 'mattn/emmet-vim'
-" Plug 'mxw/vim-jsx'
-" Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'nsf/gocode', {'rtp': 'vim/'}
-" Plug 'othree/es.next.syntax.vim'
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'pangloss/vim-javascript'
-" Plug 'pathogen.vim'
 Plug 'rking/ag.vim'
-" Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Plug 'rust-lang/rust.vim'
-" Plug 'sgur/ctrlp-extensions.vim'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'tacahiroy/ctrlp-funky'
-" Plug 'tomlion/vim-solidity'
-" Plug 'tpope/vim-abolish'
-" Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-eunuch'
-" Plug 'vim-flake8'
-" Plug 'vim-multiple-cursors'
-" Plug 'vim-scripts/Align'
-" Plug 'vim-syntastic/syntastic'
-" Plug 'virtualenv.vim'
-" Plug 'wakatime/vim-wakatime'
-" Plug 'maralla/completor.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'EasyMotion'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -760,33 +676,22 @@ colorscheme tender
 " ============
 " colorscheme Molokai
 " colorscheme gruvbox
-"
+
 " ====================
 " highlight the 80th column
 " ====================
 hi ColorColumn ctermbg=8
 " ====================
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsSnippetsDir = '~/UltiSnips'
-" let g:UltiSnipsListSnippets = '<leader>whatever'
-" let g:UltiSnipsExpandTrigger = '<c-l>'
-" let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-" let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
-" Ale syntax checking
-" let b:ale_linters = ['cargo']
-" let b:ale_linters = {'javascript': ['tslint'], 'typescript': ['tslint']}
-" let g:ale_fixers = {'javascript': ['tslint'], 'typescript': ['tslint']}
-" let b:ale_linters = ['eslint', 'flow']
-" let b:ale_linters = ['eslint', 'flow-language-server']
-" let g:ale_fixers = ['eslint', 'flow-language-server']
-
-let b:ale_linters = ['eslint']
-let g:ale_fixers = ['eslint']
-let g:ale_echo_msg_format = '%linter% says %s'
+let g:ale_linters = {
+      \ 'javascript': ['eslint']
+      \ }
+let g:ale_fixers = {
+      \ 'javascript': ['eslint']
+      \ }
+let g:ale_echo_msg_format = '%linter%: %s'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
@@ -805,42 +710,3 @@ let g:rustfmt_autosave = 1
 
 filetype plugin indent on " enable loading indent file for filetype
 filetype plugin on
-
-" ======================================== 
-" Previewing file in nerd tree
-" ======================================== 
-if exists("g:loaded_nerdree_live_preview_mapping")
-  finish
-endif
-let g:loaded_nerdree_live_preview_mapping = 1
-
-function! NERDTreeLivePreview()
-  " Get the path of the item under the cursor if possible:
-  let current_file = g:NERDTreeFileNode.GetSelected()
-
-  if current_file == {}
-    return
-  else
-    "  Nice pop up , but not useful here
-    " set previewpopup=height:10,width:60
-    exe 'botright vertical pedit '.current_file.path.str()
-  endif
-endfunction
-
-" ======================================== 
-" Remapping for Colemak
-" ======================================== 
-
-" This remaps the movemet keys j and k (In Colemak, J (= Qwerty Y) is placed 
-" above K (= Qwerty N), which I find confusing in Vim since j moves down and k 
-" up. I think the remappings below result in a more logical and easier to 
-" reach layout, keeping in mind that space and backspace (= Qwerty Caps-Lock) 
-" can be used instead of Colemak J (= Qwerty Y). I use the join-lines command 
-" much more than the help command, and have therefore swapped J and K since I 
-" find Colemak K (Qwerty N) much easier to reach than Colemak J (Qwerty Y).
-
-" The first five mappings are basically all one needs to remember.
-"getCollaboratorBySongId set langmap=fpgjluyrstdneikFPGJLUYRSTDNEIKoO;ertyuiosdfgjklnERTYUIOSDFGJKLNpP
-"
-" autocmd FileType nerdtree nnoremap <buffer> j :call NERDTreeLivePreview()<cr><down>
-" autocmd FileType nerdtree nnoremap <buffer> k :call NERDTreeLivePreview()<cr><up>
