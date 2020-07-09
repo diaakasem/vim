@@ -407,8 +407,8 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 " ======================
 " Set the status line 
 " ======================
-set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
-" set statusline^=%{fnamemodify(expand('%'),':.')}
+" set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
+set statusline^=%{fnamemodify(expand('%'),':.')}
 set showmode                           " Show the current mode
 
 " =================
