@@ -407,7 +407,8 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 " ======================
 " Set the status line 
 " ======================
-" set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
+" set statusline^=%{fnamemodify(expand('%'),':.')}
 set showmode                           " Show the current mode
 
 " =================
@@ -650,12 +651,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tomlion/vim-solidity'
+" Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
-Plug 'jceb/vim-orgmode'
+Plug 'airblade/vim-rooter'
+" Plug 'jceb/vim-orgmode'
+Plug 'dbakker/vim-projectroot'
 
 call plug#end()
 
