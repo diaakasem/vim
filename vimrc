@@ -425,8 +425,8 @@ set foldlevel=1       " this is just what i use
 set colorcolumn=80
 
 " get rid of the silly characters in separators
-set fillchars = ""
-set fillchars +=stl:\ ,stlnc:\
+" set fillchars = ""
+" set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 
 " au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
@@ -595,7 +595,7 @@ let g:miniBufExplForceSyntaxEnable = 1
 
 "set guifont=Inconsolata\ for\ Powerline:h15
 "let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\
+" set fillchars+=stl:\ ,stlnc:\
 
 set clipboard=unnamed
 
