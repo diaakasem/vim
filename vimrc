@@ -410,6 +410,7 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 " set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
 " set statusline^=%{fnamemodify(expand('%'),':.')}
 set showmode                           " Show the current mode
+" set stl+=%{expand('%:~:.')}
 
 " =================
 " Folding settings
@@ -425,8 +426,8 @@ set foldlevel=1       " this is just what i use
 set colorcolumn=80
 
 " get rid of the silly characters in separators
-" set fillchars = ""
-" set fillchars +=stl:\ ,stlnc:\
+set fillchars = ""
+set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 
 " au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
