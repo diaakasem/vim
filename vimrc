@@ -717,7 +717,7 @@ let g:rustfmt_autosave = 1
 
 " TODO try making this dynamic
 " use npm bin to get the path
-let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin'
+let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin/lehre'
 
 filetype plugin indent on " enable loading indent file for filetype
 filetype plugin on
