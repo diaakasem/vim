@@ -661,7 +661,7 @@ Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-rooter'
 " Plug 'jceb/vim-orgmode'
-Plug 'dbakker/vim-projectroot'
+" Plug 'dbakker/vim-projectroot'
 Plug 'othree/yajs.vim'
 
 call plug#end()
