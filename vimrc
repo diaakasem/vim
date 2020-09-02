@@ -344,7 +344,7 @@ nmap <S-Up> ddkP
 " ============================================
 " Read visual block
 " ============================================
-vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
+" vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
 
 " ============================================
 " Reselect visual block after indent/outdent
@@ -644,8 +644,8 @@ Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jacoborus/tender.vim'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'skywind3000/vim-preview'
+" Plug 'skywind3000/asyncrun.vim'
+" Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
@@ -714,6 +714,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "
 let g:rust_clip_command = 'pbcopy'
 let g:rustfmt_autosave = 1
+
+" TODO try making this dynamic
+" use npm bin to get the path
+let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin'
 
 filetype plugin indent on " enable loading indent file for filetype
 filetype plugin on
