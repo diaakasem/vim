@@ -15,7 +15,7 @@ let g:jsx_pragma_required = 0
 " Enable man pages
 runtime ftplugin/man.vim
 
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -662,6 +662,7 @@ Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'jceb/vim-orgmode'
 Plug 'hashivim/vim-terraform'
+Plug 'folke/which-key.nvim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
