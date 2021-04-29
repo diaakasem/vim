@@ -15,17 +15,17 @@ let g:jsx_pragma_required = 0
 " Enable man pages
 runtime ftplugin/man.vim
 
-" let g:NERDTreeIndicatorMapCustom = {
-    " \ "Modified"  : "✹",
-    " \ "Staged"    : "✚",
-    " \ "Untracked" : "✭",
-    " \ "Renamed"   : "➜",
-    " \ "Unmerged"  : "═",
-    " \ "Deleted"   : "✖",
-    " \ "Dirty"     : "✗",
-    " \ "Clean"     : "✔︎",
-    " \ "Unknown"   : "?"
-    " \ }
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 " 
 " Airline configurations
@@ -623,6 +623,7 @@ let g:ctrlp_working_path_mode = 'ra'
 call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
+" Plug 'vim-scripts/EasyMotion'
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-scripts/bash-support.vim'
@@ -635,6 +636,7 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'jisaacks/GitGutter'
 Plug 'kien/ctrlp.vim'
 Plug 'ajh17/VimCompletesMe'
+" Plug 'git@github.com:ajh17/VimCompletesMe.git'
 " Plug 'git@github.com:Valloric/YouCompletesMe.git'
 Plug 'mhinz/vim-signify'
 Plug 'vim-scripts/mru'
@@ -647,13 +649,16 @@ Plug 'jacoborus/tender.vim'
 " Plug 'skywind3000/asyncrun.vim'
 " Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-surround'
+" Plug 'vim-scripts/surround.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+" Plug 'vim-scripts/unimpaired.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'tpope/vim-fugitive'
+" Plug 'vim-scripts/fugitive.vim'
 " Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
@@ -663,6 +668,17 @@ Plug 'airblade/vim-rooter'
 " Plug 'jceb/vim-orgmode'
 " Plug 'dbakker/vim-projectroot'
 Plug 'othree/yajs.vim'
+Plug 'hashivim/vim-terraform'
+Plug 'folke/which-key.nvim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
