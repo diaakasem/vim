@@ -656,6 +656,7 @@ Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'jceb/vim-orgmode'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
