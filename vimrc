@@ -658,6 +658,15 @@ Plug 'tomasr/molokai'
 Plug 'jceb/vim-orgmode'
 Plug 'hashivim/vim-terraform'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
 " If you have vim >=8.0 or Neovim >= 0.1.5
