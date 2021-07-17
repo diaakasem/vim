@@ -670,6 +670,9 @@ Plug 'airblade/vim-rooter'
 Plug 'othree/yajs.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'folke/which-key.nvim'
+Plug 'frazrepo/vim-rainbow'
+
+let g:rainbow_active = 1
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
