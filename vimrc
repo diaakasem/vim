@@ -6,9 +6,9 @@
 
 let mapleader=","             " change the leader to be a comma vs slash
 let NERDTreeShowBookmarks=1   " By default show bookmarks
-let g:acp_enableAtStartup = 0 
+let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1 
+let g:neocomplcache_enable_smart_case = 1
 " let g:jsx_ext_required = 0
 " let g:jsx_pragma_required = 0
 
@@ -16,20 +16,20 @@ let g:neocomplcache_enable_smart_case = 1
 runtime ftplugin/man.vim
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ "Unknown"   : "?"
+      \ }
 
-" 
+"
 " Airline configurations
-" 
+"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -51,7 +51,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 " Add your own custom formats or override the defaults
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
@@ -77,22 +77,22 @@ let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 
 " py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
 " function! IndentHTMLTagAttrs()
-  " call inputsave()
-  " py3 IndentHTMLTagAttrs()
-  " call inputrestore()
+" call inputsave()
+" py3 IndentHTMLTagAttrs()
+" call inputrestore()
 " endfunction
 " au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
 
 " Sets extensions for files with goto file to help with js imports
 augroup suffixes
-    autocmd!
-    let associations = [
-                \["javascript", ".js,.javascript,.es,.esx,.json"],
-                \["python", ".py,.pyw"]
-                \]
-    for ft in associations
-        execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
-    endfor
+  autocmd!
+  let associations = [
+        \["javascript", ".js,.javascript,.es,.esx,.json"],
+        \["python", ".py,.pyw"]
+        \]
+  for ft in associations
+    execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+  endfor
 augroup END
 
 
@@ -100,18 +100,18 @@ augroup END
 " Refactor a variable name
 " ==========================
 function! Refactor()
-    call inputsave()
-    let @z=input("What do you want to rename '" . @z . "' to? ")
-    call inputrestore()
+  call inputsave()
+  let @z=input("What do you want to rename '" . @z . "' to? ")
+  call inputrestore()
 endfunction
 
 
 " Making command R that opens a new window with the output of the following command
-command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | silent r !<args> 
+command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | silent r !<args>
 inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 "
 " Sample command W - save as root
-" 
+"
 " command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " command! W w !sudo tee % > /dev/null
 " command! W :execute 'w !sudo tee % > /dev/null' | :edit!
@@ -135,8 +135,8 @@ nmap <leader>t :tabnew<CR>           " Opens a new empty tab
 nmap <leader>o :CtrlPBuffer<CR>
 au BufNewFile,BufRead,BufEnter *.json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
-" Align with a letter 
-nmap <leader>a :Align 
+" Align with a letter
+nmap <leader>a :Align
 
 " ALEFix  use ALE Fixers
 nmap <leader>l :ALEFix<CR> :w<CR>
@@ -213,7 +213,7 @@ au BufNewFile,BufRead,BufEnter *.py nmap <Leader>rb zyiw:call Refactor()<cr>mx:s
 " ====================
 " Execution commands
 " ====================
-                                                                     
+
 " au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>e :.!coffee <CR> " Execute coffee on the current line
 au BufNewFile,BufRead,BufEnter *.py     nmap <leader>e :.!python <CR> " Execute python on the current line
 au BufNewFile,BufRead,BufEnter *.js     nmap <leader>e :.!node <CR>   " Execute node on the current line
@@ -260,11 +260,11 @@ map <silent> <leader>x <C-W>
 " ==================================
 " Have Enter to go to command line
 " ==================================
-" Affects all plugins 
+" Affects all plugins
 "noremap <CR> :
 
 " ================
-" Scroll faster 
+" Scroll faster
 " ================
 
 nnoremap <C-e> 4<C-e>
@@ -332,10 +332,10 @@ noremap <silent> <C-l> <C-W>>
 " Bubble single&multiple lines
 " ==============================
 
+nmap <S-Up> ddkP
 nmap <S-Down> ddp
 vmap <S-Up> xkP`[V`]
 vmap <S-Down> xp`[V`]
-nmap <S-Up> ddkP
 
 " ============================================
 " Read visual block
@@ -353,8 +353,8 @@ vnoremap > >gv
 " Underline the current line with '=' or '-'
 " ============================================
 
-au BufRead,BufEnter vimrc nmap <silent> <leader>u= :t.\|s/./=/g\|:nohls<cr>gcc
-au BufRead,BufEnter vimrc nmap <silent> <leader>u- :t.\|s/./-/g\|:nohls<cr>gcc
+au BufRead,BufEnter vimrc nmap <silent> <leader>= :t.\|s/./=/g\|:nohls<cr>gcc
+au BufRead,BufEnter vimrc nmap <silent> <leader>- :t.\|s/./-/g\|:nohls<cr>gcc
 
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
@@ -403,7 +403,7 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 
 
 " ======================
-" Set the status line 
+" Set the status line
 " ======================
 " set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
 " set statusline^=%{fnamemodify(expand('%'),':.')}
@@ -460,7 +460,7 @@ set ch=1                               " Make command line two lines high
 set nowrap                             " don't wrap text
 set autoindent                         " always set autoindenting on
 set smartindent                        " use smart indent if there is no indent file
-set tabstop=2                          " <tab> inserts 4 spaces 
+set tabstop=2                          " <tab> inserts 4 spaces
 set shiftwidth=2                       " but an indent level is 4 spaces wide.
 set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
@@ -501,7 +501,7 @@ set laststatus=2                       " Always show statusline, even if only 1 
 " ========================
 set ignorecase                         " Default to using case insensitive searches,
 set smartcase                          " unless uppercase letters are used in the regex.
-set smarttab                           " Handle tabs more intelligently 
+set smarttab                           " Handle tabs more intelligently
 set hlsearch                           " Highlight searches by default.
 set incsearch                          " Incrementally search while typing a /regex
 
@@ -569,7 +569,7 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 set guioptions+=a
 
 " ==========
-" UTF 8 
+" UTF 8
 " ==========
 set encoding=utf-8
 set termencoding=utf-8
@@ -685,7 +685,7 @@ call plug#end()
 
 " If you have vim >=8.0 or Neovim >= 0.1.5
 if (has("termguicolors"))
- set termguicolors
+  set termguicolors
 endif
 
 " For Neovim 0.1.3 and 0.1.4
