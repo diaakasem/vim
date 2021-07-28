@@ -64,7 +64,7 @@ let g:NERDCommentEmptyLines = 0
 "  press combination CtrlV followed by Enter. This will insert Enter code represented by ^M sign
 " ==========================
 " Fixes HTML attributes format
-let @-='O" =x80p'
+let @=='O" =x80p'
 let @f='ggO// @flowxx'
 let @d=':JsDoc'
 let @i='0ceimport/=cf(from /)x0j'
@@ -349,13 +349,6 @@ vmap <S-Down> xp`[V`]
 
 vnoremap < <gv
 vnoremap > >gv
-
-" ============================================
-" Underline the current line with '=' or '-'
-" ============================================
-
-au BufRead,BufEnter vimrc nmap <leader>- O=xi"80p
-au BufRead,BufEnter vimrc nmap <silent> <leader>- :t.\|s/./-/g\|:nohls<cr>gcc
 
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
