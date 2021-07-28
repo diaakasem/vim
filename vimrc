@@ -353,7 +353,7 @@ vnoremap > >gv
 " Underline the current line with '=' or '-'
 " ============================================
 
-au BufRead,BufEnter vimrc nmap <silent> <leader>= S=x80p
+au BufRead,BufEnter vimrc nmap <silent> <leader>= O=x80p
 au BufRead,BufEnter vimrc nmap <silent> <leader>- :t.\|s/./-/g\|:nohls<cr>gcc
 
 " ==========================================================
