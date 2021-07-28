@@ -9,8 +9,8 @@ let NERDTreeShowBookmarks=1   " By default show bookmarks
 let g:acp_enableAtStartup = 0 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1 
-let g:jsx_ext_required = 0
-let g:jsx_pragma_required = 0
+" let g:jsx_ext_required = 0
+" let g:jsx_pragma_required = 0
 
 " Enable man pages
 runtime ftplugin/man.vim
@@ -39,7 +39,7 @@ let g:airline_highlighting_cache = 1
 let g:airline_extensions = []
 
 " let NERDTreeChDirMode=2
-" " Store the bookmarks file
+" Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/vim/NERDTreeBookmarks")
 
 " ==========================
@@ -86,12 +86,10 @@ let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 " Sets extensions for files with goto file to help with js imports
 augroup suffixes
     autocmd!
-
     let associations = [
                 \["javascript", ".js,.javascript,.es,.esx,.json"],
                 \["python", ".py,.pyw"]
                 \]
-
     for ft in associations
         execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
     endfor
@@ -124,8 +122,6 @@ inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 " For when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
-nmap <leader>i :IndentGuidesEnable<CR>  " Toggle Indent guides on
-nmap <leader>I :IndentGuidesDisable<CR> " Toggle Indent guides off
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 
@@ -143,7 +139,7 @@ au BufNewFile,BufRead,BufEnter *.json nmap <leader>F :% !cat % \| json<CR> " For
 nmap <leader>a :Align 
 
 " ALEFix  use ALE Fixers
-noremap <leader>l :ALEFix<CR> :w<CR>
+nmap <leader>l :ALEFix<CR> :w<CR>
 
 "nmap <leader>f :CtrlP<CR>
 nmap <leader>f :CtrlPMixed<CR>
@@ -218,11 +214,11 @@ au BufNewFile,BufRead,BufEnter *.py nmap <Leader>rb zyiw:call Refactor()<cr>mx:s
 " Execution commands
 " ====================
                                                                      
-au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>e :.!coffee <CR> " Execute coffee on the current line
+" au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>e :.!coffee <CR> " Execute coffee on the current line
 au BufNewFile,BufRead,BufEnter *.py     nmap <leader>e :.!python <CR> " Execute python on the current line
 au BufNewFile,BufRead,BufEnter *.js     nmap <leader>e :.!node <CR>   " Execute node on the current line
 au BufNewFile,BufRead,BufEnter *.sh     nmap <leader>e :.!bash <CR>   " Execute bash on the current line
-au BufNewFile,BufRead,BufEnter *.pl     nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line 
+" au BufNewFile,BufRead,BufEnter *.pl     nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
 
 " set rtp+=<your_path_here>/typescript-tools.vim/
 
@@ -313,7 +309,7 @@ nnoremap <silent> <leader>Q :q<CR>
 " ==========================
 
 nnoremap <leader>w :w<CR>
-nnoremap <leader>W :w<CR>
+nnoremap <leader>W :w!<CR>
 
 " =======================
 " Split the same window
@@ -418,10 +414,10 @@ set showmode                           " Show the current mode
 " Folding settings
 " =================
 "set nofoldenable      " dont fold by default
-"set foldmethod=indent " fold based on indent
 
 set showfulltag       " When completing by tag, show the whole tag, not just the function name
-set foldmethod=manual " fold based on indent
+set foldmethod=indent " fold based on indent
+" set foldmethod=manual " fold based on indent
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
 " set textwidth=80      " Set text width to 120 chars
@@ -436,6 +432,7 @@ set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 au BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.less setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.scss setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.js setl foldmethod=indent nofoldenable
 
 " ====================================
 " Ignore these files when completing
@@ -671,6 +668,7 @@ Plug 'othree/yajs.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'folke/which-key.nvim'
 Plug 'frazrepo/vim-rainbow'
+Plug 'nathanaelkane/vim-indent-guides'
 
 let g:rainbow_active = 1
 
