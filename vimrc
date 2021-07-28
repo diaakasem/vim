@@ -64,7 +64,7 @@ let g:NERDCommentEmptyLines = 0
 "  press combination CtrlV followed by Enter. This will insert Enter code represented by ^M sign
 " ==========================
 " Fixes HTML attributes format
-let @-='O" =x80p'
+let @=='O" =x80p'
 let @f='ggO// @flowxx'
 let @d=':JsDoc'
 let @i='0ceimport/=cf(from /)x0j'
