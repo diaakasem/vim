@@ -266,9 +266,10 @@ nnoremap <C-y> 4<C-y>
 " ================
 nnoremap <silent> <F6> :NumbersToggle<CR>
 nnoremap <silent> <F7> :NumbersOnOff<CR>
-nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
-au! BufRead,BufEnter *.js nmap <leader>T :TagbarToggle<CR>
+au! BufRead,BufEnter *.js nmap <F8>T :TagbarToggle<CR>
+" Build arduino code
+" nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 
 nnoremap <F9> :set invpaste paste?<CR>
 imap <F9> <C-O>:set invpaste paste?<CR>
