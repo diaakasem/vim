@@ -264,15 +264,15 @@ nnoremap <C-y> 4<C-y>
 " ================
 " numbers config
 " ================
-nnoremap <silent> <F3> :NumbersToggle<CR>
-nnoremap <silent> <F4> :NumbersOnOff<CR>
-nnoremap <silent> <F7> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
+nnoremap <silent> <F6> :NumbersToggle<CR>
+nnoremap <silent> <F7> :NumbersOnOff<CR>
+nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
 au! BufRead,BufEnter *.js nmap <leader>T :TagbarToggle<CR>
 
-nnoremap <F6> :set invpaste paste?<CR>
-imap <F6> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F6>
+nnoremap <F9> :set invpaste paste?<CR>
+imap <F9> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F9>
 
 
 " ======================================
