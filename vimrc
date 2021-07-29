@@ -7,8 +7,8 @@
 let mapleader=","             " change the leader to be a comma vs slash
 let NERDTreeShowBookmarks=1   " By default show bookmarks
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
+" let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_enable_smart_case = 1
 " let g:jsx_ext_required = 0
 " let g:jsx_pragma_required = 0
 
