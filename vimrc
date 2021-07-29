@@ -59,7 +59,7 @@ let g:NERDCommentEmptyLines = 0
 "  press combination CtrlV followed by Enter. This will insert Enter code represented by ^M sign
 " ==========================
 " Line of equals
-let @-='O=x80p'
+let @-='O=x77p'
 " JS add // @flow at the start of js file
 let @f='ggO// @flowxx'
 " JS oadd js function documentation template
@@ -96,9 +96,9 @@ augroup suffixes
 augroup END
 
 
-" ==========================
-" Refactor a variable name
-" ==========================
+" =============================================================================
+" Refactor a variable name in python
+" =============================================================================
 function! Refactor()
   call inputsave()
   let @z=input("What do you want to rename '" . @z . "' to? ")
