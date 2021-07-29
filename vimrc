@@ -225,7 +225,6 @@ autocmd FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
-
 " noremap <leader>= :Autoformat<CR>
 
 " ==============
@@ -363,7 +362,6 @@ set printoptions=header:0,duplex:long,paper:letter
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 
-
 " ======================
 " Set the status line
 " ======================
@@ -375,8 +373,7 @@ set showmode                           " Show the current mode
 " =================
 " Folding settings
 " =================
-"set nofoldenable      " dont fold by default
-
+set nofoldenable      " dont fold by default
 set showfulltag       " When completing by tag, show the whole tag, not just the function name
 set foldmethod=indent " fold based on indent
 " set foldmethod=manual " fold based on indent
@@ -530,6 +527,8 @@ let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 " ====================================
 set guioptions+=a
 
+set clipboard=unnamed
+
 " ==========
 " UTF 8
 " ==========
@@ -554,12 +553,6 @@ filetype off                   " required!
 
 autocmd! BufWritePost ~/.vimrc nested :source ~/.vimrc
 let g:miniBufExplForceSyntaxEnable = 1
-
-"set guifont=Inconsolata\ for\ Powerline:h15
-"let g:Powerline_symbols = 'fancy'
-" set fillchars+=stl:\ ,stlnc:\
-
-set clipboard=unnamed
 
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
