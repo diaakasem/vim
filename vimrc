@@ -106,9 +106,13 @@ function! Refactor()
 endfunction
 
 
+" =============================================================================
 " Making command R that opens a new window with the output of the following command
+" =============================================================================
 command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | silent r !<args>
+
 inoremap jj <esc>                      " Make jj in insert mode to go to ESC
+
 "
 " Sample command W - save as root
 "
@@ -148,7 +152,7 @@ nmap <leader>f :CtrlPMixed<CR>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
 
-" nmap <leader>g :ALEGoToDefinition<CR>
+nmap <leader>g :ALEGoToDefinition<CR>
 
 
 " ====================
