@@ -266,40 +266,30 @@ nnoremap <C-y> 4<C-y>
 " ================
 nnoremap <silent> <F6> :NumbersToggle<CR>
 nnoremap <silent> <F7> :NumbersOnOff<CR>
-au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
-au! BufRead,BufEnter *.js nmap <F8>T :TagbarToggle<CR>
+nnoremap <F8> :set invpaste paste?<CR>
+imap <F8> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F8>
+
+" au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
+" au! BufRead,BufEnter *.js nmap <F8>T :TagbarToggle<CR>
+
 " Build arduino code
 " nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
-
-nnoremap <F9> :set invpaste paste?<CR>
-imap <F9> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F9>
-
-
-" ======================================
-" Make shift-insert work like in Xterm
-" ======================================
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
 
 " =========================
 " Turning off highlighing
 " =========================
 nmap <silent> <leader>b :silent :nohlsearch<CR>
-" nnoremap ' `
-" nnoremap ` '
 
 " ==========================
 " Quit window on <leader>q
 " ==========================
-
 nnoremap <silent> <leader>q :q<CR>
 nnoremap <silent> <leader>Q :q<CR>
 
 " ==========================
 " Save window on <leader>w
 " ==========================
-
 nnoremap <leader>w :w<CR>
 nnoremap <leader>W :w!<CR>
 
