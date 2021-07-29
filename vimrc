@@ -296,8 +296,7 @@ nnoremap <leader>W :w!<CR>
 " =======================
 " Split the same window
 " =======================
-
-nmap <silent> <leader>H :sp<CR>
+nmap <silent> <leader>h :sp<CR>
 nmap <silent> <leader>s :vsp<CR>
 nmap <silent> <leader>sb :windo set scrollbind! <CR>
 
