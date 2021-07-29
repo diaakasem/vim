@@ -375,7 +375,7 @@ set showmode                           " Show the current mode
 " =================
 set nofoldenable      " dont fold by default
 set showfulltag       " When completing by tag, show the whole tag, not just the function name
-set foldmethod=indent " fold based on indent
+set foldmethod=syntax " fold based on indent
 " set foldmethod=manual " fold based on indent
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
