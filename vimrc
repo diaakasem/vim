@@ -340,8 +340,8 @@ set nrformats=            " Set number formats to only decimal
 set numberwidth=1         " using only 1 column (and 1 space) while possible
 set background=dark       " We are using dark background in vim
 set title                 " show title in console title bar
-set wildmenu              " Menu completion in command mode on <Tab>
-set wildmode=full         " <Tab> cycles between all matching choices.
+" set wildmenu              " Menu completion in command mode on <Tab>
+" set wildmode=full         " <Tab> cycles between all matching choices.
 set history=1000          " Set the commands history to 1000
 set hidden                " Better handling for the buffers
 set mouse=a               " Enable mouse interactions
