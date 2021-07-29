@@ -152,7 +152,9 @@ nmap <leader>f :CtrlPMixed<CR>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
 
-nmap <leader>g :ALEGoToDefinition<CR>
+" TODO: Check why this does not work.. it should use ACK to search and find
+" definition
+" nmap <leader>g :ALEGoToDefinition<CR>
 
 
 " ====================
@@ -160,7 +162,8 @@ nmap <leader>g :ALEGoToDefinition<CR>
 " ====================
 
 nmap <leader>gL :Glog<CR>
-nmap <leader>gA :!git add . --all<CR>
+" Dangerous
+" nmap <leader>gA :!git add . --all<CR>
 nmap <leader>ga :!git add %<CR>
 nmap <leader>gb :Gblame<CR>
 nmap <leader>ge :Gedit<CR>
@@ -178,29 +181,13 @@ nmap <leader>gs :Gstatus<CR>
 
 au BufNewFile,BufRead,BufEnter *.less,*.LESS     nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                  " Execute lessc on the current file
 au BufNewFile,BufRead,BufEnter *.css,*.CSS       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>                                  " Execute lessc on the current file
-"au BufNewFile,BufRead,BufEnter *.jade,*.JADE     nmap <leader>c :w<CR> :silent !jade -P % > %:r.html <CR>                                  " Execute jade on the current file
-"au BufNewFile,BufRead,BufEnter *.html,*.HTML     nmap <leader>c :w<CR> :silent !html2jade % > %:r.jade <CR>                             " Convert the html to jade
-"au BufNewFile,BufRead,BufEnter *.js,*.JS         nmap <leader>c :w<CR> :silent !js2coffee % > %:r.coffee <CR>                           " converts js to coffeescript
-"au BufNewFile,BufRead,BufEnter *.coffee,*.COFFEE nmap <leader>C :w<CR> :silent !coffee -b -cm % & <CR>                                  " Execute coffe on the current file
-"au BufNewFile,BufRead,BufEnter *.coffee,*.COFFEE nmap <leader>c :w<CR> :silent !coffee -cm % & <CR>                                     " Execute coffe on the current file
 
 " ==================
 " linting commands
 " ==================
 
-"au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :JSHint<CR>                                                               " Execute jshint on the current js file
-"au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :R npm run lint <C-R>%<CR>                                                               " Execute jshint on the current js file
-" au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>l :w<CR> :SyntasticReset<CR> :SyntasticCheck<CR>                                    " Execute Syntastic check for pytho on the current bash file
-au BufNewFile,BufRead,BufEnter *.js,*.JS          nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                                               " Execute jshint on the current js file
-" au BufNewFile,BufRead,BufEnter *.ts,*.TS,*.Ts     nmap <leader>l :w<CR> :R tslint <C-R>%<CR>                                                      " Execute jshint on the current js file
-" au BufNewFile,BufRead,BufEnter *.coffee,*.COFFEE  nmap <leader>l :w<CR> :R coffeelint -f ~/zshconfigs/coffeelint_config.json --nocolor <C-R>%<CR> " Execute coffelint on the current coffe file
-" au BufNewFile,BufRead,BufEnter *.json,*.JSON      nmap <leader>l :w<CR> :R jsonlint <C-R>%<CR>                                                    " Execute jsonlint on the current json file
-" au BufNewFile,BufRead,BufEnter *.less,*.LESS      nmap <leader>l :w<CR> :R lesslint <C-R>%<CR>                                                    " Execute lesslint on the current lesscss file
-" au BufNewFile,BufRead,BufEnter *.py,*.PY          nmap <leader>l :w<CR> :SyntasticReset<CR> :SyntasticCheck<CR>                                    " Execute Syntastic check for pytho on the current python file
-" au BufNewFile,BufRead,BufEnter *.sh,*.SH          nmap <leader>l :w<CR> :SyntasticReset<CR> :SyntasticCheck<CR>                                    " Execute Syntastic check for pytho on the current bash file
-" au BufNewFile,BufRead,BufEnter *.yml,*.YML        nmap <leader>l :w<CR> :R yaml-lint <C-R>%<CR>                                                   " Execute Yaml lint check for yaml on the current file
-
-au BufNewFile,BufRead,BufEnter *.js nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+au BufNewFile,BufRead,BufEnter *.js,*.JS         nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                                               " Execute jshint on the current js file
+au BufNewFile,BufRead,BufEnter *.js              nmap <leader>= :w<CR>:!fixjsstyle %<CR>
 
 " ====================
 " Debuggers commands
