@@ -252,7 +252,7 @@ map <silent> <leader>x <C-W>
 " Have Enter to go to command line
 " ==================================
 " Affects all plugins
-"noremap <CR> :
+noremap ; :
 
 " ================
 " Scroll faster
