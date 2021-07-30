@@ -419,7 +419,6 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
-let g:ale_rust_cargo_use_check = 0
 " let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_delay = 2000
 let g:ale_lint_on_text_changed = 0
@@ -427,10 +426,6 @@ let g:ale_lint_on_text_changed = 0
 " FIXME conflict with window resize
 " nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" RUST
-" let g:rust_clip_command = 'pbcopy'
-" let g:rustfmt_autosave = 1
 
 " TODO try making this dynamic
 " use npm bin to get the path
