@@ -166,51 +166,50 @@ cmap w!! w !sudo tee % >/dev/null
 " Global Key Mappings / Assignments 
 " ====================================================
 inoremap jj <esc>                      " Make jj in insert mode to go to ESC
-nnoremap ; :       " Have Enter to go to command line
-nnoremap <C-h> <C-W><  " Increase window left
-nnoremap <C-l> <C-W>>  " Increase window right
-nnoremap <C-k> <C-W>-  " Move window up
-nnoremap <C-j> <C-W>+  " Move window down
+noremap ; :       " Have Enter to go to command line
+noremap <C-h> <C-W><  " Increase window left
+noremap <C-l> <C-W>>  " Increase window right
+noremap <C-k> <C-W>-  " Move window up
+noremap <C-j> <C-W>+  " Move window down
 " Bubble single & multiple lines
-nnoremap <S-Up> ddkP
-nnoremap <S-Down> ddp
+noremap <S-Up> ddkP
+noremap <S-Down> ddp
 vnoremap <S-Up> xkP`[V`]
 vnoremap <S-Down> xp`[V`]
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-nnoremap <C-e> 4<C-e>                 " Scroll faster Down
-nnoremap <C-y> 4<C-y>                 " Scroll faster Up
+noremap <C-e> 4<C-e>                 " Scroll faster Down
+noremap <C-y> 4<C-y>                 " Scroll faster Up
 
 " ====================================================
 " Global Leader Mapping / Assignments 
 " Window global Leader Mappings
 " ====================================================
-nnoremap <silent> <leader>w :w<CR>         " Save window on <leader>w
-nnoremap <silent> <leader>W :w!<CR>
-nnoremap <silent> <leader>q :q<CR>         " Quit window on <leader>q
-nnoremap <silent> <leader>Q :q<CR>
+noremap <silent> <leader>w :w<CR>         " Save window on <leader>w
+noremap <silent> <leader>W :w!<CR>
+noremap <silent> <leader>q :q<CR>         " Quit window on <leader>q
+noremap <silent> <leader>Q :q<CR>
 
-nnoremap <leader>N :NERDTreeFind<CR>       " Open NerdTree
-nnoremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
-nnoremap <leader>f :CtrlPMixed<CR>
-nnoremap <leader>h :sp<CR>                 " Split the same window
-nnoremap <leader>m :CtrlPMRU<CR>           " Opem Most Recently Used :MRU  - Dont add comments afterwards
-nnoremap <leader>n :NERDTreeToggle<CR>     " Toggle NerdTree
-nnoremap <leader>o :CtrlPBuffer<CR>        " Toggle the BufExplorer
-nnoremap <leader>p <C-R><C-P>.             " Paste from clipboard
-nnoremap <leader>re :e <CR>                " Reload buffer
-nnoremap <leader>s :vsp<CR>
-nnoremap <leader>sb :window set scrollbind! <CR>
-nnoremap <leader>t :tabnew<CR>             " Opens a new empty tab
-noremap <silent> <leader>x <C-W>                   " Window shortcut
+noremap <leader>N :NERDTreeFind<CR>       " Open NerdTree
+noremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
+noremap <leader>f :CtrlPMixed<CR>
+noremap <leader>h :sp<CR>                 " Split the same window
+noremap <leader>m :CtrlPMRU<CR>           " Opem Most Recently Used :MRU  - Dont add comments afterwards
+noremap <leader>n :NERDTreeToggle<CR>     " Toggle NerdTree
+noremap <leader>o :CtrlPBuffer<CR>        " Toggle the BufExplorer
+noremap <leader>p <C-R><C-P>.             " Paste from clipboard
+noremap <leader>re :e <CR>                " Reload buffer
+noremap <leader>s :vsp<CR>
+noremap <leader>sb :window set scrollbind! <CR>
+noremap <leader>t :tabnew<CR>             " Opens a new empty tab
 
 " ================
 " Numbers config
 " ================
-nnoremap <F6> :NumbersToggle<CR>
-nnoremap <F7> :NumbersOnOff<CR>
-nnoremap <F8> :set invpaste paste?<CR>  " Toggle paste 
+noremap <F6> :NumbersToggle<CR>
+noremap <F7> :NumbersOnOff<CR>
+noremap <F8> :set invpaste paste?<CR>  " Toggle paste 
 " imap <F8> <C-O>:set invpaste paste?<CR>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -218,17 +217,17 @@ nnoremap <F8> :set invpaste paste?<CR>  " Toggle paste
 " ====================
 " Git Commands
 " ====================
-nnoremap <leader>gL :Glog<CR>
-nnoremap <leader>ga :!git add %<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gg :Ggrep<CR>
-nnoremap <leader>gl :Glog --follow %<CR>
-nnoremap <leader>gP :Gpull<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gs :Gstatus<CR>
+noremap <leader>gL :Glog<CR>
+noremap <leader>ga :!git add %<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>ge :Gedit<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gd :Gdiff<CR>
+noremap <leader>gg :Ggrep<CR>
+noremap <leader>gl :Glog --follow %<CR>
+noremap <leader>gP :Gpull<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gs :Gstatus<CR>
 " Dangerous
 " nmap <leader>gA :!git add . --all<CR>
 
@@ -290,7 +289,7 @@ au FileType shell nmap <leader>e :.!bash <CR>
 " for html
 au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
 au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
-" nnoremap <leader>= :Autoformat<CR>
+" noremap <leader>= :Autoformat<CR>
 
 " ==============
 " VIMRC Leader mappings
@@ -299,7 +298,7 @@ au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype 
 au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
-" nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
+" noremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 " =============================================================================
 " My Bundles here: using vim-plug
 " =============================================================================
