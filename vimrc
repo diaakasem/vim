@@ -452,14 +452,15 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " ==============
 " Editor config
 " ==============
-" let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_exec_path = system('which editorconfig')
+
 " ====================================
 " Yank into the system's clipboard
 " ====================================
-set guioptions+=a
-
 set clipboard=unnamed
+set guioptions+=a
 
 " ==========
 " Encoding UTF-8
