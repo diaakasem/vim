@@ -72,6 +72,8 @@ set cindent
 set clipboard+=unnamed
 set colorcolumn=80
 set completeopt=menuone,longest
+
+
 " Y-N-C prompt if closing with unsaved changes.
 set confirm
 " have a line indicate the cursor location
@@ -229,6 +231,9 @@ cmap w!! w !sudo tee % >/dev/null
 " ====================================================
 " Global Key Mappings / Assignments 
 " ====================================================
+" change the behavior of the <Enter> key when the popup menu is visible.
+" to select the highlighted menu item
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Make jj in insert mode to go to ESC
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
