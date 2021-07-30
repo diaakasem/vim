@@ -249,14 +249,14 @@ au FileType javascript nmap <leader>e :.!node <CR>                      " Execut
 au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
 au FileType javascript nmap <buffer> <leader>; :call JsBeautify()<cr>  " Beautify
 au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
+" TODO: Check why this does not work.. it should use `ga` to search and find definition
+" au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
+" au FileType javascript nmap <F8>T :TagbarToggle<CR>
 
 " ==================
 " JSON leader mappings
 " ==================
 au FileType json nmap <leader>F :% !cat % \| jq '.'<CR> " Formats a .json file
-" TODO: Check why this does not work.. it should use `ga` to search and find definition
-" au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
-" au FileType javascript nmap <F8>T :TagbarToggle<CR>
 
 " ==================
 " Python leader mappings
