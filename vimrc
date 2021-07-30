@@ -170,8 +170,10 @@ noremap <leader>gs :Gstatus<CR>
 " ====================
 " Compiling commands
 " ====================
-au FileType less      nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         " Execute lessc on the current file
-au FileType css       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        " Execute lessc on the current file
+" Execute lessc on the current file
+" au FileType less      nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         
+" convert css to less
+" au FileType css       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        
 " Beautify for css or scss
 au FileType css       nmap <buffer> <leader>; :call CSSBeautify()<cr>
 au FileType css       vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
@@ -290,11 +292,9 @@ set fillchars=""
 set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 
-" au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
-" au BufNewFile,BufReadPost *.less setl foldmethod=indent nofoldenable
-" au BufNewFile,BufReadPost *.scss setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.js setl foldmethod=syntax nofoldenable
+" au FileType html setl foldmethod=indent nofoldenable
+" au FileType css setl foldmethod=indent nofoldenable
+au FileType javascript setl foldmethod=syntax nofoldenable
 
 " ====================================
 " Ignore these files when completing
@@ -357,11 +357,6 @@ set smarttab                           " Handle tabs more intelligently
 set hlsearch                           " Highlight searches by default.
 set incsearch                          " Incrementally search while typing a /regex
 
-" use .editorconfig for that - do not set the edits to be hard coded
-" au! FileType arduino setlocal shiftwidth=2 tabstop=2 softtabstop=2
-" au! FileType css,javascript,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
-" au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
 " ============================================================
 " Auto change directory to where the opened file is opened
 " ============================================================
@@ -372,13 +367,13 @@ autocmd BufEnter * silent! lcd %:p:h
 " ==========================
 " Python Related Actions
 " ==========================
-" au! FileType python nmap <F8> :TagbarToggle<CR>
 au! FileType python                     set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
+au! FileType python                     setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" au! FileType python                   nmap <F8> :TagbarToggle<CR>
 " au! FileType python set omnifunc=pythoncomplete#Complete
 " au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au! FileType python                     setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 " au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 " ================================================
 " Add xptemplate global personal directory value
