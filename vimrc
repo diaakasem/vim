@@ -652,7 +652,8 @@ let g:NERDCommentEmptyLines = 0
 " ==========================
 " Macros
 "
-" Tip: press combination CtrlV followed by key ex.Enter. This will insert Enter code represented by ^M sign
+" Tip: press combination CtrlV followed by key ex.Enter.
+" This will insert Enter code represented by ^M sign
 " ==========================
 " Line of equals
 let @-='O=x77p'
