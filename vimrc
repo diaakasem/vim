@@ -462,21 +462,15 @@ set guioptions+=a
 set clipboard=unnamed
 
 " ==========
-" UTF 8
+" Encoding UTF-8
 " ==========
 set encoding=utf-8
 set termencoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
-let g:main_font = "Monofur\\ for\\ Powerline:h13"
-let g:small_font = "Monofur\\ for\\ Powerline:h13"
-
 let g:miniBufExplForceSyntaxEnable = 1
 
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-let g:indent_guides_auto_colors = 0
 let g:ctrlp_working_path_mode = 'ra'
 
 " =============================================================================
@@ -540,6 +534,13 @@ endif
 call plug#end()
 
 " =============================================================================
+" IndentGuides Configurations 
+" =============================================================================
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+let g:indent_guides_auto_colors = 0
+
+" =============================================================================
 " Ultisnips configurations
 " =============================================================================
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
@@ -555,16 +556,17 @@ let g:UltiSnipsEditSplit="vertical"
 let g:rainbow_active = 1
 let g:deoplete#enable_at_startup = 1
 
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " =============================================================================
 " Theme
 " =============================================================================
 syntax enable
 colorscheme tender
+let g:main_font = "Monofur\\ for\\ Powerline:h13"
+let g:small_font = "Monofur\\ for\\ Powerline:h13"
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " =============================================================================
 " highlight the 80th column
