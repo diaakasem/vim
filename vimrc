@@ -4,7 +4,8 @@
 " VIM Configuration File
 "=======================================================================
 
-let mapleader=","             " change the leader to be a comma vs slash
+" change the leader to be a comma vs slash
+let mapleader=","
 
 " Enable man pages
 runtime ftplugin/man.vim
@@ -50,74 +51,133 @@ augroup END
 " ===============
 " Basic Settings
 " ===============
-syntax on                                                  " syntax highlighing
+" syntax highlighing
+syntax on
 syntax enable
 filetype plugin on
-filetype plugin indent on                                  " enable loading indent file for filetype
-set autoindent                                             " always set autoindenting on
-set background=dark                                        " We are using dark background in vim
-set backspace=2                                            " Allow backspacing over autoindent, EOL, and BOL
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp                      " Change backupdir ,/var/tmp,/tmp
-set ch=1                                                   " Make command line two lines high
+" enable loading indent file for filetype
+filetype plugin indent on
+" always set autoindenting on
+set autoindent
+" We are using dark background in vim
+set background=dark
+" Allow backspacing over autoindent, EOL, and BOL
+set backspace=2
+" Change backupdir ,/var/tmp,/tmp
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp
+" Make command line two lines high
+set ch=1
 set cindent
-set clipboard+=unnamed                                     " Add the unnamed register to the clipboard
+" Add the unnamed register to the clipboard
+set clipboard+=unnamed
 set colorcolumn=80
 set completeopt=menuone,longest
-set confirm                                                " Y-N-C prompt if closing with unsaved changes.
-set cursorline                                             " have a line indicate the cursor location
-set diffopt+=iwhite                                        " Add ignorance of whitespace to diff
-set directory=~/.vim/tmp,~/.tmp,~/tmp                      " ,/var/tmp,/tmp
-set expandtab                                              " Use spaces, not tabs, for autoindent/tab key.
-set ffs=unix,dos,mac                                       " Try recognizing dos, unix, and mac line endings.
+" Y-N-C prompt if closing with unsaved changes.
+set confirm
+" have a line indicate the cursor location
+set cursorline
+" Add ignorance of whitespace to diff
+set diffopt+=iwhite
+" ,/var/tmp,/tmp
+set directory=~/.vim/tmp,~/.tmp,~/tmp
+" Use spaces, not tabs, for autoindent/tab key.
+set expandtab
+" Try recognizing dos, unix, and mac line endings.
+set ffs=unix,dos,mac
 set fillchars +=stl:\ ,stlnc:\
-set fillchars=""                                           " get rid of the silly characters in separators
-set foldlevel=1                                            " this is just what i use
-set foldmethod=indent                                      " fold based on syntax ( indent, syntax, manual )
-set foldnestmax=99                                         " deepest fold is 10 levels
+" get rid of the silly characters in separators
+set fillchars=""
+" this is just what i use
+set foldlevel=1
+" fold based on syntax ( indent, syntax, manual )
+set foldmethod=indent
+" deepest fold is 10 levels
+set foldnestmax=99
 set guioptions+=a
-set hidden                                                 " Better handling for the buffers
-set history=1000                                           " Set the commands history to 1000
-set hlsearch                                               " Highlight searches by default.
-set ignorecase                                             " Default to using case insensitive searches,
-set incsearch                                              " Incrementally search while typing a /regex
-set isfname-=:                                             " Set the filename:linenumber delimiter to be colon
-set laststatus=2                                           " Always show statusline, even if only 1 window.
-set modeline                                               " Allow vim options to be embedded in files
-set modelines=3                                            " they must be within the first or last 5 lines.
-set mouse=a                                                " Enable mouse interactions
-set noautoread                                             " Don't automatically re-read changed files. ( use <leader>re to reload )
-set noautowrite                                            " Never write a file unless I request it.
-set noautowriteall                                         " NEVER.
-set nocompatible                                           " vim>vi
+" Better handling for the buffers
+set hidden
+" Set the commands history to 1000
+set history=1000
+" Highlight searches by default.
+set hlsearch
+" Default to using case insensitive searches,
+set ignorecase
+" Incrementally search while typing a /regex
+set incsearch
+" Set the filename:linenumber delimiter to be colon
+set isfname-=:
+" Always show statusline, even if only 1 window.
+set laststatus=2
+" Allow vim options to be embedded in files
+set modeline
+" they must be within the first or last 5 lines.
+set modelines=3
+" Enable mouse interactions
+set mouse=a
+" Don't automatically re-read changed files. ( use <leader>re to reload )
+set noautoread
+" Never write a file unless I request it.
+set noautowrite
+" NEVER.
+set noautowriteall
+" vim>vi
+set nocompatible
 set noerrorbells visualbell t_vb=
-set nofoldenable                                           " dont fold by default
-set nostartofline                                          " Avoid moving cursor to BOL when jumping around
-set nowrap                                                 " don't wrap text
-set nrformats=                                             " Set number formats to only decimal
-set number                                                 " Display line numbers
-set numberwidth=1                                          " using only 1 column (and 1 space) while possible
+" dont fold by default
+set nofoldenable
+" Avoid moving cursor to BOL when jumping around
+set nostartofline
+" don't wrap text
+set nowrap
+" Set number formats to only decimal
+set nrformats=
+" Display line numbers
+set number
+" using only 1 column (and 1 space) while possible
+set numberwidth=1
 set ofu=syntaxcomplete#Complete
-set printoptions=header:0,duplex:long,paper:letter         " Printing options
-set pumheight=10                                           " Keep a small completion window
-set report=0                                               " : commands always print changed line count.
-set scrolloff=8                                            " Keep 8 context lines above and below the cursor
-set shiftround                                             " rounds indent to a multiple of shiftwidth
-set shiftwidth=4                                           " but an indent level is 4 spaces wide.
-set shortmess+=a                                           " Use [+]/[RO]/[w] for modified/readonly/written.
-set showcmd                                                " Show incomplete normal mode commands as I type.
-set showfulltag                                            " When completing by tag, show the whole tag, not just the function name
-set showmatch                                              " Briefly jump to a paren once it's balanced
-set showmode                                               " Show the current mode
-set smartcase                                              " unless uppercase letters are used in the regex.
-set smartindent                                            " use smart indent if there is no indent file
-set smarttab                                               " Handle tabs more intelligently
-set softtabstop=4                                          " <BS> over an autoindent deletes both spaces.
-set tabstop=4                                              " <tab> inserts 4 spaces
-set title                                                  " show title in console title bar
-set vb t_vb=                                               " Disable all bells.  I hate ringing/flashing.
-set virtualedit=block                                      " Let cursor move past the last char in <C-v> mode
-set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/** " Ignore these files when completing
-set wrapscan                                               " set the search scan to wrap lines
+" Printing options
+set printoptions=header:0,duplex:long,paper:letter
+" Keep a small completion window
+set pumheight=10
+" : commands always print changed line count.
+set report=0
+" Keep 8 context lines above and below the cursor
+set scrolloff=8
+" rounds indent to a multiple of shiftwidth
+set shiftround
+" but an indent level is 4 spaces wide.
+set shiftwidth=4
+" Use [+]/[RO]/[w] for modified/readonly/written.
+set shortmess+=a
+" Show incomplete normal mode commands as I type.
+set showcmd
+" When completing by tag, show the whole tag, not just the function name
+set showfulltag
+" Briefly jump to a paren once it's balanced
+set showmatch
+" Show the current mode
+set showmode
+" unless uppercase letters are used in the regex.
+set smartcase
+" use smart indent if there is no indent file
+set smartindent
+" Handle tabs more intelligently
+set smarttab
+" <BS> over an autoindent deletes both spaces.
+set softtabstop=4
+" <tab> inserts 4 spaces
+set tabstop=4
+" show title in console title bar
+set title
+" Disable all bells.  I hate ringing/flashing.
+set vb t_vb=
+" Let cursor move past the last char in <C-v> mode
+set virtualedit=block
+" Ignore these files when completing
+set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**
+" set the search scan to wrap lines
+set wrapscan
 set pastetoggle=<F8>
 au FileType javascript setl foldmethod=syntax nofoldenable
 " editorconfig
@@ -134,10 +194,14 @@ setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
 let g:miniBufExplForceSyntaxEnable = 1
-" set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
-" set textwidth=80    " Set text width to 120 chars
-" set wildmenu              " Menu completion in command mode on <Tab>
-" set wildmode=full         " <Tab> cycles between all matching choices.
+" Same as default except that I remove the 'u' option
+" set complete=.,w,b,t
+" Set text width to 120 chars
+" set textwidth=80
+" Menu completion in command mode on <Tab>
+" set wildmenu
+" <Tab> cycles between all matching choices.
+" set wildmode=full
 " Set the status line
 " set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
 " set statusline^=%{fnamemodify(expand('%'),':.')}
@@ -194,30 +258,42 @@ noremap <C-y> 4<C-y>
 " Global Leader Mapping / Assignments 
 " Window global Leader Mappings
 " ====================================================
-noremap <silent> <leader>w :w<CR>         " Save window on <leader>w
+" Save window on <leader>w
+noremap <silent> <leader>w :w<CR>
 noremap <silent> <leader>W :w!<CR>
-noremap <silent> <leader>q :q<CR>         " Quit window on <leader>q
+" Quit window on <leader>q
+noremap <silent> <leader>q :q<CR>
 noremap <silent> <leader>Q :q<CR>
 
-noremap <leader>N :NERDTreeFind<CR>       " Open NerdTree
-noremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
+" Open NerdTree
+noremap <leader>N :NERDTreeFind<CR>
+" Turning off highlighing
+noremap <leader>b :silent :nohlsearch<CR>
 noremap <leader>f :CtrlPMixed<CR>
-noremap <leader>h :sp<CR>                 " Split the same window
-noremap <leader>m :CtrlPMRU<CR>           " Opem Most Recently Used :MRU  - Dont add comments afterwards
-noremap <leader>n :NERDTreeToggle<CR>     " Toggle NerdTree
-noremap <leader>o :CtrlPBuffer<CR>        " Toggle the BufExplorer
-noremap <leader>p <C-R><C-P>.             " Paste from clipboard
-noremap <leader>re :e <CR>                " Reload buffer
+" Split the same window
+noremap <leader>h :sp<CR>
+" Opem Most Recently Used :MRU  - Dont add comments afterwards
+noremap <leader>m :CtrlPMRU<CR>
+" Toggle NerdTree
+noremap <leader>n :NERDTreeToggle<CR>
+" Toggle the BufExplorer
+noremap <leader>o :CtrlPBuffer<CR>
+" Paste from clipboard
+noremap <leader>p <C-R><C-P>.
+" Reload buffer
+noremap <leader>re :e <CR>
 noremap <leader>s :vsp<CR>
 noremap <leader>sb :window set scrollbind! <CR>
-noremap <leader>t :tabnew<CR>             " Opens a new empty tab
+" Opens a new empty tab
+noremap <leader>t :tabnew<CR>
 
 " ================
 " Numbers config
 " ================
 noremap <F6> :NumbersToggle<CR>
 noremap <F7> :NumbersOnOff<CR>
-noremap <F8> :set invpaste paste?<CR>  " Toggle paste 
+" Toggle paste 
+noremap <F8> :set invpaste paste?<CR>
 " imap <F8> <C-O>:set invpaste paste?<CR>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -249,12 +325,17 @@ au FileType css vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 " ==================
 " Javascript leader mappings
 " ==================
-au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>                " ALEFix  use ALE Fixers
-au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR> " Execute eslint on the current js file
-au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>          " Add debugger; keyword
-au FileType javascript nmap <leader>e :.!node <CR>                      " Execute node on the current line
+" ALEFix  use ALE Fixers
+au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>
+" Execute eslint on the current js file
+au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>
+" Add debugger; keyword
+au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>
+" Execute node on the current line
+au FileType javascript nmap <leader>e :.!node <CR>
 au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
-au FileType javascript nmap <buffer> <leader>; :call JsBeautify()<cr>  " Beautify
+" Beautify
+au FileType javascript nmap <buffer> <leader>; :call JsBeautify()<cr>
 au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
 " TODO: Check why this does not work.. it should use `ga` to search and find definition
 " au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
@@ -263,16 +344,22 @@ au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
 " ==================
 " JSON leader mappings
 " ==================
-au FileType json nmap <leader>F :% !cat % \| jq '.'<CR> " Formats a .json file
+" Formats a .json file
+au FileType json nmap <leader>F :% !cat % \| jq '.'<CR>
 
 " ==================
 " Python leader mappings
 " ==================
-au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> " Add the python line for debugging
-au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>- " Run nosetest over the current file
-au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x " Rename all occurences after defintion
-au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x " Rename in block
-au FileType python nmap <leader>e :.!python <CR> " Execute python on the current line
+" Add the python line for debugging
+au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR>
+" Run nosetest over the current file
+au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>-
+" Rename all occurences after defintion
+au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x
+" Rename in block
+au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
+" Execute python on the current line
+au FileType python nmap <leader>e :.!python <CR>
 " =============================================================================
 " Python Related Actions
 " =============================================================================
@@ -289,7 +376,8 @@ au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\
 " ====================
 " Execute bash on the current line
 au FileType shell nmap <leader>e :.!bash <CR>  
-" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
+" Execute bash on the current line
+" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>
 
 " ==============
 " HTML Leader Mappings
