@@ -217,6 +217,7 @@ au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<C
 " ===============
 " Basic Settings
 " ===============
+
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
 set autoindent                         " always set autoindenting on
@@ -284,6 +285,7 @@ set virtualedit=block                  " Let cursor move past the last char in <
 set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**  " Ignore these files when completing
 set wrapscan                           " set the search scan to wrap lines
 au FileType javascript setl foldmethod=syntax nofoldenable
+
 " set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
 " set textwidth=80    " Set text width to 120 chars
 " set wildmenu              " Menu completion in command mode on <Tab>
@@ -296,16 +298,16 @@ au FileType javascript setl foldmethod=syntax nofoldenable
 " au FileType html setl foldmethod=indent nofoldenable
 " au FileType css setl foldmethod=indent nofoldenable
 
-" ============================================================
+" =============================================================================
 " Auto change directory to where the opened file is opened
-" ============================================================
+" =============================================================================
 " set autochdir
 " Better than autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
-" ==========================
+" =============================================================================
 " Python Related Actions
-" ==========================
+" =============================================================================
 au! FileType python                     set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
 au! FileType python                     setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
@@ -314,21 +316,22 @@ au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ 
 " au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 " au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
-" ================================================
+" =============================================================================
 " Add xptemplate global personal directory value
-" ================================================
+" =============================================================================
 set runtimepath+=~/.vim/plugged
 set runtimepath+=~/.vim/personal
 
-" ==============
+" =============================================================================
 " editorconfig
-" ==============
+" =============================================================================
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = system('which editorconfig')
 " let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-" ==========
+
+" =============================================================================
 " Encoding UTF-8
-" ==========
+" =============================================================================
 set encoding=utf-8
 set termencoding=utf-8
 setglobal fileencoding=utf-8
@@ -399,7 +402,6 @@ call plug#end()
 
 " =============================================================================
 " Easy align configs
-
 " =============================================================================
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
