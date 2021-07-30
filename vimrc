@@ -118,15 +118,9 @@ set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/** " Ignore these files 
 set wrapscan                                               " set the search scan to wrap lines
 set pastetoggle=<F8>
 au FileType javascript setl foldmethod=syntax nofoldenable
-" =============================================================================
 " editorconfig
-" =============================================================================
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = system('which editorconfig')
-" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-" =============================================================================
-" Add xptemplate global personal directory value
-" =============================================================================
 set runtimepath+=~/.vim/plugged
 set runtimepath+=~/.vim/personal
 " =============================================================================
@@ -156,17 +150,15 @@ let g:miniBufExplForceSyntaxEnable = 1
 " Better than autochdir
 au BufEnter * silent! lcd %:p:h
 
-
 " ====================================================
 " Commands
 " ====================================================
-"
 " Sample command W - save as root
-"
 " command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " command! W w !sudo tee % > /dev/null
 " command! W :execute 'w !sudo tee % > /dev/null' | :edit!
-
+"
+" For when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
 " ====================================================
@@ -199,17 +191,13 @@ noremap <silent> <leader>b :silent :nohlsearch<CR>
 " ====================================================
 " Window global Leader Mappings
 " ====================================================
-" Quit window on <leader>q
-nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>q :q<CR> " Quit window on <leader>q
 nnoremap <silent> <leader>Q :q<CR>
-" Split the same window
-nnoremap <silent> <leader>h :sp<CR>
+nnoremap <silent> <leader>h :sp<CR> " Split the same window
 nnoremap <silent> <leader>s :vsp<CR>
 nnoremap <silent> <leader>sb :window set scrollbind! <CR>
-" Save window on <leader>w
-nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>w :w<CR> " Save window on <leader>w
 nnoremap <silent> <leader>W :w!<CR>
-" For when we forget to use sudo to open/edit a file
 noremap <silent> <leader>x <C-W>      " Window shortcut
 noremap <leader>n :NERDTreeToggle<CR> " Toggle NerdTree
 noremap <leader>N :NERDTreeFind<CR>   " Open NerdTree
