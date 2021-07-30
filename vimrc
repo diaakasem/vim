@@ -73,7 +73,7 @@ au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
 cmap w!! w !sudo tee % >/dev/null
 
 " ====================================================
-" Leader Mapping / Assignments
+" Global Leader Mapping / Assignments 
 " ====================================================
 " For when we forget to use sudo to open/edit a file
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
@@ -86,6 +86,7 @@ nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>p <C-R><C-P>.              " Paste from clipboard
 nmap <leader>t :tabnew<CR>              " Opens a new empty tab
 " nmap <leader>a :Align                   " Align with a letter
+nmap <leader>re :e <CR>                 " Reload buffer
 
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -93,6 +94,7 @@ nmap <leader>t :tabnew<CR>              " Opens a new empty tab
 " TODO: Check why this does not work.. it should use ACK to search and find
 " definition
 " nmap <leader>g :ALEGoToDefinition<CR>
+
 
 " ====================
 " Git Commands
@@ -110,6 +112,7 @@ nmap <leader>gl :Glog --follow %<CR>
 nmap <leader>gP :Gpull<CR>
 nmap <leader>gp :Gpush<CR>
 nmap <leader>gs :Gstatus<CR>
+
 
 " ====================
 " Compiling commands
@@ -171,12 +174,6 @@ au FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " ==============
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-
-" ==============
-" Reload buffer
-" ==============
-
-nmap <leader>re :e <CR>
 
 " ==============
 " Window shortcut
