@@ -47,162 +47,6 @@ augroup suffixes
   endfor
 augroup END
 
-" ====================================================
-" Commands
-" ====================================================
-"
-" Sample command W - save as root
-"
-" command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-" command! W w !sudo tee % > /dev/null
-" command! W :execute 'w !sudo tee % > /dev/null' | :edit!
-
-cmap w!! w !sudo tee % >/dev/null
-
-" ====================================================
-" Global Key Mappings / Assignments 
-" ====================================================
-" Make jj in insert mode to go to ESC
-inoremap jj <esc>                      
-" Have Enter to go to command line
-noremap ; :       
-" Maps to make handling windows a bit easier
-noremap <silent> <C-h> <C-W><
-noremap <silent> <C-k> <C-W>-
-noremap <silent> <C-j> <C-W>+
-noremap <silent> <C-l> <C-W>>
-" Bubble single & multiple lines
-noremap <S-Up> ddkP
-noremap <S-Down> ddp
-vnoremap <S-Up> xkP`[V`]
-vnoremap <S-Down> xp`[V`]
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
-" ====================================================
-" Global Leader Mapping / Assignments 
-" ====================================================
-" Turning off highlighing
-noremap <silent> <leader>b :silent :nohlsearch<CR>
-
-" ====================================================
-" Window global Leader Mappings
-" ====================================================
-" Quit window on <leader>q
-nnoremap <silent> <leader>q :q<CR>
-nnoremap <silent> <leader>Q :q<CR>
-" Split the same window
-nnoremap <silent> <leader>h :sp<CR>
-nnoremap <silent> <leader>s :vsp<CR>
-nnoremap <silent> <leader>sb :window set scrollbind! <CR>
-" Save window on <leader>w
-nnoremap <silent> <leader>w :w<CR>
-nnoremap <silent> <leader>W :w!<CR>
-" For when we forget to use sudo to open/edit a file
-noremap <silent> <leader>x <C-W>           " Window shortcut
-noremap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
-noremap <leader>N :NERDTreeFind<CR>        " Open NerdTree
-noremap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
-noremap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
-noremap <leader>f :CtrlPMixed<CR>
-noremap <leader>p <C-R><C-P>.              " Paste from clipboard
-noremap <leader>t :tabnew<CR>              " Opens a new empty tab
-noremap <leader>re :e <CR>                 " Reload buffer
-nnoremap <C-e> 4<C-e>                      " Scroll faster Down
-nnoremap <C-y> 4<C-y>                      " Scroll faster Up
-" nmap <leader>f :CtrlP<CR>
-" nnoremap <leader>. :CtrlPTag<cr>
-" noremap <leader>a :Align                   " Align with a letter
-
-" ================
-" numbers config
-" ================
-nnoremap <silent> <F6> :NumbersToggle<CR>
-nnoremap <silent> <F7> :NumbersOnOff<CR>
-nnoremap <F8> :set invpaste paste?<CR>
-imap <F8> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F8>
-
-" nmap <leader>G :bprev<CR>
-" nmap <leader>g :bnext<CR>
-
-" ====================
-" Git Commands
-" ====================
-noremap <leader>gL :Glog<CR>
-" Dangerous
-" nmap <leader>gA :!git add . --all<CR>
-noremap <leader>ga :!git add %<CR>
-noremap <leader>gb :Gblame<CR>
-noremap <leader>ge :Gedit<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gd :Gdiff<CR>
-noremap <leader>gg :Ggrep<CR>
-noremap <leader>gl :Glog --follow %<CR>
-noremap <leader>gP :Gpull<CR>
-noremap <leader>gp :Gpush<CR>
-noremap <leader>gs :Gstatus<CR>
-
-" ====================
-" Compiling commands
-" ====================
-" Execute lessc on the current file
-" au FileType less nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         
-" convert css to less
-" au FileType css nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        
-" Beautify for css or scss
-au FileType css nmap <buffer> <leader>; :call CSSBeautify()<cr>
-au FileType css vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
-
-" ==================
-" Javascript leader mappings
-" ==================
-au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>                                                  " ALEFix  use ALE Fixers
-au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                   " Execute eslint on the current js file
-au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
-au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>                                            " Add debugger; keyword
-au FileType javascript nmap <leader>e :.!node <CR>  " Execute node on the current line
-au FileType javascript nmap <buffer>  <leader>; :call JsBeautify()<cr>" Beautify
-au FileType javascript vmap <buffer>  <leader>; :call RangeJsBeautify()<cr>
-au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
-" TODO: Check why this does not work.. it should use ACK to search and find
-" definition
-" nmap <leader>g :ALEGoToDefinition<CR>
-" au! FileType javascript nmap <F8>T :TagbarToggle<CR>
-
-" ==================
-" Python leader mappings
-" ==================
-au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> " Add the python line for debugging
-au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>- " Run nosetest over the current file
-au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x " Rename all occurences after defintion
-au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x " Rename in block
-au FileType python nmap <leader>e :.!python <CR> " Execute python on the current line
-
-" ====================
-" Shell Leader Mappings
-" ====================
-" Execute bash on the current line
-au FileType shell nmap <leader>e :.!bash <CR>  
-" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
-
-" ==============
-" HTML Leader Mappings
-" ==============
-" for html
-au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
-au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
-" noremap <leader>= :Autoformat<CR>
-
-" ==============
-" VIMRC Leader mappings
-" ==============
-au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-
-" Build arduino code
-" nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 " ===============
 " Basic Settings
 " ===============
@@ -272,8 +116,28 @@ set vb t_vb=                                               " Disable all bells. 
 set virtualedit=block                                      " Let cursor move past the last char in <C-v> mode
 set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/** " Ignore these files when completing
 set wrapscan                                               " set the search scan to wrap lines
+set pastetoggle=<F8>
 au FileType javascript setl foldmethod=syntax nofoldenable
+" =============================================================================
+" editorconfig
+" =============================================================================
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:EditorConfig_exec_path = system('which editorconfig')
+" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+" =============================================================================
+" Add xptemplate global personal directory value
+" =============================================================================
+set runtimepath+=~/.vim/plugged
+set runtimepath+=~/.vim/personal
+" =============================================================================
+" Encoding UTF-8
+" =============================================================================
+set encoding=utf-8
+set termencoding=utf-8
+setglobal fileencoding=utf-8
+set fileencodings=utf-8,latin1
 
+let g:miniBufExplForceSyntaxEnable = 1
 " set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
 " set textwidth=80    " Set text width to 120 chars
 " set wildmenu              " Menu completion in command mode on <Tab>
@@ -285,14 +149,168 @@ au FileType javascript setl foldmethod=syntax nofoldenable
 " set stl+=%{expand('%:~:.')}
 " au FileType html setl foldmethod=indent nofoldenable
 " au FileType css setl foldmethod=indent nofoldenable
-
 " =============================================================================
 " Auto change directory to where the opened file is opened
 " =============================================================================
 " set autochdir
 " Better than autochdir
-autocmd BufEnter * silent! lcd %:p:h
+au BufEnter * silent! lcd %:p:h
 
+
+" ====================================================
+" Commands
+" ====================================================
+"
+" Sample command W - save as root
+"
+" command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+" command! W w !sudo tee % > /dev/null
+" command! W :execute 'w !sudo tee % > /dev/null' | :edit!
+
+cmap w!! w !sudo tee % >/dev/null
+
+" ====================================================
+" Global Key Mappings / Assignments 
+" ====================================================
+" Make jj in insert mode to go to ESC
+inoremap jj <esc>                      
+" Have Enter to go to command line
+noremap ; :       
+" Maps to make handling windows a bit easier
+noremap <silent> <C-h> <C-W><
+noremap <silent> <C-k> <C-W>-
+noremap <silent> <C-j> <C-W>+
+noremap <silent> <C-l> <C-W>>
+" Bubble single & multiple lines
+noremap <S-Up> ddkP
+noremap <S-Down> ddp
+vnoremap <S-Up> xkP`[V`]
+vnoremap <S-Down> xp`[V`]
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" ====================================================
+" Global Leader Mapping / Assignments 
+" ====================================================
+" Turning off highlighing
+noremap <silent> <leader>b :silent :nohlsearch<CR>
+
+" ====================================================
+" Window global Leader Mappings
+" ====================================================
+" Quit window on <leader>q
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>Q :q<CR>
+" Split the same window
+nnoremap <silent> <leader>h :sp<CR>
+nnoremap <silent> <leader>s :vsp<CR>
+nnoremap <silent> <leader>sb :window set scrollbind! <CR>
+" Save window on <leader>w
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>W :w!<CR>
+" For when we forget to use sudo to open/edit a file
+noremap <silent> <leader>x <C-W>      " Window shortcut
+noremap <leader>n :NERDTreeToggle<CR> " Toggle NerdTree
+noremap <leader>N :NERDTreeFind<CR>   " Open NerdTree
+noremap <leader>m :CtrlPMRU<CR>       " Opem Most Recently Used :MRU  - Dont add comments afterwards
+noremap <leader>o :CtrlPBuffer<CR>    " Toggle the BufExplorer
+noremap <leader>f :CtrlPMixed<CR>
+noremap <leader>p <C-R><C-P>.         " Paste from clipboard
+noremap <leader>t :tabnew<CR>         " Opens a new empty tab
+noremap <leader>re :e <CR>            " Reload buffer
+nnoremap <C-e> 4<C-e>                 " Scroll faster Down
+nnoremap <C-y> 4<C-y>                 " Scroll faster Up
+" nmap <leader>f :CtrlP<CR>
+" nnoremap <leader>. :CtrlPTag<cr>
+" noremap <leader>a :Align                   " Align with a letter
+
+" ================
+" numbers config
+" ================
+nnoremap <silent> <F6> :NumbersToggle<CR>
+nnoremap <silent> <F7> :NumbersOnOff<CR>
+nnoremap <F8> :set invpaste paste?<CR>
+imap <F8> <C-O>:set invpaste paste?<CR>
+
+" nmap <leader>G :bprev<CR>
+" nmap <leader>g :bnext<CR>
+
+" ====================
+" Git Commands
+" ====================
+noremap <leader>gL :Glog<CR>
+noremap <leader>ga :!git add %<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>ge :Gedit<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gd :Gdiff<CR>
+noremap <leader>gg :Ggrep<CR>
+noremap <leader>gl :Glog --follow %<CR>
+noremap <leader>gP :Gpull<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gs :Gstatus<CR>
+" Dangerous
+" nmap <leader>gA :!git add . --all<CR>
+
+" ====================
+" Compiling commands
+" ====================
+" Beautify for css or scss
+au FileType css nmap <buffer> <leader>; :call CSSBeautify()<cr>
+au FileType css vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
+
+" ==================
+" Javascript leader mappings
+" ==================
+au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>                " ALEFix  use ALE Fixers
+au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR> " Execute eslint on the current js file
+au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>          " Add debugger; keyword
+au FileType javascript nmap <leader>e :.!node <CR>                      " Execute node on the current line
+au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+au FileType javascript nmap <buffer> <leader>; :call JsBeautify()<cr>  " Beautify
+au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
+
+" ==================
+" JSON leader mappings
+" ==================
+au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+" TODO: Check why this does not work.. it should use `ga` to search and find definition
+" au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
+" au FileType javascript nmap <F8>T :TagbarToggle<CR>
+
+" ==================
+" Python leader mappings
+" ==================
+au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> " Add the python line for debugging
+au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>- " Run nosetest over the current file
+au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x " Rename all occurences after defintion
+au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x " Rename in block
+au FileType python nmap <leader>e :.!python <CR> " Execute python on the current line
+
+" ====================
+" Shell Leader Mappings
+" ====================
+" Execute bash on the current line
+au FileType shell nmap <leader>e :.!bash <CR>  
+" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
+
+" ==============
+" HTML Leader Mappings
+" ==============
+" for html
+au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
+au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
+" noremap <leader>= :Autoformat<CR>
+
+" ==============
+" VIMRC Leader mappings
+" ==============
+au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+
+" Build arduino code
+" nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 " =============================================================================
 " Python Related Actions
 " =============================================================================
@@ -303,30 +321,6 @@ au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\
 " au! FileType python set omnifunc=pythoncomplete#Complete
 " au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 " au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
-" =============================================================================
-" Add xptemplate global personal directory value
-" =============================================================================
-set runtimepath+=~/.vim/plugged
-set runtimepath+=~/.vim/personal
-
-" =============================================================================
-" editorconfig
-" =============================================================================
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-let g:EditorConfig_exec_path = system('which editorconfig')
-" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-
-" =============================================================================
-" Encoding UTF-8
-" =============================================================================
-set encoding=utf-8
-set termencoding=utf-8
-setglobal fileencoding=utf-8
-set fileencodings=utf-8,latin1
-
-let g:miniBufExplForceSyntaxEnable = 1
-
 " =============================================================================
 " My Bundles here: using vim-plug
 " =============================================================================
