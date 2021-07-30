@@ -248,6 +248,10 @@ set colorcolumn=80
 set fillchars=""      " get rid of the silly characters in separators
 set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite   " Add ignorance of whitespace to diff
+" Ignore these files when completing
+set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**
+set completeopt=menuone,longest
+set pumheight=10                       " Keep a small completion window
 " set textwidth=80    " Set text width to 120 chars
 " set wildmenu              " Menu completion in command mode on <Tab>
 " set wildmode=full         " <Tab> cycles between all matching choices.
@@ -259,18 +263,7 @@ set diffopt+=iwhite   " Add ignorance of whitespace to diff
 " au FileType html setl foldmethod=indent nofoldenable
 " au FileType css setl foldmethod=indent nofoldenable
 au FileType javascript setl foldmethod=syntax nofoldenable
-
-" ====================================
-" Ignore these files when completing
-" ====================================
-set wildignore+=*.o,*.obj,.git,*.pyc
-set wildignore+=eggs/**
-set wildignore+=*.egg-info/**
-
-set completeopt=menuone,longest
-
 " set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
-set pumheight=10                       " Keep a small completion window
 
 " =======================
 " Moving Around/Editing
@@ -286,9 +279,9 @@ set ch=1                               " Make command line two lines high
 set nowrap                             " don't wrap text
 set autoindent                         " always set autoindenting on
 set smartindent                        " use smart indent if there is no indent file
-set tabstop=2                          " <tab> inserts 4 spaces
-set shiftwidth=2                       " but an indent level is 4 spaces wide.
-set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
+set tabstop=4                          " <tab> inserts 4 spaces
+set shiftwidth=4                       " but an indent level is 4 spaces wide.
+set softtabstop=4                      " <BS> over an autoindent deletes both spaces.
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
 
