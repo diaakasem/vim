@@ -72,17 +72,20 @@ au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
 
 cmap w!! w !sudo tee % >/dev/null
 
+noremap ; :       " Have Enter to go to command line
+
 " ====================================================
 " Global Leader Mapping / Assignments 
 " ====================================================
 " For when we forget to use sudo to open/edit a file
+nmap <silent> <leader>x <C-W>    " Window shortcut
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 nmap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
 nmap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
-"nmap <leader>f :CtrlP<CR>
+" nmap <leader>f :CtrlP<CR>
 nmap <leader>f :CtrlPMixed<CR>
-"nnoremap <leader>. :CtrlPTag<cr>
+" nnoremap <leader>. :CtrlPTag<cr>
 nmap <leader>p <C-R><C-P>.              " Paste from clipboard
 nmap <leader>t :tabnew<CR>              " Opens a new empty tab
 " nmap <leader>a :Align                   " Align with a letter
@@ -94,7 +97,6 @@ nmap <leader>re :e <CR>                 " Reload buffer
 " TODO: Check why this does not work.. it should use ACK to search and find
 " definition
 " nmap <leader>g :ALEGoToDefinition<CR>
-
 
 " ====================
 " Git Commands
@@ -112,7 +114,6 @@ nmap <leader>gl :Glog --follow %<CR>
 nmap <leader>gP :Gpull<CR>
 nmap <leader>gp :Gpush<CR>
 nmap <leader>gs :Gstatus<CR>
-
 
 " ====================
 " Compiling commands
@@ -170,23 +171,12 @@ au FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " noremap <leader>= :Autoformat<CR>
 
 " ==============
-" Reload Vimrc
+" VIMRC Leader mappings
 " ==============
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
-" ==============
-" Window shortcut
-" ==============
 
-map <silent> <leader>x <C-W>
-"map <silent> <leader>X <C-W>
-
-" ==================================
-" Have Enter to go to command line
-" ==================================
-" Affects all plugins
-noremap ; :
 
 " ================
 " Scroll faster
