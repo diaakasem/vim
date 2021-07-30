@@ -71,7 +71,7 @@ set cindent
 " Add the unnamed register to the clipboard
 set clipboard+=unnamed
 set colorcolumn=80
-" set completeopt=menuone,longest
+set completeopt=menuone,longest
 " Y-N-C prompt if closing with unsaved changes.
 set confirm
 " have a line indicate the cursor location
