@@ -409,7 +409,6 @@ Plug 'docunext/closetag.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/filetype.vim'
 Plug 'heavenshell/vim-jsdoc'
-"Plug 'isRuslan/vim-es6'
 Plug 'jisaacks/GitGutter'
 Plug 'kien/ctrlp.vim'
 Plug 'ajh17/VimCompletesMe'
@@ -429,14 +428,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'airblade/vim-rooter'
-" Plug 'jceb/vim-orgmode'
-" Plug 'dbakker/vim-projectroot'
 Plug 'othree/yajs.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'folke/which-key.nvim'
@@ -454,6 +450,10 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+"Plug 'isRuslan/vim-es6'
+" Plug 'tomlion/vim-solidity'
+" Plug 'jceb/vim-orgmode'
+" Plug 'dbakker/vim-projectroot'
 call plug#end()
 
 " =============================================================================
@@ -549,8 +549,10 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowBookmarks = 1                                     " By default show bookmarks
-let NERDTreeBookmarksFile = expand("$HOME/vim/NERDTreeBookmarks") " Store the bookmarks file
+" By default show bookmarks
+let NERDTreeShowBookmarks = 1
+" Store the bookmarks file
+let NERDTreeBookmarksFile = expand("$HOME/vim/NERDTreeBookmarks")
 let NERDTreeIgnore = ['\.pyc$']" Remove pyc files from NERDTree View
 let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
