@@ -136,7 +136,6 @@ let g:miniBufExplForceSyntaxEnable = 1
 " set textwidth=80    " Set text width to 120 chars
 " set wildmenu              " Menu completion in command mode on <Tab>
 " set wildmode=full         " <Tab> cycles between all matching choices.
-" set nocp                  " For Align plugin
 " Set the status line
 " set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
 " set statusline^=%{fnamemodify(expand('%'),':.')}
@@ -184,8 +183,7 @@ nnoremap <C-y> 4<C-y>                 " Scroll faster Up
 " ====================================================
 " Global Leader Mapping / Assignments 
 " ====================================================
-" Turning off highlighing
-nnoremap <silent> <leader>b :silent :nohlsearch<CR>
+nnoremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
 
 " ====================================================
 " Window global Leader Mappings
@@ -208,7 +206,6 @@ nnoremap <leader>t :tabnew<CR>         " Opens a new empty tab
 nnoremap <leader>re :e <CR>            " Reload buffer
 " nmap <leader>f :CtrlP<CR>
 " nnoremap <leader>. :CtrlPTag<cr>
-" noremap <leader>a :Align                   " Align with a letter
 
 " ================
 " numbers config
