@@ -520,7 +520,6 @@ let @s='iJSON.stringify('
 let @m='gg/models''0f{ca{modelsG?import oconst pa = models;0'
 let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 
-
 " ============================================
 " Read visual block
 " ============================================
@@ -533,4 +532,3 @@ let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
 " call inputrestore()
 " endfunction
 " au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
-
