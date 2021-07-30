@@ -203,7 +203,7 @@ nnoremap <leader>re :e <CR>                " Reload buffer
 nnoremap <leader>s :vsp<CR>
 nnoremap <leader>sb :window set scrollbind! <CR>
 nnoremap <leader>t :tabnew<CR>             " Opens a new empty tab
-nnoremap <silent> <leader>x <C-W>                   " Window shortcut
+noremap <silent> <leader>x <C-W>                   " Window shortcut
 
 " ================
 " Numbers config
