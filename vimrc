@@ -217,64 +217,45 @@ au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<C
 " ===============
 " Basic Settings
 " ===============
-set clipboard=unnamed
 set guioptions+=a
-
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
-set nocp                  " For Align plugin
 set number                " Display line numbers
 set nrformats=            " Set number formats to only decimal
 set numberwidth=1         " using only 1 column (and 1 space) while possible
 set background=dark       " We are using dark background in vim
 set title                 " show title in console title bar
-" set wildmenu              " Menu completion in command mode on <Tab>
-" set wildmode=full         " <Tab> cycles between all matching choices.
 set history=1000          " Set the commands history to 1000
 set hidden                " Better handling for the buffers
 set mouse=a               " Enable mouse interactions
-"set clipboard+=unnamed    " Add the unnamed register to the clipboard
+set clipboard+=unnamed    " Add the unnamed register to the clipboard
 set nocompatible          " vim>vi
 set isfname-=:            " Set the filename:linenumber delimiter to be colon
 set noerrorbells visualbell t_vb=
 set ofu=syntaxcomplete#Complete
 set cindent
-
-" ==================
-" Printing options
-" ==================
-set printoptions=header:0,duplex:long,paper:letter
-
-" ==================
-" Change backupdir
-" ==================
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
+set printoptions=header:0,duplex:long,paper:letter " Printing options
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp " Change backupdir ,/var/tmp,/tmp
 set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
-
-" ======================
-" Set the status line
-" ======================
 set showmode                           " Show the current mode
-" set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
-" set statusline^=%{fnamemodify(expand('%'),':.')}
-" set stl+=%{expand('%:~:.')}
-
-" =================
 " Folding settings
-" =================
 set nofoldenable      " dont fold by default
 set showfulltag       " When completing by tag, show the whole tag, not just the function name
 set foldmethod=indent " fold based on syntax ( indent, syntax, manual )
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
-" set textwidth=80      " Set text width to 120 chars
 set colorcolumn=80
-
-" get rid of the silly characters in separators
-set fillchars=""
+set fillchars=""      " get rid of the silly characters in separators
 set fillchars +=stl:\ ,stlnc:\
-set diffopt+=iwhite                    " Add ignorance of whitespace to diff
-
+set diffopt+=iwhite   " Add ignorance of whitespace to diff
+" set textwidth=80    " Set text width to 120 chars
+" set wildmenu              " Menu completion in command mode on <Tab>
+" set wildmode=full         " <Tab> cycles between all matching choices.
+" set nocp                  " For Align plugin
+" Set the status line
+" set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
+" set statusline^=%{fnamemodify(expand('%'),':.')}
+" set stl+=%{expand('%:~:.')}
 " au FileType html setl foldmethod=indent nofoldenable
 " au FileType css setl foldmethod=indent nofoldenable
 au FileType javascript setl foldmethod=syntax nofoldenable
