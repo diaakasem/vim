@@ -375,23 +375,22 @@ set showmode                           " Show the current mode
 " =================
 set nofoldenable      " dont fold by default
 set showfulltag       " When completing by tag, show the whole tag, not just the function name
-set foldmethod=syntax " fold based on indent
-" set foldmethod=manual " fold based on indent
+set foldmethod=indent " fold based on syntax ( indent, syntax, manual )
 set foldnestmax=99    " deepest fold is 10 levels
 set foldlevel=1       " this is just what i use
 " set textwidth=80      " Set text width to 120 chars
 set colorcolumn=80
 
 " get rid of the silly characters in separators
-set fillchars = ""
+set fillchars=""
 set fillchars +=stl:\ ,stlnc:\
 set diffopt+=iwhite                    " Add ignorance of whitespace to diff
 
 " au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.html setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.less setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.scss setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.js setl foldmethod=indent nofoldenable
+" au BufNewFile,BufReadPost *.less setl foldmethod=indent nofoldenable
+" au BufNewFile,BufReadPost *.scss setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.js setl foldmethod=syntax nofoldenable
 
 " ====================================
 " Ignore these files when completing
@@ -537,17 +536,8 @@ set termencoding=utf-8
 setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
-" Allow vim transparency
-"hi Normal ctermfg=252 ctermbg=none
-
 let g:main_font = "Monofur\\ for\\ Powerline:h13"
 let g:small_font = "Monofur\\ for\\ Powerline:h13"
-
-" Enable 256 Colors in terminals
-"set t_Co=256
-"set term=xterm-256color
-"set term=screen-256color
-" set runtimepath%=~/.vim/bundle/ctrlp.vim
 
 filetype off                   " required!
 
@@ -557,15 +547,6 @@ let g:miniBufExplForceSyntaxEnable = 1
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 let g:indent_guides_auto_colors = 0
-"let g:indent_guides_color_change_percent = 10
-"let g:indent_guides_guide_size = 1
-
-" 'c' - the directory of the current file.
-" 'r' - the nearest ancestor that contains one of these directories or files:
-"       .git .hg .svn .bzr _darcs
-" 'a' - like c, but only if the current working directory outside of CtrlP is not
-"       a direct ancestor of the directory of the current file.
-"  0 or '' (empty string) - disable this feature.
 let g:ctrlp_working_path_mode = 'ra'
 
 " My Bundles here:
@@ -575,7 +556,6 @@ let g:ctrlp_working_path_mode = 'ra'
 call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
-" Plug 'vim-scripts/EasyMotion'
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-scripts/bash-support.vim'
@@ -588,8 +568,6 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'jisaacks/GitGutter'
 Plug 'kien/ctrlp.vim'
 Plug 'ajh17/VimCompletesMe'
-" Plug 'git@github.com:ajh17/VimCompletesMe.git'
-" Plug 'git@github.com:Valloric/YouCompletesMe.git'
 Plug 'mhinz/vim-signify'
 Plug 'vim-scripts/mru'
 Plug 'myusuf3/numbers.vim'
@@ -598,19 +576,14 @@ Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'jacoborus/tender.vim'
-" Plug 'skywind3000/asyncrun.vim'
-" Plug 'skywind3000/vim-preview'
 Plug 'tpope/vim-surround'
-" Plug 'vim-scripts/surround.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
-" Plug 'vim-scripts/unimpaired.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'vim-scripts/fugitive.vim'
 " Plug 'tomlion/vim-solidity'
 Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
