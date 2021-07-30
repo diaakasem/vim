@@ -500,11 +500,11 @@ let g:NERDCommentEmptyLines = 0
 " Macros
 "=============================================================================
 "
-" Tip: press combination CtrlV followed by key ex.Enter.
+" Tip: press combination CtrlV followed by key ex.Enter. in insert mode.
 " This will insert Enter code represented by ^M sign
 "=============================================================================
 " Line of equals
-let @-='O=x77p'
+let @-='O=x77p'
 " JS add // @flow at the start of js file
 let @f='ggO// @flowxx'
 " JS oadd js function documentation template
