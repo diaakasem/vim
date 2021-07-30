@@ -45,6 +45,21 @@ command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=h
 
 inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 
+" ============================
+" Set ft based on extensions
+" ============================
+au! BufNewFile,BufRead,BufEnter *.js              setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
+au! BufNewFile,BufRead,BufEnter *.ts              setlocal filetype=typescript
+au! BufNewFile,BufRead,BufEnter *.yml             setlocal filetype=yaml
+au! BufNewFile,BufRead,BufEnter *.coffee          setlocal filetype=coffee
+au! BufNewFile,BufRead,BufEnter *.ino             setlocal filetype=arduino
+au! BufNewFile,BufRead,BufEnter *.jade            setlocal filetype=jade
+au! BufNewFile,BufRead,BufEnter *.less            setlocal filetype=css
+au! BufNewFile,BufRead,BufEnter *.sass            setlocal filetype=sass
+au! BufNewFile,BufRead,BufEnter *.tmpl            setlocal filetype=html
+au! BufNewFile,BufRead,BufEnter *.sh              setlocal filetype=shell
+au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
+
 " ====================================================
 " Commands
 " ====================================================
@@ -71,9 +86,6 @@ nmap <leader>f :CtrlPMixed<CR>
 nmap <leader>p <C-R><C-P>.              " Paste from clipboard
 nmap <leader>t :tabnew<CR>              " Opens a new empty tab
 " nmap <leader>a :Align                   " Align with a letter
-
-au FileType javascript   nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
-au FileType json         nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -102,61 +114,63 @@ nmap <leader>gs :Gstatus<CR>
 " ====================
 " Compiling commands
 " ====================
-
-au BufNewFile,BufRead,BufEnter *.less,*.LESS     nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                  " Execute lessc on the current file
-au BufNewFile,BufRead,BufEnter *.css,*.CSS       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>                                  " Execute lessc on the current file
+au FileType less      nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         " Execute lessc on the current file
+au FileType css       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        " Execute lessc on the current file
+" Beautify for css or scss
+au FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
+au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
 " ==================
-" linting commands
+" Javascript leader mappings
 " ==================
+au FileType javascript   nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
+"" Execute eslint on the current js file
+au FileType javascript         nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                   
+au FileType javascript         nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+" Add debugger; keyword
+au FileType javascript         nmap <leader>d Odebugger; <ESC> :w <CR>                                            
+" Execute node on the current line
+au FileType javascript     nmap <leader>e :.!node <CR>  
+" Beautify
+au FileType javascript noremap <buffer>  <leader>; :call JsBeautify()<cr>
+au FileType javascript vnoremap <buffer>  <leader>; :call RangeJsBeautify()<cr>
 
-au BufNewFile,BufRead,BufEnter *.js,*.JS         nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                                               " Execute jshint on the current js file
-au BufNewFile,BufRead,BufEnter *.js              nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+au FileType json         nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
-" ====================
-" Debuggers commands
-" ====================
-
-au BufNewFile,BufRead,BufEnter *.js,*.coffee nmap <leader>d Odebugger; <ESC> :w <CR>                                            " Add debugger; keyword
-au BufNewFile,BufRead,BufEnter *.py          nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> " Add the python line for debugging
-au BufNewFile,BufRead,BufEnter *.py          nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>-                            " Run nosetest over the current file
+" ==================
+" Python leader mappings
+" ==================
+" Add the python line for debugging
+au FileType python             nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> 
+" Run nosetest over the current file
+au FileType python             nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>-
 " Rename all occurences after defintion
-au BufNewFile,BufRead,BufEnter *.py nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x
+au FileType python             nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x
 " Rename in block
-au BufNewFile,BufRead,BufEnter *.py nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
+au FileType python             nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
+" Execute python on the current line
+au FileType python             nmap <leader>e :.!python <CR> 
 
 " ====================
-" Execution commands
+" Shell Leader Mappings
 " ====================
-
-" au BufNewFile,BufRead,BufEnter *.coffee nmap <leader>e :.!coffee <CR> " Execute coffee on the current line
-au BufNewFile,BufRead,BufEnter *.py     nmap <leader>e :.!python <CR> " Execute python on the current line
-au BufNewFile,BufRead,BufEnter *.js     nmap <leader>e :.!node <CR>   " Execute node on the current line
-au BufNewFile,BufRead,BufEnter *.sh     nmap <leader>e :.!bash <CR>   " Execute bash on the current line
+" Execute bash on the current line
+au FileType shell              nmap <leader>e :.!bash <CR>  
 " au BufNewFile,BufRead,BufEnter *.pl     nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
 
-" set rtp+=<your_path_here>/typescript-tools.vim/
-
 " ==============
-" Beautify
+" HTML Leader Mappings
 " ==============
-autocmd FileType javascript noremap <buffer>  <leader>; :call JsBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer>  <leader>; :call RangeJsBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <leader>; :call HtmlBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
-
+au FileType html noremap <buffer> <leader>; :call HtmlBeautify()<cr>
+au FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " noremap <leader>= :Autoformat<CR>
 
 " ==============
 " Reload Vimrc
 " ==============
-
-au BufNewFile,BufRead,BufEnter vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au BufNewFile,BufRead,BufEnter .vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " ==============
 " Reload buffer
@@ -376,19 +390,6 @@ set smartcase                          " unless uppercase letters are used in th
 set smarttab                           " Handle tabs more intelligently
 set hlsearch                           " Highlight searches by default.
 set incsearch                          " Incrementally search while typing a /regex
-
-" ============================
-" Set ft based on extensions
-" ============================
-au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
-au! BufNewFile,BufRead,BufEnter *.ts      setlocal filetype=typescript
-au! BufNewFile,BufRead,BufEnter *.yml     setlocal filetype=yaml
-au! BufNewFile,BufRead,BufEnter *.coffee  setlocal filetype=coffee
-au! BufNewFile,BufRead,BufEnter *.ino     setlocal filetype=arduino
-au! BufNewFile,BufRead,BufEnter *.jade    setlocal filetype=jade
-au! BufNewFile,BufRead,BufEnter *.less    setlocal filetype=css
-au! BufNewFile,BufRead,BufEnter *.sass    setlocal filetype=sass
-au! BufNewFile,BufRead,BufEnter *.tmpl    setlocal filetype=html
 
 " use .editorconfig for that - do not set the edits to be hard coded
 " au! FileType arduino setlocal shiftwidth=2 tabstop=2 softtabstop=2
