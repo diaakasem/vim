@@ -164,51 +164,48 @@ cmap w!! w !sudo tee % >/dev/null
 " ====================================================
 " Global Key Mappings / Assignments 
 " ====================================================
-" Make jj in insert mode to go to ESC
-inoremap jj <esc>                      
-" Have Enter to go to command line
-noremap ; :       
-" Maps to make handling windows a bit easier
-noremap <silent> <C-h> <C-W><
-noremap <silent> <C-k> <C-W>-
-noremap <silent> <C-j> <C-W>+
-noremap <silent> <C-l> <C-W>>
+inoremap jj <esc>                      " Make jj in insert mode to go to ESC
+nnoremap ; :       " Have Enter to go to command line
+nnoremap <C-h> <C-W><  " Increase window left
+nnoremap <C-l> <C-W>>  " Increase window right
+nnoremap <C-k> <C-W>-  " Move window up
+nnoremap <C-j> <C-W>+  " Move window down
 " Bubble single & multiple lines
-noremap <S-Up> ddkP
-noremap <S-Down> ddp
+nnoremap <S-Up> ddkP
+nnoremap <S-Down> ddp
 vnoremap <S-Up> xkP`[V`]
 vnoremap <S-Down> xp`[V`]
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <C-e> 4<C-e>                 " Scroll faster Down
+nnoremap <C-y> 4<C-y>                 " Scroll faster Up
 
 " ====================================================
 " Global Leader Mapping / Assignments 
 " ====================================================
 " Turning off highlighing
-noremap <silent> <leader>b :silent :nohlsearch<CR>
+nnoremap <silent> <leader>b :silent :nohlsearch<CR>
 
 " ====================================================
 " Window global Leader Mappings
 " ====================================================
-nnoremap <silent> <leader>q :q<CR> " Quit window on <leader>q
 nnoremap <silent> <leader>Q :q<CR>
-nnoremap <silent> <leader>h :sp<CR> " Split the same window
-nnoremap <silent> <leader>s :vsp<CR>
-nnoremap <silent> <leader>sb :window set scrollbind! <CR>
-nnoremap <silent> <leader>w :w<CR> " Save window on <leader>w
+nnoremap <silent> <leader>q :q<CR>     " Quit window on <leader>q
+nnoremap <silent> <leader>w :w<CR>     " Save window on <leader>w
 nnoremap <silent> <leader>W :w!<CR>
-noremap <silent> <leader>x <C-W>      " Window shortcut
-noremap <leader>n :NERDTreeToggle<CR> " Toggle NerdTree
-noremap <leader>N :NERDTreeFind<CR>   " Open NerdTree
-noremap <leader>m :CtrlPMRU<CR>       " Opem Most Recently Used :MRU  - Dont add comments afterwards
-noremap <leader>o :CtrlPBuffer<CR>    " Toggle the BufExplorer
-noremap <leader>f :CtrlPMixed<CR>
-noremap <leader>p <C-R><C-P>.         " Paste from clipboard
-noremap <leader>t :tabnew<CR>         " Opens a new empty tab
-noremap <leader>re :e <CR>            " Reload buffer
-nnoremap <C-e> 4<C-e>                 " Scroll faster Down
-nnoremap <C-y> 4<C-y>                 " Scroll faster Up
+nnoremap <leader>h :sp<CR>             " Split the same window
+nnoremap <leader>s :vsp<CR>
+nnoremap <leader>sb :window set scrollbind! <CR>
+nnoremap <leader>x <C-W>               " Window shortcut
+nnoremap <leader>n :NERDTreeToggle<CR> " Toggle NerdTree
+nnoremap <leader>N :NERDTreeFind<CR>   " Open NerdTree
+nnoremap <leader>m :CtrlPMRU<CR>       " Opem Most Recently Used :MRU  - Dont add comments afterwards
+nnoremap <leader>o :CtrlPBuffer<CR>    " Toggle the BufExplorer
+nnoremap <leader>f :CtrlPMixed<CR>
+nnoremap <leader>p <C-R><C-P>.         " Paste from clipboard
+nnoremap <leader>t :tabnew<CR>         " Opens a new empty tab
+nnoremap <leader>re :e <CR>            " Reload buffer
 " nmap <leader>f :CtrlP<CR>
 " nnoremap <leader>. :CtrlPTag<cr>
 " noremap <leader>a :Align                   " Align with a letter
@@ -227,17 +224,17 @@ imap <F8> <C-O>:set invpaste paste?<CR>
 " ====================
 " Git Commands
 " ====================
-noremap <leader>gL :Glog<CR>
-noremap <leader>ga :!git add %<CR>
-noremap <leader>gb :Gblame<CR>
-noremap <leader>ge :Gedit<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gd :Gdiff<CR>
-noremap <leader>gg :Ggrep<CR>
-noremap <leader>gl :Glog --follow %<CR>
-noremap <leader>gP :Gpull<CR>
-noremap <leader>gp :Gpush<CR>
-noremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gL :Glog<CR>
+nnoremap <leader>ga :!git add %<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gg :Ggrep<CR>
+nnoremap <leader>gl :Glog --follow %<CR>
+nnoremap <leader>gP :Gpull<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gs :Gstatus<CR>
 " Dangerous
 " nmap <leader>gA :!git add . --all<CR>
 
@@ -289,7 +286,7 @@ au FileType shell nmap <leader>e :.!bash <CR>
 " for html
 au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
 au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
-" noremap <leader>= :Autoformat<CR>
+" nnoremap <leader>= :Autoformat<CR>
 
 " ==============
 " VIMRC Leader mappings
@@ -435,8 +432,9 @@ let g:ale_rust_cargo_use_check = 0
 let g:ale_lint_delay = 2000
 let g:ale_lint_on_text_changed = 0
 " use Ctrl-k and Ctrl-j to jump up and down between errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" FIXME conflict with window resize
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " RUST
 " let g:rust_clip_command = 'pbcopy'
