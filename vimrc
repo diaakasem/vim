@@ -482,10 +482,9 @@ hi IndentGuidesEven ctermbg=darkgrey
 let g:indent_guides_auto_colors = 0
 let g:ctrlp_working_path_mode = 'ra'
 
-" My Bundles here:
-"
-" original repos on github
-
+" =============================================================================
+" My Bundles here: using vim-plug
+" =============================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'Chiel92/vim-autoformat'
@@ -543,6 +542,9 @@ else
 endif
 call plug#end()
 
+" =============================================================================
+" Ultisnips configurations
+" =============================================================================
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
