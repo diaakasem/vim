@@ -62,15 +62,11 @@ cmap w!! w !sudo tee % >/dev/null
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 
-" Opem Most Recently Used :MRU  - Dont add comments afterwards
-nmap <leader>m :CtrlPMRU<CR>
 " nmap <leader>m :MRU<CR>
 nmap <leader>p <C-R><C-P>.           " Paste from clipboard
 nmap <leader>t :tabnew<CR>           " Opens a new empty tab
 
-" Toggle the BufExplorer
-nmap <leader>o :CtrlPBuffer<CR>
-au BufNewFile,BufRead,BufEnter *.json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
 " Align with a letter
 nmap <leader>a :Align
@@ -78,9 +74,7 @@ nmap <leader>a :Align
 " ALEFix  use ALE Fixers
 nmap <leader>l :ALEFix<CR> :w<CR>
 
-"nmap <leader>f :CtrlP<CR>
-nmap <leader>f :CtrlPMixed<CR>
-"nnoremap <leader>. :CtrlPTag<cr>
+
 
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -357,21 +351,6 @@ set softtabstop=2                      " <BS> over an autoindent deletes both sp
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
 
-
-" =============================================================================
-" Using The Silver Searcher `ag` instead of grep or ack
-" =============================================================================
-" sudo apt install silversearcher-ag
-" brew install the_silver_searcher
-if executable('ag')
-  " Use ag over grep or ack
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
-  " Use ag in CtrlP for listing files.
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP does't need to cache
-  let g:ctrl_user_caching = 0
-endif
-
 " ====================
 " Reading/Writing
 " ====================
@@ -465,7 +444,6 @@ set fileencodings=utf-8,latin1
 
 let g:miniBufExplForceSyntaxEnable = 1
 
-let g:ctrlp_working_path_mode = 'ra'
 
 " =============================================================================
 " My Bundles here: using vim-plug
@@ -598,6 +576,28 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " filetype plugin indent on " enable loading indent file for filetype
 " filetype plugin on
+"
+" =============================================================================
+" CtrlP Configurations - Using The Silver Searcher `ag` instead of grep or ack
+" =============================================================================
+" sudo apt install silversearcher-ag
+" brew install the_silver_searcher
+if executable('ag')
+  " Use ag over grep or ack
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  " Use ag in CtrlP for listing files.
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP does't need to cache
+  let g:ctrl_user_caching = 0
+endif
+let g:ctrlp_working_path_mode = 'ra'
+" Opem Most Recently Used :MRU  - Dont add comments afterwards
+nmap <leader>m :CtrlPMRU<CR>
+" Toggle the BufExplorer
+nmap <leader>o :CtrlPBuffer<CR>
+"nmap <leader>f :CtrlP<CR>
+nmap <leader>f :CtrlPMixed<CR>
+"nnoremap <leader>. :CtrlPTag<cr>
 
 " =============================================================================
 " NerdTree configurations
