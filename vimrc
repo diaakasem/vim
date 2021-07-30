@@ -372,7 +372,7 @@ endif
 set noautowrite                        " Never write a file unless I request it.
 set noautowriteall                     " NEVER.
 " set auto                             " Set auto read file changes
-" set noautoread                       " Don't automatically re-read changed files.
+set noautoread                       " Don't automatically re-read changed files.
 set modeline                           " Allow vim options to be embedded in files;
 set modelines=3                        " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
@@ -386,7 +386,6 @@ set showcmd                            " Show incomplete normal mode commands as
 set report=0                           " : commands always print changed line count.
 set shortmess+=a                       " Use [+]/[RO]/[w] for modified/readonly/written.
 set laststatus=2                       " Always show statusline, even if only 1 window.
-
 " ========================
 " Searching and Patterns
 " ========================
@@ -399,7 +398,6 @@ set incsearch                          " Incrementally search while typing a /re
 " ============================
 " Set ft based on extensions
 " ============================
-
 au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
 au! BufNewFile,BufRead,BufEnter *.ts      setlocal filetype=typescript
 au! BufNewFile,BufRead,BufEnter *.yml     setlocal filetype=yaml
@@ -410,9 +408,10 @@ au! BufNewFile,BufRead,BufEnter *.less    setlocal filetype=css
 au! BufNewFile,BufRead,BufEnter *.sass    setlocal filetype=sass
 au! BufNewFile,BufRead,BufEnter *.tmpl    setlocal filetype=html
 
-au! FileType arduino setlocal shiftwidth=2 tabstop=2 softtabstop=2
-au! FileType css,javascript,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
-au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" use .editorconfig for that - do not set the edits to be hard coded
+" au! FileType arduino setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" au! FileType css,javascript,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ============================================================
 " Auto change directory to where the opened file is opened
@@ -424,10 +423,12 @@ autocmd BufEnter * silent! lcd %:p:h
 " ==========================
 " Python Related Actions
 " ==========================
-au! BufNewFile,BufRead,BufEnter *.py set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
+au! FileType python                     set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
 " au! FileType python set omnifunc=pythoncomplete#Complete
-au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au! FileType python                     setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+" au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 " ================================================
 " Add xptemplate global personal directory value
