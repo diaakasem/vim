@@ -400,15 +400,15 @@ set incsearch                          " Incrementally search while typing a /re
 " Set ft based on extensions
 " ============================
 
-au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript  shiftwidth=4 tabstop=4 softtabstop=4
+au! BufNewFile,BufRead,BufEnter *.js      setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
 au! BufNewFile,BufRead,BufEnter *.ts      setlocal filetype=typescript
 au! BufNewFile,BufRead,BufEnter *.yml     setlocal filetype=yaml
-au! BufNewFile,BufRead,BufEnter *.coffee setlocal ft=coffee
-au! BufNewFile,BufRead,BufEnter *.ino    setlocal ft=arduino
-au! BufNewFile,BufRead,BufEnter *.jade   setlocal ft=jade
-au! BufNewFile,BufRead,BufEnter *.less   setlocal ft=css shiftwidth=2 tabstop=2 softtabstop=2
-au! BufNewFile,BufRead,BufEnter *.sass   setlocal ft=sass
-au! BufNewFile,BufRead,BufEnter *.tmpl   setlocal ft=html
+au! BufNewFile,BufRead,BufEnter *.coffee  setlocal filetype=coffee
+au! BufNewFile,BufRead,BufEnter *.ino     setlocal filetype=arduino
+au! BufNewFile,BufRead,BufEnter *.jade    setlocal filetype=jade
+au! BufNewFile,BufRead,BufEnter *.less    setlocal filetype=css
+au! BufNewFile,BufRead,BufEnter *.sass    setlocal filetype=sass
+au! BufNewFile,BufRead,BufEnter *.tmpl    setlocal filetype=html
 
 au! FileType arduino setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au! FileType css,javascript,js setlocal shiftwidth=2 tabstop=2 softtabstop=2
