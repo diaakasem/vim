@@ -417,11 +417,9 @@ au! FileType yml,yaml,htm,html,xhtml,xml,coffee,jade,sass setlocal shiftwidth=2 
 " ============================================================
 " Auto change directory to where the opened file is opened
 " ============================================================
-"au! BufNewFile,BufRead,BufEnter * silent! lcd %:p:h
-"set autochdir
+" set autochdir
 " Better than autochdir
 autocmd BufEnter * silent! lcd %:p:h
-"au! GUIEnter * set visualbell t_vb=
 
 " ==========================
 " Python Related Actions
@@ -438,7 +436,7 @@ set runtimepath+=~/.vim/plugged
 set runtimepath+=~/.vim/personal
 
 " ==============
-" Editor config
+" editorconfig
 " ==============
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
@@ -538,7 +536,6 @@ let g:indent_guides_auto_colors = 0
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
