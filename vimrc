@@ -82,7 +82,7 @@ set ignorecase                                             " Default to using ca
 set incsearch                                              " Incrementally search while typing a /regex
 set isfname-=:                                             " Set the filename:linenumber delimiter to be colon
 set laststatus=2                                           " Always show statusline, even if only 1 window.
-set modeline                                               " Allow vim options to be embedded in files;
+set modeline                                               " Allow vim options to be embedded in files
 set modelines=3                                            " they must be within the first or last 5 lines.
 set mouse=a                                                " Enable mouse interactions
 set noautoread                                             " Don't automatically re-read changed files. ( use <leader>re to reload )
@@ -165,12 +165,18 @@ cmap w!! w !sudo tee % >/dev/null
 " ====================================================
 " Global Key Mappings / Assignments 
 " ====================================================
-inoremap jj <esc>                      " Make jj in insert mode to go to ESC
-noremap ; :       " Have Enter to go to command line
-noremap <C-h> <C-W><  " Increase window left
-noremap <C-l> <C-W>>  " Increase window right
-noremap <C-k> <C-W>-  " Move window up
-noremap <C-j> <C-W>+  " Move window down
+" Make jj in insert mode to go to ESC
+inoremap jj <esc>
+" Have Enter to go to command line ( do not put that comment in the same line )
+noremap ; :
+" Increase window left
+noremap <C-h> <C-W><
+" Increase window right
+noremap <C-l> <C-W>>
+" Move window up
+noremap <C-k> <C-W>-
+" Move window down
+noremap <C-j> <C-W>+
 " Bubble single & multiple lines
 noremap <S-Up> ddkP
 noremap <S-Down> ddp
@@ -179,8 +185,10 @@ vnoremap <S-Down> xp`[V`]
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-noremap <C-e> 4<C-e>                 " Scroll faster Down
-noremap <C-y> 4<C-y>                 " Scroll faster Up
+" Scroll faster Down
+noremap <C-e> 4<C-e>
+" Scroll faster Up
+noremap <C-y> 4<C-y>
 
 " ====================================================
 " Global Leader Mapping / Assignments 
