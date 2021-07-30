@@ -72,13 +72,52 @@ au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
 
 cmap w!! w !sudo tee % >/dev/null
 
-noremap ; :       " Have Enter to go to command line
+" ====================================================
+" Global Key Mappings / Assignments 
+" ====================================================
+" Have Enter to go to command line
+noremap ; :       
+" Maps to make handling windows a bit easier
+noremap <silent> <C-h> <C-W><
+noremap <silent> <C-k> <C-W>-
+noremap <silent> <C-j> <C-W>+
+noremap <silent> <C-l> <C-W>>
+" Bubble single & multiple lines
+noremap <S-Up> ddkP
+noremap <S-Down> ddp
+vnoremap <S-Up> xkP`[V`]
+vnoremap <S-Down> xp`[V`]
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
 
 " ====================================================
 " Global Leader Mapping / Assignments 
 " ====================================================
+" Turning off highlighing
+noremap <silent> <leader>b :silent :nohlsearch<CR>
+
+" ====================================================
+" Window global Leader Mappings
+" ====================================================
+" Quit window on <leader>q
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>Q :q<CR>
+" Split the same window
+nnoremap <silent> <leader>h :sp<CR>
+nnoremap <silent> <leader>s :vsp<CR>
+nnoremap <silent> <leader>sb :window set scrollbind! <CR>
+" Save window on <leader>w
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>W :w!<CR>
+
+" ============================================
+" Read visual block
+" ============================================
+" vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
+
 " For when we forget to use sudo to open/edit a file
-nmap <silent> <leader>x <C-W>    " Window shortcut
+nmap <silent> <leader>x <C-W>           " Window shortcut
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 nmap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
@@ -90,6 +129,19 @@ nmap <leader>p <C-R><C-P>.              " Paste from clipboard
 nmap <leader>t :tabnew<CR>              " Opens a new empty tab
 " nmap <leader>a :Align                   " Align with a letter
 nmap <leader>re :e <CR>                 " Reload buffer
+
+nnoremap <C-e> 4<C-e> " Scroll faster Down
+nnoremap <C-y> 4<C-y> " Scroll faster Up
+
+" ================
+" numbers config
+" ================
+nnoremap <silent> <F6> :NumbersToggle<CR>
+nnoremap <silent> <F7> :NumbersOnOff<CR>
+nnoremap <F8> :set invpaste paste?<CR>
+imap <F8> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F8>
+
 
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -175,83 +227,11 @@ au FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " ==============
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-
-
-
-" ================
-" Scroll faster
-" ================
-
-nnoremap <C-e> 4<C-e>
-nnoremap <C-y> 4<C-y>
-
-" ================
-" numbers config
-" ================
-nnoremap <silent> <F6> :NumbersToggle<CR>
-nnoremap <silent> <F7> :NumbersOnOff<CR>
-nnoremap <F8> :set invpaste paste?<CR>
-imap <F8> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F8>
-
 " au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
 " au! BufRead,BufEnter *.js nmap <F8>T :TagbarToggle<CR>
 
 " Build arduino code
 " nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
-
-" =========================
-" Turning off highlighing
-" =========================
-nmap <silent> <leader>b :silent :nohlsearch<CR>
-
-" ==========================
-" Quit window on <leader>q
-" ==========================
-nnoremap <silent> <leader>q :q<CR>
-nnoremap <silent> <leader>Q :q<CR>
-
-" ==========================
-" Save window on <leader>w
-" ==========================
-nnoremap <leader>w :w<CR>
-nnoremap <leader>W :w!<CR>
-
-" =======================
-" Split the same window
-" =======================
-nmap <silent> <leader>h :sp<CR>
-nmap <silent> <leader>s :vsp<CR>
-nmap <silent> <leader>sb :windo set scrollbind! <CR>
-
-" ============================================
-" Maps to make handling windows a bit easier
-" ============================================
-
-noremap <silent> <C-h> <C-W><
-noremap <silent> <C-k> <C-W>-
-noremap <silent> <C-j> <C-W>+
-noremap <silent> <C-l> <C-W>>
-
-" ==============================
-" Bubble single & multiple lines
-" ==============================
-nmap <S-Up> ddkP
-nmap <S-Down> ddp
-vmap <S-Up> xkP`[V`]
-vmap <S-Down> xp`[V`]
-
-" ============================================
-" Read visual block
-" ============================================
-" vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
-
-" ============================================
-" Reselect visual block after indent/outdent
-" ============================================
-vnoremap < <gv
-vnoremap > >gv
-
 " ===============
 " Basic Settings
 " ===============
