@@ -245,6 +245,7 @@ inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Es
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
 nnoremap ; :
+nnoremap <C-n> ;
 " Increase window left
 noremap <C-h> <C-W><
 " Increase window right
