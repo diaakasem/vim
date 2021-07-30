@@ -660,12 +660,12 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " RUST
-let g:rust_clip_command = 'pbcopy'
-let g:rustfmt_autosave = 1
+" let g:rust_clip_command = 'pbcopy'
+" let g:rustfmt_autosave = 1
 
 " TODO try making this dynamic
 " use npm bin to get the path
-let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin/lehre'
+" let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin/lehre'
 
-filetype plugin indent on " enable loading indent file for filetype
-filetype plugin on
+" filetype plugin indent on " enable loading indent file for filetype
+" filetype plugin on
