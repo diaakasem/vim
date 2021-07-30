@@ -38,7 +38,6 @@ function! Refactor()
   call inputrestore()
 endfunction
 
-
 " =============================================================================
 " Making command R that opens a new window with the output of the following command
 " =============================================================================
@@ -46,6 +45,9 @@ command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=h
 
 inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 
+" ====================================================
+" Commands
+" ====================================================
 "
 " Sample command W - save as root
 "
@@ -53,28 +55,25 @@ inoremap jj <esc>                      " Make jj in insert mode to go to ESC
 " command! W w !sudo tee % > /dev/null
 " command! W :execute 'w !sudo tee % > /dev/null' | :edit!
 
-" ====================================================
-" Leader Assignments
-" ====================================================
-" For when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
+" ====================================================
+" Leader Mapping / Assignments
+" ====================================================
+" For when we forget to use sudo to open/edit a file
 nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
+nmap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
+nmap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
+"nmap <leader>f :CtrlP<CR>
+nmap <leader>f :CtrlPMixed<CR>
+"nnoremap <leader>. :CtrlPTag<cr>
+nmap <leader>p <C-R><C-P>.              " Paste from clipboard
+nmap <leader>t :tabnew<CR>              " Opens a new empty tab
+" nmap <leader>a :Align                   " Align with a letter
 
-" nmap <leader>m :MRU<CR>
-nmap <leader>p <C-R><C-P>.           " Paste from clipboard
-nmap <leader>t :tabnew<CR>           " Opens a new empty tab
-
-au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
-
-" Align with a letter
-nmap <leader>a :Align
-
-" ALEFix  use ALE Fixers
-nmap <leader>l :ALEFix<CR> :w<CR>
-
-
+au FileType javascript   nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
+au FileType json         nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
@@ -83,11 +82,9 @@ nmap <leader>l :ALEFix<CR> :w<CR>
 " definition
 " nmap <leader>g :ALEGoToDefinition<CR>
 
-
 " ====================
 " Git Commands
 " ====================
-
 nmap <leader>gL :Glog<CR>
 " Dangerous
 " nmap <leader>gA :!git add . --all<CR>
@@ -591,13 +588,6 @@ if executable('ag')
   let g:ctrl_user_caching = 0
 endif
 let g:ctrlp_working_path_mode = 'ra'
-" Opem Most Recently Used :MRU  - Dont add comments afterwards
-nmap <leader>m :CtrlPMRU<CR>
-" Toggle the BufExplorer
-nmap <leader>o :CtrlPBuffer<CR>
-"nmap <leader>f :CtrlP<CR>
-nmap <leader>f :CtrlPMixed<CR>
-"nnoremap <leader>. :CtrlPTag<cr>
 
 " =============================================================================
 " NerdTree configurations
