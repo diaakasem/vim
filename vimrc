@@ -127,10 +127,6 @@ set pastetoggle=<F8>
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
 
-" TODO: Check why this does not work.. it should use ACK to search and find
-" definition
-" nmap <leader>g :ALEGoToDefinition<CR>
-
 " ====================
 " Git Commands
 " ====================
@@ -152,138 +148,130 @@ noremap <leader>gs :Gstatus<CR>
 " Compiling commands
 " ====================
 " Execute lessc on the current file
-" au FileType less      nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         
+" au FileType less nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         
 " convert css to less
-" au FileType css       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        
+" au FileType css nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        
 " Beautify for css or scss
-au FileType css       nmap <buffer> <leader>; :call CSSBeautify()<cr>
-au FileType css       vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
+au FileType css nmap <buffer> <leader>; :call CSSBeautify()<cr>
+au FileType css vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
 " ==================
 " Javascript leader mappings
 " ==================
-" au! FileType javascript      nmap <F8>T :TagbarToggle<CR>
-au FileType javascript         nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
-"" Execute eslint on the current js file
-au FileType javascript         nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                   
-au FileType javascript         nmap <leader>= :w<CR>:!fixjsstyle %<CR>
-" Add debugger; keyword
-au FileType javascript         nmap <leader>d Odebugger; <ESC> :w <CR>                                            
-" Execute node on the current line
-au FileType javascript         nmap <leader>e :.!node <CR>  
-" Beautify
-au FileType javascript         nmap <buffer>  <leader>; :call JsBeautify()<cr>
-au FileType javascript         vmap <buffer>  <leader>; :call RangeJsBeautify()<cr>
-
-au FileType json               nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>                                                  " ALEFix  use ALE Fixers
+au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                   " Execute eslint on the current js file
+au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>                                            " Add debugger; keyword
+au FileType javascript nmap <leader>e :.!node <CR>  " Execute node on the current line
+au FileType javascript nmap <buffer>  <leader>; :call JsBeautify()<cr>" Beautify
+au FileType javascript vmap <buffer>  <leader>; :call RangeJsBeautify()<cr>
+au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+" TODO: Check why this does not work.. it should use ACK to search and find
+" definition
+" nmap <leader>g :ALEGoToDefinition<CR>
+" au! FileType javascript nmap <F8>T :TagbarToggle<CR>
 
 " ==================
 " Python leader mappings
 " ==================
-" Add the python line for debugging
-au FileType python             nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> 
-" Run nosetest over the current file
-au FileType python             nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>-
-" Rename all occurences after defintion
-au FileType python             nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x
-" Rename in block
-au FileType python             nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
-" Execute python on the current line
-au FileType python             nmap <leader>e :.!python <CR> 
+au FileType python nmap <leader>d Oimport rpdb2; rpdb2.start_embedded_debugger('diaa'); <ESC> :w <CR> " Add the python line for debugging
+au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <C-R>% --reuse-db<CR> 10<C-W>- " Run nosetest over the current file
+au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x " Rename all occurences after defintion
+au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x " Rename in block
+au FileType python nmap <leader>e :.!python <CR> " Execute python on the current line
 
 " ====================
 " Shell Leader Mappings
 " ====================
 " Execute bash on the current line
-au FileType shell              nmap <leader>e :.!bash <CR>  
-" au BufNewFile,BufRead,BufEnter *.pl     nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
+au FileType shell nmap <leader>e :.!bash <CR>  
+" au BufNewFile,BufRead,BufEnter *.pl nmap <leader>e :call setline('.', system('docker run --rm -v ' . expand('%:p:h') .':/src -w /src swipl swipl -q -s ' . expand('%:t') . ' -t ''' . getline('.') . '''')) <CR><CR>    " Execute bash on the current line
 
 " ==============
 " HTML Leader Mappings
 " ==============
 " for html
-au FileType html               nmap <buffer> <leader>; :call HtmlBeautify()<cr>
-au FileType html               vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
+au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
+au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " noremap <leader>= :Autoformat<CR>
 
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
 " nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
 " ===============
 " Basic Settings
 " ===============
-
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
-set autoindent                         " always set autoindenting on
-set background=dark       " We are using dark background in vim
-set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
-set backupdir=~/.vim/tmp,~/.tmp,~/tmp " Change backupdir ,/var/tmp,/tmp
-set ch=1                               " Make command line two lines high
+set autoindent                                             " always set autoindenting on
+set background=dark                                        " We are using dark background in vim
+set backspace=2                                            " Allow backspacing over autoindent, EOL, and BOL
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp                      " Change backupdir ,/var/tmp,/tmp
+set ch=1                                                   " Make command line two lines high
 set cindent
-set clipboard+=unnamed    " Add the unnamed register to the clipboard
+set clipboard+=unnamed                                     " Add the unnamed register to the clipboard
 set colorcolumn=80
 set completeopt=menuone,longest
-set confirm                            " Y-N-C prompt if closing with unsaved changes.
-set cursorline                         " have a line indicate the cursor location
-set diffopt+=iwhite   " Add ignorance of whitespace to diff
-set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
-set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
-set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
+set confirm                                                " Y-N-C prompt if closing with unsaved changes.
+set cursorline                                             " have a line indicate the cursor location
+set diffopt+=iwhite                                        " Add ignorance of whitespace to diff
+set directory=~/.vim/tmp,~/.tmp,~/tmp                      " ,/var/tmp,/tmp
+set expandtab                                              " Use spaces, not tabs, for autoindent/tab key.
+set ffs=unix,dos,mac                                       " Try recognizing dos, unix, and mac line endings.
 set fillchars +=stl:\ ,stlnc:\
-set fillchars=""      " get rid of the silly characters in separators
-set foldlevel=1       " this is just what i use
-set foldmethod=indent " fold based on syntax ( indent, syntax, manual )
-set foldnestmax=99    " deepest fold is 10 levels
+set fillchars=""                                           " get rid of the silly characters in separators
+set foldlevel=1                                            " this is just what i use
+set foldmethod=indent                                      " fold based on syntax ( indent, syntax, manual )
+set foldnestmax=99                                         " deepest fold is 10 levels
 set guioptions+=a
-set hidden                " Better handling for the buffers
-set history=1000          " Set the commands history to 1000
-set hlsearch                           " Highlight searches by default.
-set ignorecase                         " Default to using case insensitive searches,
-set incsearch                          " Incrementally search while typing a /regex
-set isfname-=:            " Set the filename:linenumber delimiter to be colon
-set laststatus=2                       " Always show statusline, even if only 1 window.
-set modeline                           " Allow vim options to be embedded in files;
-set modelines=3                        " they must be within the first or last 5 lines.
-set mouse=a               " Enable mouse interactions
-set noautoread                         " Don't automatically re-read changed files. ( use <leader>re to reload )
-set noautowrite                        " Never write a file unless I request it.
-set noautowriteall                     " NEVER.
-set nocompatible          " vim>vi
+set hidden                                                 " Better handling for the buffers
+set history=1000                                           " Set the commands history to 1000
+set hlsearch                                               " Highlight searches by default.
+set ignorecase                                             " Default to using case insensitive searches,
+set incsearch                                              " Incrementally search while typing a /regex
+set isfname-=:                                             " Set the filename:linenumber delimiter to be colon
+set laststatus=2                                           " Always show statusline, even if only 1 window.
+set modeline                                               " Allow vim options to be embedded in files;
+set modelines=3                                            " they must be within the first or last 5 lines.
+set mouse=a                                                " Enable mouse interactions
+set noautoread                                             " Don't automatically re-read changed files. ( use <leader>re to reload )
+set noautowrite                                            " Never write a file unless I request it.
+set noautowriteall                                         " NEVER.
+set nocompatible                                           " vim>vi
 set noerrorbells visualbell t_vb=
-set nofoldenable      " dont fold by default
-set nostartofline                      " Avoid moving cursor to BOL when jumping around
-set nowrap                             " don't wrap text
-set nrformats=            " Set number formats to only decimal
-set number                " Display line numbers
-set numberwidth=1         " using only 1 column (and 1 space) while possible
+set nofoldenable                                           " dont fold by default
+set nostartofline                                          " Avoid moving cursor to BOL when jumping around
+set nowrap                                                 " don't wrap text
+set nrformats=                                             " Set number formats to only decimal
+set number                                                 " Display line numbers
+set numberwidth=1                                          " using only 1 column (and 1 space) while possible
 set ofu=syntaxcomplete#Complete
-set printoptions=header:0,duplex:long,paper:letter " Printing options
-set pumheight=10                       " Keep a small completion window
-set report=0                           " : commands always print changed line count.
-set scrolloff=8                        " Keep 8 context lines above and below the cursor
-set shiftround                         " rounds indent to a multiple of shiftwidth
-set shiftwidth=4                       " but an indent level is 4 spaces wide.
-set shortmess+=a                       " Use [+]/[RO]/[w] for modified/readonly/written.
-set showcmd                            " Show incomplete normal mode commands as I type.
-set showfulltag       " When completing by tag, show the whole tag, not just the function name
-set showmatch                          " Briefly jump to a paren once it's balanced
-set showmode                           " Show the current mode
-set smartcase                          " unless uppercase letters are used in the regex.
-set smartindent                        " use smart indent if there is no indent file
-set smarttab                           " Handle tabs more intelligently
-set softtabstop=4                      " <BS> over an autoindent deletes both spaces.
-set tabstop=4                          " <tab> inserts 4 spaces
-set title                 " show title in console title bar
-set vb t_vb=                           " Disable all bells.  I hate ringing/flashing.
-set virtualedit=block                  " Let cursor move past the last char in <C-v> mode
-set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**  " Ignore these files when completing
-set wrapscan                           " set the search scan to wrap lines
+set printoptions=header:0,duplex:long,paper:letter         " Printing options
+set pumheight=10                                           " Keep a small completion window
+set report=0                                               " : commands always print changed line count.
+set scrolloff=8                                            " Keep 8 context lines above and below the cursor
+set shiftround                                             " rounds indent to a multiple of shiftwidth
+set shiftwidth=4                                           " but an indent level is 4 spaces wide.
+set shortmess+=a                                           " Use [+]/[RO]/[w] for modified/readonly/written.
+set showcmd                                                " Show incomplete normal mode commands as I type.
+set showfulltag                                            " When completing by tag, show the whole tag, not just the function name
+set showmatch                                              " Briefly jump to a paren once it's balanced
+set showmode                                               " Show the current mode
+set smartcase                                              " unless uppercase letters are used in the regex.
+set smartindent                                            " use smart indent if there is no indent file
+set smarttab                                               " Handle tabs more intelligently
+set softtabstop=4                                          " <BS> over an autoindent deletes both spaces.
+set tabstop=4                                              " <tab> inserts 4 spaces
+set title                                                  " show title in console title bar
+set vb t_vb=                                               " Disable all bells.  I hate ringing/flashing.
+set virtualedit=block                                      " Let cursor move past the last char in <C-v> mode
+set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/** " Ignore these files when completing
+set wrapscan                                               " set the search scan to wrap lines
 au FileType javascript setl foldmethod=syntax nofoldenable
 
 " set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
@@ -308,10 +296,10 @@ autocmd BufEnter * silent! lcd %:p:h
 " =============================================================================
 " Python Related Actions
 " =============================================================================
-au! FileType python                     set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
-au! FileType python                     setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au! FileType python                     set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" au! FileType python                   nmap <F8> :TagbarToggle<CR>
+au! FileType python set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
+au! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" au! FileType python nmap <F8> :TagbarToggle<CR>
 " au! FileType python set omnifunc=pythoncomplete#Complete
 " au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 " au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
@@ -421,14 +409,13 @@ let g:indent_guides_auto_colors = 0
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-let g:rainbow_active = 1
-let g:deoplete#enable_at_startup = 1
+let g:UltiSnipsEditSplit           = "vertical"
+let g:rainbow_active               = 1
+let g:deoplete#enable_at_startup   = 1
 
 " =============================================================================
 " Theme
@@ -501,13 +488,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowBookmarks=1   " By default show bookmarks
-" let NERDTreeChDirMode=2
-" Store the bookmarks file
-let NERDTreeBookmarksFile=expand("$HOME/vim/NERDTreeBookmarks")
-" Remove pyc files from NERDTree View
-let NERDTreeIgnore = ['\.pyc$']
-
+let NERDTreeShowBookmarks = 1                                     " By default show bookmarks
+let NERDTreeBookmarksFile = expand("$HOME/vim/NERDTreeBookmarks") " Store the bookmarks file
+let NERDTreeIgnore = ['\.pyc$']" Remove pyc files from NERDTree View
 let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
       \ "Staged"    : "✚",
@@ -519,6 +502,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Clean"     : "✔︎",
       \ "Unknown"   : "?"
       \ }
+" let NERDTreeChDirMode=2
 
 "=============================================================================
 " Airline configurations
