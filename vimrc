@@ -391,7 +391,6 @@ au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " VIMRC Leader mappings
 " ==============
 au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
 " noremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
