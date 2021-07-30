@@ -50,8 +50,10 @@ augroup END
 " ===============
 " Basic Settings
 " ===============
-syntax on                 " syntax highlighing
-filetype plugin indent on " enable loading indent file for filetype
+syntax on                                                  " syntax highlighing
+syntax enable
+filetype plugin on
+filetype plugin indent on                                  " enable loading indent file for filetype
 set autoindent                                             " always set autoindenting on
 set background=dark                                        " We are using dark background in vim
 set backspace=2                                            " Allow backspacing over autoindent, EOL, and BOL
@@ -182,39 +184,34 @@ nnoremap <C-y> 4<C-y>                 " Scroll faster Up
 
 " ====================================================
 " Global Leader Mapping / Assignments 
-" ====================================================
-nnoremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
-
-" ====================================================
 " Window global Leader Mappings
 " ====================================================
-nnoremap <silent> <leader>Q :q<CR>
-nnoremap <silent> <leader>q :q<CR>     " Quit window on <leader>q
-nnoremap <silent> <leader>w :w<CR>     " Save window on <leader>w
+nnoremap <silent> <leader>w :w<CR>         " Save window on <leader>w
 nnoremap <silent> <leader>W :w!<CR>
-nnoremap <leader>h :sp<CR>             " Split the same window
+nnoremap <silent> <leader>q :q<CR>         " Quit window on <leader>q
+nnoremap <silent> <leader>Q :q<CR>
+
+nnoremap <leader>N :NERDTreeFind<CR>       " Open NerdTree
+nnoremap <leader>b :silent :nohlsearch<CR> " Turning off highlighing
+nnoremap <leader>f :CtrlPMixed<CR>
+nnoremap <leader>h :sp<CR>                 " Split the same window
+nnoremap <leader>m :CtrlPMRU<CR>           " Opem Most Recently Used :MRU  - Dont add comments afterwards
+nnoremap <leader>n :NERDTreeToggle<CR>     " Toggle NerdTree
+nnoremap <leader>o :CtrlPBuffer<CR>        " Toggle the BufExplorer
+nnoremap <leader>p <C-R><C-P>.             " Paste from clipboard
+nnoremap <leader>re :e <CR>                " Reload buffer
 nnoremap <leader>s :vsp<CR>
 nnoremap <leader>sb :window set scrollbind! <CR>
-nnoremap <leader>x <C-W>               " Window shortcut
-nnoremap <leader>n :NERDTreeToggle<CR> " Toggle NerdTree
-nnoremap <leader>N :NERDTreeFind<CR>   " Open NerdTree
-nnoremap <leader>m :CtrlPMRU<CR>       " Opem Most Recently Used :MRU  - Dont add comments afterwards
-nnoremap <leader>o :CtrlPBuffer<CR>    " Toggle the BufExplorer
-nnoremap <leader>f :CtrlPMixed<CR>
-nnoremap <leader>p <C-R><C-P>.         " Paste from clipboard
-nnoremap <leader>t :tabnew<CR>         " Opens a new empty tab
-nnoremap <leader>re :e <CR>            " Reload buffer
-" nmap <leader>f :CtrlP<CR>
-" nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>t :tabnew<CR>             " Opens a new empty tab
+nnoremap <leader>x <C-W>                   " Window shortcut
 
 " ================
-" numbers config
+" Numbers config
 " ================
 nnoremap <F6> :NumbersToggle<CR>
 nnoremap <F7> :NumbersOnOff<CR>
 nnoremap <F8> :set invpaste paste?<CR>  " Toggle paste 
 " imap <F8> <C-O>:set invpaste paste?<CR>
-
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
 
@@ -256,7 +253,7 @@ au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
 " ==================
 " JSON leader mappings
 " ==================
-au FileType json nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+au FileType json nmap <leader>F :% !cat % \| jq '.'<CR> " Formats a .json file
 " TODO: Check why this does not work.. it should use `ga` to search and find definition
 " au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
 " au FileType javascript nmap <F8>T :TagbarToggle<CR>
@@ -269,6 +266,16 @@ au FileType python nmap <leader>c setlocal buftype=py<CR> :w<CR> :R py.test -s <
 au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[%v]%:s/<C-R>//<c-r>z/g<cr>`x " Rename all occurences after defintion
 au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x " Rename in block
 au FileType python nmap <leader>e :.!python <CR> " Execute python on the current line
+" =============================================================================
+" Python Related Actions
+" =============================================================================
+au! FileType python set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
+au! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" au! FileType python nmap <F8> :TagbarToggle<CR>
+" au! FileType python set omnifunc=pythoncomplete#Complete
+" au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+" au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 " ====================
 " Shell Leader Mappings
@@ -293,16 +300,6 @@ au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype 
 
 " Build arduino code
 " nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
-" =============================================================================
-" Python Related Actions
-" =============================================================================
-au! FileType python set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
-au! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" au! FileType python nmap <F8> :TagbarToggle<CR>
-" au! FileType python set omnifunc=pythoncomplete#Complete
-" au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-" au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " =============================================================================
 " My Bundles here: using vim-plug
 " =============================================================================
@@ -396,7 +393,6 @@ let g:deoplete#enable_at_startup   = 1
 " =============================================================================
 " Theme
 " =============================================================================
-syntax enable
 colorscheme tender
 let g:main_font = "Monofur\\ for\\ Powerline:h13"
 let g:small_font = "Monofur\\ for\\ Powerline:h13"
@@ -441,8 +437,6 @@ let g:ale_lint_on_text_changed = 0
 " use npm bin to get the path
 " let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin/lehre'
 
-" filetype plugin indent on " enable loading indent file for filetype
-" filetype plugin on
 "
 " =============================================================================
 " CtrlP Configurations - Using The Silver Searcher `ag` instead of grep or ack
