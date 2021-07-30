@@ -619,6 +619,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
 let g:rainbow_active = 1
 let g:deoplete#enable_at_startup = 1
 
