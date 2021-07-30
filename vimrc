@@ -356,6 +356,13 @@ set shiftwidth=2                       " but an indent level is 4 spaces wide.
 set softtabstop=2                      " <BS> over an autoindent deletes both spaces.
 set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
 set shiftround                         " rounds indent to a multiple of shiftwidth
+
+
+" =============================================================================
+" Using The Silver Searcher `ag` instead of grep or ack
+" =============================================================================
+" sudo apt install silversearcher-ag
+" brew install the_silver_searcher
 if executable('ag')
   " Use ag over grep or ack
   set grepprg=ag\ --nogroup\ --nocolor\ --column
@@ -365,14 +372,13 @@ if executable('ag')
   let g:ctrl_user_caching = 0
 endif
 
-
 " ====================
 " Reading/Writing
 " ====================
 set noautowrite                        " Never write a file unless I request it.
 set noautowriteall                     " NEVER.
 " set auto                             " Set auto read file changes
-set noautoread                       " Don't automatically re-read changed files.
+set noautoread                         " Don't automatically re-read changed files. ( use <leader>re to reload )
 set modeline                           " Allow vim options to be embedded in files;
 set modelines=3                        " they must be within the first or last 5 lines.
 set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
