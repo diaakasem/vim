@@ -472,9 +472,6 @@ set fileencodings=utf-8,latin1
 let g:main_font = "Monofur\\ for\\ Powerline:h13"
 let g:small_font = "Monofur\\ for\\ Powerline:h13"
 
-filetype off                   " required!
-
-autocmd! BufWritePost ~/.vimrc nested :source ~/.vimrc
 let g:miniBufExplForceSyntaxEnable = 1
 
 hi IndentGuidesOdd  ctermbg=black
