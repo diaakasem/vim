@@ -8,26 +8,6 @@ let mapleader=","             " change the leader to be a comma vs slash
 
 " Enable man pages
 runtime ftplugin/man.vim
-" py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
-" function! IndentHTMLTagAttrs()
-" call inputsave()
-" py3 IndentHTMLTagAttrs()
-" call inputrestore()
-" endfunction
-" au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
-
-" Sets extensions for files with goto file to help with js imports
-augroup suffixes
-  autocmd!
-  let associations = [
-        \["javascript", ".js,.javascript,.es,.esx,.json"],
-        \["python", ".py,.pyw"]
-        \]
-  for ft in associations
-    execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
-  endfor
-augroup END
-
 
 " =============================================================================
 " Refactor a variable name in python
@@ -43,22 +23,38 @@ endfunction
 " =============================================================================
 command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | silent r !<args>
 
-inoremap jj <esc>                      " Make jj in insert mode to go to ESC
-
 " ============================
 " Set ft based on extensions
 " ============================
-au! BufNewFile,BufRead,BufEnter *.js              setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
-au! BufNewFile,BufRead,BufEnter *.ts              setlocal filetype=typescript
-au! BufNewFile,BufRead,BufEnter *.yml             setlocal filetype=yaml
-au! BufNewFile,BufRead,BufEnter *.coffee          setlocal filetype=coffee
-au! BufNewFile,BufRead,BufEnter *.ino             setlocal filetype=arduino
-au! BufNewFile,BufRead,BufEnter *.jade            setlocal filetype=jade
-au! BufNewFile,BufRead,BufEnter *.less            setlocal filetype=css
-au! BufNewFile,BufRead,BufEnter *.sass            setlocal filetype=sass
-au! BufNewFile,BufRead,BufEnter *.tmpl            setlocal filetype=html
-au! BufNewFile,BufRead,BufEnter *.sh              setlocal filetype=shell
-au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
+" au! BufNewFile,BufRead,BufEnter *.js              setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
+" au! BufNewFile,BufRead,BufEnter *.ts              setlocal filetype=typescript
+" au! BufNewFile,BufRead,BufEnter *.yml             setlocal filetype=yaml
+" au! BufNewFile,BufRead,BufEnter *.ino             setlocal filetype=arduino
+" au! BufNewFile,BufRead,BufEnter *.less            setlocal filetype=css
+" au! BufNewFile,BufRead,BufEnter *.tmpl            setlocal filetype=html
+" au! BufNewFile,BufRead,BufEnter *.sh              setlocal filetype=shell
+" au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
+
+" Sets extensions for files with goto file to help with js imports
+augroup suffixes
+  autocmd!
+  let associations = [
+        \["javascript", ".js,.javascript,.es,.esx,.json"],
+        \["css", ".css,.less,.scss"],
+        \["html", ".htm,.html,.xhtml,.tmpl"],
+        \["ts", ".typescript"],
+        \["arduino", ".ino"],
+        \["yaml", ".yml,.yaml"],
+        \["yaml", ".yml,.yaml"],
+        \["shell", ".csh,.sh,.bash"],
+        \["vimrc", ".vimrc,vimrc"],
+        \["python", ".py,.pyw"]
+        \]
+  for ft in associations
+    execute "au! BufNewFile,BufRead,BufEnter *" . ft[1] . " setlocal filetype=" . ft[0]
+    execute "au FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+  endfor
+augroup END
 
 " ====================================================
 " Commands
@@ -75,6 +71,8 @@ cmap w!! w !sudo tee % >/dev/null
 " ====================================================
 " Global Key Mappings / Assignments 
 " ====================================================
+" Make jj in insert mode to go to ESC
+inoremap jj <esc>                      
 " Have Enter to go to command line
 noremap ; :       
 " Maps to make handling windows a bit easier
@@ -110,28 +108,21 @@ nnoremap <silent> <leader>sb :window set scrollbind! <CR>
 " Save window on <leader>w
 nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>W :w!<CR>
-
-" ============================================
-" Read visual block
-" ============================================
-" vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
-
 " For when we forget to use sudo to open/edit a file
 noremap <silent> <leader>x <C-W>           " Window shortcut
 noremap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
 noremap <leader>N :NERDTreeFind<CR>        " Open NerdTree
 noremap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
 noremap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
-" nmap <leader>f :CtrlP<CR>
 noremap <leader>f :CtrlPMixed<CR>
-" nnoremap <leader>. :CtrlPTag<cr>
 noremap <leader>p <C-R><C-P>.              " Paste from clipboard
 noremap <leader>t :tabnew<CR>              " Opens a new empty tab
-" noremap <leader>a :Align                   " Align with a letter
 noremap <leader>re :e <CR>                 " Reload buffer
-
-nnoremap <C-e> 4<C-e> " Scroll faster Down
-nnoremap <C-y> 4<C-y> " Scroll faster Up
+nnoremap <C-e> 4<C-e>                      " Scroll faster Down
+nnoremap <C-y> 4<C-y>                      " Scroll faster Up
+" nmap <leader>f :CtrlP<CR>
+" nnoremap <leader>. :CtrlPTag<cr>
+" noremap <leader>a :Align                   " Align with a letter
 
 " ================
 " numbers config
@@ -385,8 +376,8 @@ set runtimepath+=~/.vim/personal
 " editorconfig
 " ==============
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_exec_path = system('which editorconfig')
+" let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 
 " ====================================
 " Yank into the system's clipboard
@@ -403,7 +394,6 @@ setglobal fileencoding=utf-8
 set fileencodings=utf-8,latin1
 
 let g:miniBufExplForceSyntaxEnable = 1
-
 
 " =============================================================================
 " My Bundles here: using vim-plug
@@ -627,4 +617,18 @@ let @s='iJSON.stringify('
 " convert - muso import {... }  from models; to import DB from models;
 let @m='gg/models''0f{ca{modelsG?import oconst pa = models;0'
 let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
+
+
+" ============================================
+" Read visual block
+" ============================================
+" vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
+
+" py3file /Users/dino/vim/diaa-python/html-indent-tag-attrs.py
+" function! IndentHTMLTagAttrs()
+" call inputsave()
+" py3 IndentHTMLTagAttrs()
+" call inputrestore()
+" endfunction
+" au BufNewFile,BufRead,BufEnter *.html nmap <Leader>ff :call IndentHTMLTagAttrs()<cr>
 
