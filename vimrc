@@ -232,7 +232,7 @@ cmap w!! w !sudo tee % >/dev/null
 " Make jj in insert mode to go to ESC
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
-noremap ; :
+nnoremap ; :
 " Increase window left
 noremap <C-h> <C-W><
 " Increase window right
@@ -266,26 +266,26 @@ noremap <silent> <leader>q :q<CR>
 noremap <silent> <leader>Q :q<CR>
 
 " Open NerdTree
-noremap <leader>N :NERDTreeFind<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
 " Turning off highlighing
-noremap <leader>b :silent :nohlsearch<CR>
-noremap <leader>f :CtrlPMixed<CR>
+nnoremap <leader>b :silent :nohlsearch<CR>
+nnoremap <leader>f :CtrlPMixed<CR>
 " Split the same window
-noremap <leader>h :sp<CR>
+nnoremap <leader>h :sp<CR>
 " Opem Most Recently Used :MRU  - Dont add comments afterwards
-noremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
 " Toggle NerdTree
-noremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 " Toggle the BufExplorer
-noremap <leader>o :CtrlPBuffer<CR>
+nnoremap <leader>o :CtrlPBuffer<CR>
 " Paste from clipboard
-noremap <leader>p <C-R><C-P>.
+nnoremap <leader>p <C-R><C-P>.
 " Reload buffer
-noremap <leader>re :e <CR>
-noremap <leader>s :vsp<CR>
-noremap <leader>sb :window set scrollbind! <CR>
+nnoremap <leader>re :e <CR>
+nnoremap <leader>s :vsp<CR>
+nnoremap <leader>sb :window set scrollbind! <CR>
 " Opens a new empty tab
-noremap <leader>t :tabnew<CR>
+nnoremap <leader>t :tabnew<CR>
 
 " ================
 " Numbers config
@@ -301,19 +301,19 @@ noremap <F8> :set invpaste paste?<CR>
 " ====================
 " Git Commands
 " ====================
-noremap <leader>gL :Glog<CR>
-noremap <leader>ga :!git add %<CR>
-noremap <leader>gb :Gblame<CR>
-noremap <leader>ge :Gedit<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gd :Gdiff<CR>
-noremap <leader>gg :Ggrep<CR>
-noremap <leader>gl :Glog --follow %<CR>
-noremap <leader>gP :Gpull<CR>
-noremap <leader>gp :Gpush<CR>
-noremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gL :Glog<CR>
+nnoremap <leader>ga :!git add %<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gg :Ggrep<CR>
+nnoremap <leader>gl :Glog --follow %<CR>
+nnoremap <leader>gP :Gpull<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gs :Gstatus<CR>
 " Dangerous
-" nmap <leader>gA :!git add . --all<CR>
+" nnoremap <leader>gA :!git add . --all<CR>
 
 " ====================
 " Compiling commands
@@ -385,13 +385,13 @@ au FileType shell nmap <leader>e :.!bash <CR>
 " for html
 au FileType html nmap <buffer> <leader>; :call HtmlBeautify()<cr>
 au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
-" noremap <leader>= :Autoformat<CR>
+" au FileType html nmap <buffer> <leader>= :Autoformat<CR>
 
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au FileType vimrc nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
 " noremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
