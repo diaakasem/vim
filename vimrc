@@ -217,41 +217,74 @@ au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<C
 " ===============
 " Basic Settings
 " ===============
-set guioptions+=a
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
-set number                " Display line numbers
-set nrformats=            " Set number formats to only decimal
-set numberwidth=1         " using only 1 column (and 1 space) while possible
+set autoindent                         " always set autoindenting on
 set background=dark       " We are using dark background in vim
-set title                 " show title in console title bar
-set history=1000          " Set the commands history to 1000
-set hidden                " Better handling for the buffers
-set mouse=a               " Enable mouse interactions
-set clipboard+=unnamed    " Add the unnamed register to the clipboard
-set nocompatible          " vim>vi
-set isfname-=:            " Set the filename:linenumber delimiter to be colon
-set noerrorbells visualbell t_vb=
-set ofu=syntaxcomplete#Complete
-set cindent
-set printoptions=header:0,duplex:long,paper:letter " Printing options
+set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp " Change backupdir ,/var/tmp,/tmp
+set ch=1                               " Make command line two lines high
+set cindent
+set clipboard+=unnamed    " Add the unnamed register to the clipboard
+set colorcolumn=80
+set completeopt=menuone,longest
+set confirm                            " Y-N-C prompt if closing with unsaved changes.
+set cursorline                         " have a line indicate the cursor location
+set diffopt+=iwhite   " Add ignorance of whitespace to diff
 set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
-set showmode                           " Show the current mode
-" Folding settings
-set nofoldenable      " dont fold by default
-set showfulltag       " When completing by tag, show the whole tag, not just the function name
+set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
+set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
+set fillchars +=stl:\ ,stlnc:\
+set fillchars=""      " get rid of the silly characters in separators
+set foldlevel=1       " this is just what i use
 set foldmethod=indent " fold based on syntax ( indent, syntax, manual )
 set foldnestmax=99    " deepest fold is 10 levels
-set foldlevel=1       " this is just what i use
-set colorcolumn=80
-set fillchars=""      " get rid of the silly characters in separators
-set fillchars +=stl:\ ,stlnc:\
-set diffopt+=iwhite   " Add ignorance of whitespace to diff
-" Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**
-set completeopt=menuone,longest
+set guioptions+=a
+set hidden                " Better handling for the buffers
+set history=1000          " Set the commands history to 1000
+set hlsearch                           " Highlight searches by default.
+set ignorecase                         " Default to using case insensitive searches,
+set incsearch                          " Incrementally search while typing a /regex
+set isfname-=:            " Set the filename:linenumber delimiter to be colon
+set laststatus=2                       " Always show statusline, even if only 1 window.
+set modeline                           " Allow vim options to be embedded in files;
+set modelines=3                        " they must be within the first or last 5 lines.
+set mouse=a               " Enable mouse interactions
+set noautoread                         " Don't automatically re-read changed files. ( use <leader>re to reload )
+set noautowrite                        " Never write a file unless I request it.
+set noautowriteall                     " NEVER.
+set nocompatible          " vim>vi
+set noerrorbells visualbell t_vb=
+set nofoldenable      " dont fold by default
+set nostartofline                      " Avoid moving cursor to BOL when jumping around
+set nowrap                             " don't wrap text
+set nrformats=            " Set number formats to only decimal
+set number                " Display line numbers
+set numberwidth=1         " using only 1 column (and 1 space) while possible
+set ofu=syntaxcomplete#Complete
+set printoptions=header:0,duplex:long,paper:letter " Printing options
 set pumheight=10                       " Keep a small completion window
+set report=0                           " : commands always print changed line count.
+set scrolloff=8                        " Keep 8 context lines above and below the cursor
+set shiftround                         " rounds indent to a multiple of shiftwidth
+set shiftwidth=4                       " but an indent level is 4 spaces wide.
+set shortmess+=a                       " Use [+]/[RO]/[w] for modified/readonly/written.
+set showcmd                            " Show incomplete normal mode commands as I type.
+set showfulltag       " When completing by tag, show the whole tag, not just the function name
+set showmatch                          " Briefly jump to a paren once it's balanced
+set showmode                           " Show the current mode
+set smartcase                          " unless uppercase letters are used in the regex.
+set smartindent                        " use smart indent if there is no indent file
+set smarttab                           " Handle tabs more intelligently
+set softtabstop=4                      " <BS> over an autoindent deletes both spaces.
+set tabstop=4                          " <tab> inserts 4 spaces
+set title                 " show title in console title bar
+set vb t_vb=                           " Disable all bells.  I hate ringing/flashing.
+set virtualedit=block                  " Let cursor move past the last char in <C-v> mode
+set wildignore+=*.o,*.obj,.git,*.pyc,eggs/**,*.egg-info/**  " Ignore these files when completing
+set wrapscan                           " set the search scan to wrap lines
+au FileType javascript setl foldmethod=syntax nofoldenable
+" set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
 " set textwidth=80    " Set text width to 120 chars
 " set wildmenu              " Menu completion in command mode on <Tab>
 " set wildmode=full         " <Tab> cycles between all matching choices.
@@ -262,57 +295,6 @@ set pumheight=10                       " Keep a small completion window
 " set stl+=%{expand('%:~:.')}
 " au FileType html setl foldmethod=indent nofoldenable
 " au FileType css setl foldmethod=indent nofoldenable
-au FileType javascript setl foldmethod=syntax nofoldenable
-" set complete=.,w,b,t                   " Same as default except that I remove the 'u' option
-
-" =======================
-" Moving Around/Editing
-" =======================
-set cursorline                         " have a line indicate the cursor location
-set nostartofline                      " Avoid moving cursor to BOL when jumping around
-set virtualedit=block                  " Let cursor move past the last char in <C-v> mode
-set scrolloff=8                        " Keep 8 context lines above and below the cursor
-set backspace=2                        " Allow backspacing over autoindent, EOL, and BOL
-set showmatch                          " Briefly jump to a paren once it's balanced
-set wrapscan                           " set the search scan to wrap lines
-set ch=1                               " Make command line two lines high
-set nowrap                             " don't wrap text
-set autoindent                         " always set autoindenting on
-set smartindent                        " use smart indent if there is no indent file
-set tabstop=4                          " <tab> inserts 4 spaces
-set shiftwidth=4                       " but an indent level is 4 spaces wide.
-set softtabstop=4                      " <BS> over an autoindent deletes both spaces.
-set expandtab                          " Use spaces, not tabs, for autoindent/tab key.
-set shiftround                         " rounds indent to a multiple of shiftwidth
-
-" ====================
-" Reading/Writing
-" ====================
-set noautowrite                        " Never write a file unless I request it.
-set noautowriteall                     " NEVER.
-" set auto                             " Set auto read file changes
-set noautoread                         " Don't automatically re-read changed files. ( use <leader>re to reload )
-set modeline                           " Allow vim options to be embedded in files;
-set modelines=3                        " they must be within the first or last 5 lines.
-set ffs=unix,dos,mac                   " Try recognizing dos, unix, and mac line endings.
-
-" ===========================
-" Messages, Info, Status
-" ===========================
-set vb t_vb=                           " Disable all bells.  I hate ringing/flashing.
-set confirm                            " Y-N-C prompt if closing with unsaved changes.
-set showcmd                            " Show incomplete normal mode commands as I type.
-set report=0                           " : commands always print changed line count.
-set shortmess+=a                       " Use [+]/[RO]/[w] for modified/readonly/written.
-set laststatus=2                       " Always show statusline, even if only 1 window.
-" ========================
-" Searching and Patterns
-" ========================
-set ignorecase                         " Default to using case insensitive searches,
-set smartcase                          " unless uppercase letters are used in the regex.
-set smarttab                           " Handle tabs more intelligently
-set hlsearch                           " Highlight searches by default.
-set incsearch                          " Incrementally search while typing a /regex
 
 " ============================================================
 " Auto change directory to where the opened file is opened
@@ -403,6 +385,7 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
 " Track the engine.
 Plug 'SirVer/ultisnips'
+Plug 'junegunn/vim-easy-align'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 if has('nvim')
