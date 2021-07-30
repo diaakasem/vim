@@ -217,6 +217,8 @@ au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<C
 " ===============
 " Basic Settings
 " ===============
+set clipboard=unnamed
+set guioptions+=a
 
 syntax on                 " syntax highlighing
 filetype plugin indent on " enable loading indent file for filetype
@@ -252,9 +254,9 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp " ,/var/tmp,/tmp
 " ======================
 " Set the status line
 " ======================
+set showmode                           " Show the current mode
 " set stl=%{fugitive#statusline()}\ Buf:#%n\ [%b][0x%B]
 " set statusline^=%{fnamemodify(expand('%'),':.')}
-set showmode                           " Show the current mode
 " set stl+=%{expand('%:~:.')}
 
 " =================
@@ -368,13 +370,6 @@ set runtimepath+=~/.vim/personal
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 let g:EditorConfig_exec_path = system('which editorconfig')
 " let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
-
-" ====================================
-" Yank into the system's clipboard
-" ====================================
-set clipboard=unnamed
-set guioptions+=a
-
 " ==========
 " Encoding UTF-8
 " ==========
