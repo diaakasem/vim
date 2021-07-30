@@ -213,8 +213,8 @@ nnoremap <leader>re :e <CR>            " Reload buffer
 " ================
 " numbers config
 " ================
-nnoremap <silent> <F6> :NumbersToggle<CR>
-nnoremap <silent> <F7> :NumbersOnOff<CR>
+nnoremap <F6> :NumbersToggle<CR>
+nnoremap <F7> :NumbersOnOff<CR>
 nnoremap <F8> :set invpaste paste?<CR>  " Toggle paste 
 " imap <F8> <C-O>:set invpaste paste?<CR>
 
