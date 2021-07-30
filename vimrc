@@ -124,7 +124,6 @@ nnoremap <F8> :set invpaste paste?<CR>
 imap <F8> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F8>
 
-
 " nmap <leader>G :bprev<CR>
 " nmap <leader>g :bnext<CR>
 
