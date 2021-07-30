@@ -319,27 +319,27 @@ nnoremap <leader>gs :Git status<CR>
 " Compiling commands
 " ====================
 " Beautify for css or scss
-au FileType css nmap <buffer> <leader>; :call CSSBeautify()<cr>
-au FileType css vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
+au FileType css nnoremap <buffer> <leader>; :call CSSBeautify()<cr>
+au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
 " ==================
 " Javascript leader mappings
 " ==================
 " ALEFix  use ALE Fixers
-au FileType javascript nmap <leader>l :ALEFix<CR> :w<CR>
+au FileType javascript nnoremap <buffer> <leader>l :ALEFix<CR> :w<CR>
 " Execute eslint on the current js file
-au FileType javascript nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>
+au FileType javascript nnoremap <buffer> <leader>L :w<CR> :R eslint --fix <C-R>%<CR>
 " Add debugger; keyword
-au FileType javascript nmap <leader>d Odebugger; <ESC> :w <CR>
+au FileType javascript nnoremap <buffer> <leader>d Odebugger; <ESC> :w <CR>
 " Execute node on the current line
-au FileType javascript nmap <leader>e :.!node <CR>
-au FileType javascript nmap <leader>= :w<CR>:!fixjsstyle %<CR>
+au FileType javascript nnoremap <buffer> <leader>e :.!node <CR>
+au FileType javascript nnoremap <buffer> <leader>= :w<CR>:!fixjsstyle %<CR>
 " Beautify
-au FileType javascript nmap <buffer> <leader>; :call JsBeautify()<cr>
-au FileType javascript vmap <buffer> <leader>; :call RangeJsBeautify()<cr>
+au FileType javascript nnoremap <buffer> <leader>; :call JsBeautify()<cr>
+au FileType javascript vnoremap <buffer> <leader>; :call RangeJsBeautify()<cr>
 " TODO: Check why this does not work.. it should use `ga` to search and find definition
-" au FileType javascript nmap <leader>g :ALEGoToDefinition<CR>
-" au FileType javascript nmap <F8>T :TagbarToggle<CR>
+au FileType javascript nnoremap <buffer> <leader>g :ALEGoToDefinition<CR>
+" au FileType javascript nmap <buffer> <F8>T :TagbarToggle<CR>
 
 " ==================
 " JSON leader mappings
