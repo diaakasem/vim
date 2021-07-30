@@ -632,7 +632,6 @@ let g:airline_theme='molokai'
 let g:airline_highlighting_cache = 1
 let g:airline_extensions = []
 
-
 " ==========================
 " Nerd Commenter
 " ==========================
@@ -649,12 +648,13 @@ let g:NERDTrimTrailingWhitespace = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 0
 
-" ==========================
+"=============================================================================
 " Macros
+"=============================================================================
 "
 " Tip: press combination CtrlV followed by key ex.Enter.
 " This will insert Enter code represented by ^M sign
-" ==========================
+"=============================================================================
 " Line of equals
 let @-='O=x77p'
 " JS add // @flow at the start of js file
