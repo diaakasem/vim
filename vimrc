@@ -437,18 +437,6 @@ au! BufRead,BufEnter *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%
 set runtimepath+=~/.vim/plugged
 set runtimepath+=~/.vim/personal
 
-" ================================================
-" Remove pyc files from NERDTree View
-" ================================================
-let NERDTreeIgnore = ['\.pyc$']
-
-" =============
-" Nerdtree
-" =============
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
 " ==============
 " Editor config
 " ==============
@@ -610,10 +598,15 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " =============================================================================
 " NerdTree configurations
 " =============================================================================
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeShowBookmarks=1   " By default show bookmarks
 " let NERDTreeChDirMode=2
 " Store the bookmarks file
 let NERDTreeBookmarksFile=expand("$HOME/vim/NERDTreeBookmarks")
+" Remove pyc files from NERDTree View
+let NERDTreeIgnore = ['\.pyc$']
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
