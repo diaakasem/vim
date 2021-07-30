@@ -301,17 +301,17 @@ noremap <F8> :set invpaste paste?<CR>
 " ====================
 " Git Commands
 " ====================
-nnoremap <leader>gL :Glog<CR>
+nnoremap <leader>gL :Git log<CR>
 nnoremap <leader>ga :!git add %<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gg :Ggrep<CR>
-nnoremap <leader>gl :Glog --follow %<CR>
-nnoremap <leader>gP :Gpull<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>ge :Git edit<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gd :Git diff<CR>
+nnoremap <leader>gg :Git grep<CR>
+nnoremap <leader>gl :Git log --follow %<CR>
+nnoremap <leader>gP :Git pull<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gs :Git status<CR>
 " Dangerous
 " nnoremap <leader>gA :!git add . --all<CR>
 
