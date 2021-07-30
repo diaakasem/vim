@@ -26,15 +26,6 @@ command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=h
 " ============================
 " Set ft based on extensions
 " ============================
-" au! BufNewFile,BufRead,BufEnter *.js              setlocal filetype=javascript " shiftwidth=4 tabstop=4 softtabstop=4 " Use editor config for that
-" au! BufNewFile,BufRead,BufEnter *.ts              setlocal filetype=typescript
-" au! BufNewFile,BufRead,BufEnter *.yml             setlocal filetype=yaml
-" au! BufNewFile,BufRead,BufEnter *.ino             setlocal filetype=arduino
-" au! BufNewFile,BufRead,BufEnter *.less            setlocal filetype=css
-" au! BufNewFile,BufRead,BufEnter *.tmpl            setlocal filetype=html
-" au! BufNewFile,BufRead,BufEnter *.sh              setlocal filetype=shell
-" au! BufNewFile,BufRead,BufEnter vimrc,.vimrc      setlocal filetype=vimrc
-
 " Sets extensions for files with goto file to help with js imports
 augroup suffixes
   autocmd!
