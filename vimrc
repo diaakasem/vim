@@ -234,6 +234,9 @@ cmap w!! w !sudo tee % >/dev/null
 " change the behavior of the <Enter> key when the popup menu is visible.
 " to select the highlighted menu item
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :'<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " Make jj in insert mode to go to ESC
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
