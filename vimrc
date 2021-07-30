@@ -117,18 +117,18 @@ nnoremap <silent> <leader>W :w!<CR>
 " vmap <leader>S :AsyncRun say --voice ava --rate=220<CR>
 
 " For when we forget to use sudo to open/edit a file
-nmap <silent> <leader>x <C-W>           " Window shortcut
-nmap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
-nmap <leader>N :NERDTreeFind<CR>        " Open NerdTree
-nmap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
-nmap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
+noremap <silent> <leader>x <C-W>           " Window shortcut
+noremap <leader>n :NERDTreeToggle<CR>      " Toggle NerdTree
+noremap <leader>N :NERDTreeFind<CR>        " Open NerdTree
+noremap <leader>m :CtrlPMRU<CR>            " Opem Most Recently Used :MRU  - Dont add comments afterwards
+noremap <leader>o :CtrlPBuffer<CR>         " Toggle the BufExplorer
 " nmap <leader>f :CtrlP<CR>
-nmap <leader>f :CtrlPMixed<CR>
+noremap <leader>f :CtrlPMixed<CR>
 " nnoremap <leader>. :CtrlPTag<cr>
-nmap <leader>p <C-R><C-P>.              " Paste from clipboard
-nmap <leader>t :tabnew<CR>              " Opens a new empty tab
-" nmap <leader>a :Align                   " Align with a letter
-nmap <leader>re :e <CR>                 " Reload buffer
+noremap <leader>p <C-R><C-P>.              " Paste from clipboard
+noremap <leader>t :tabnew<CR>              " Opens a new empty tab
+" noremap <leader>a :Align                   " Align with a letter
+noremap <leader>re :e <CR>                 " Reload buffer
 
 nnoremap <C-e> 4<C-e> " Scroll faster Down
 nnoremap <C-y> 4<C-y> " Scroll faster Up
@@ -153,19 +153,19 @@ set pastetoggle=<F8>
 " ====================
 " Git Commands
 " ====================
-nmap <leader>gL :Glog<CR>
+noremap <leader>gL :Glog<CR>
 " Dangerous
 " nmap <leader>gA :!git add . --all<CR>
-nmap <leader>ga :!git add %<CR>
-nmap <leader>gb :Gblame<CR>
-nmap <leader>ge :Gedit<CR>
-nmap <leader>gc :Gcommit<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gg :Ggrep<CR>
-nmap <leader>gl :Glog --follow %<CR>
-nmap <leader>gP :Gpull<CR>
-nmap <leader>gp :Gpush<CR>
-nmap <leader>gs :Gstatus<CR>
+noremap <leader>ga :!git add %<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>ge :Gedit<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gd :Gdiff<CR>
+noremap <leader>gg :Ggrep<CR>
+noremap <leader>gl :Glog --follow %<CR>
+noremap <leader>gP :Gpull<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gs :Gstatus<CR>
 
 " ====================
 " Compiling commands
@@ -173,25 +173,26 @@ nmap <leader>gs :Gstatus<CR>
 au FileType less      nmap <leader>c :w<CR> :silent !lessc % %:r.css <CR>                                         " Execute lessc on the current file
 au FileType css       nmap <leader>c :w<CR> :silent !node ~/zshconfigs/scripts/css2less.js % %:r.less <CR>        " Execute lessc on the current file
 " Beautify for css or scss
-au FileType css noremap <buffer> <leader>; :call CSSBeautify()<cr>
-au FileType css vnoremap <buffer> <leader>; :call RangeCSSBeautify()<cr>
+au FileType css       nmap <buffer> <leader>; :call CSSBeautify()<cr>
+au FileType css       vmap <buffer> <leader>; :call RangeCSSBeautify()<cr>
 
 " ==================
 " Javascript leader mappings
 " ==================
-au FileType javascript   nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
+" au! FileType javascript      nmap <F8>T :TagbarToggle<CR>
+au FileType javascript         nmap <leader>l :ALEFix<CR> :w<CR>       " ALEFix  use ALE Fixers
 "" Execute eslint on the current js file
 au FileType javascript         nmap <leader>L :w<CR> :R eslint --fix <C-R>%<CR>                                   
 au FileType javascript         nmap <leader>= :w<CR>:!fixjsstyle %<CR>
 " Add debugger; keyword
 au FileType javascript         nmap <leader>d Odebugger; <ESC> :w <CR>                                            
 " Execute node on the current line
-au FileType javascript     nmap <leader>e :.!node <CR>  
+au FileType javascript         nmap <leader>e :.!node <CR>  
 " Beautify
-au FileType javascript noremap <buffer>  <leader>; :call JsBeautify()<cr>
-au FileType javascript vnoremap <buffer>  <leader>; :call RangeJsBeautify()<cr>
+au FileType javascript         nmap <buffer>  <leader>; :call JsBeautify()<cr>
+au FileType javascript         vmap <buffer>  <leader>; :call RangeJsBeautify()<cr>
 
-au FileType json         nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
+au FileType json               nmap <leader>F :% !cat % \| json<CR> " Formats a .json file
 
 " ==================
 " Python leader mappings
@@ -218,17 +219,15 @@ au FileType shell              nmap <leader>e :.!bash <CR>
 " HTML Leader Mappings
 " ==============
 " for html
-au FileType html noremap <buffer> <leader>; :call HtmlBeautify()<cr>
-au FileType html vnoremap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
+au FileType html               nmap <buffer> <leader>; :call HtmlBeautify()<cr>
+au FileType html               vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " noremap <leader>= :Autoformat<CR>
 
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-au FileType vimrc map <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
-" au! BufRead,BufEnter *.py nmap <F8> :TagbarToggle<CR>
-" au! BufRead,BufEnter *.js nmap <F8>T :TagbarToggle<CR>
+au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc             nmap <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
 " nnoremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
@@ -373,6 +372,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " ==========================
 " Python Related Actions
 " ==========================
+" au! FileType python nmap <F8> :TagbarToggle<CR>
 au! FileType python                     set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
 " au! FileType python set omnifunc=pythoncomplete#Complete
 " au! FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
