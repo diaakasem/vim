@@ -245,7 +245,8 @@ inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Es
 " Make jj in insert mode to go to ESC
 inoremap jj <esc>
 " Have Enter to go to command line ( do not put that comment in the same line )
-nnoremap ; :
+" I actually found that I use ; alot 
+" nnoremap ; :
 nnoremap <C-n> ;
 " Increase window left
 noremap <C-h> <C-W><
