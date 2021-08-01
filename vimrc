@@ -69,7 +69,8 @@ set backupdir=~/.vim/tmp,~/.tmp,~/tmp
 set ch=1
 set cindent
 " Add the unnamed register to the clipboard
-set clipboard+=unnamed
+set clipboard+=unnamedplus
+" set clipboard+=unnamed
 set colorcolumn=80
 set completeopt=menuone,longest
 
@@ -299,6 +300,7 @@ nnoremap <leader>s :vsp<CR>
 nnoremap <leader>sb :window set scrollbind! <CR>
 " Opens a new empty tab
 nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>x <c-w>
 
 " ================
 " Numbers config
@@ -403,7 +405,7 @@ au FileType html vmap <buffer> <leader>; :call RangeHtmlBeautify()<cr>
 " ==============
 " VIMRC Leader mappings
 " ==============
-au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source ~/.vimrc<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
+au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source $MYVIMRC<CR>:filetype detect<CR> :!cd ~/vim/ && git commit -am 'Update Vim' & <CR> :exe ":echo 'vimrc reloaded'"<CR>
 
 " Build arduino code
 " noremap <silent> <F8> :w<CR>:silent !cd ..; ino clean; ino build; ino upload; cd -<CR>
@@ -447,7 +449,6 @@ Plug 'tomasr/molokai'
 Plug 'airblade/vim-rooter'
 Plug 'othree/yajs.vim'
 Plug 'hashivim/vim-terraform'
-Plug 'folke/which-key.nvim'
 Plug 'frazrepo/vim-rainbow'
 Plug 'nathanaelkane/vim-indent-guides'
 " Track the engine.
