@@ -543,7 +543,7 @@ let g:ale_lint_on_text_changed = 0
 
 " TODO try making this dynamic
 " use npm bin to get the path
-" let g:jsdoc_lehre_path = '/home/pi/projects/muso/MusoBackend/node_modules/.bin/lehre'
+" let g:jsdoc_lehre_path = '~/.nvm/versions/v16.5.0/lib'
 
 "
 " =============================================================================
