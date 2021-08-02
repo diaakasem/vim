@@ -423,7 +423,11 @@ Plug 'dense-analysis/ale'
 Plug 'docunext/closetag.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/filetype.vim'
-Plug 'heavenshell/vim-jsdoc'
+" keep make install to install lehre 
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 Plug 'jisaacks/GitGutter'
 Plug 'kien/ctrlp.vim'
 Plug 'ajh17/VimCompletesMe'
