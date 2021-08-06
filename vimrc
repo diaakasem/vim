@@ -464,13 +464,13 @@ Plug 'SirVer/ultisnips'
 Plug 'junegunn/vim-easy-align'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 "Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
