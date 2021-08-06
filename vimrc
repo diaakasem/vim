@@ -625,7 +625,7 @@ map <leader>H :SplitVifm<CR>
 " ==========================
 " Vimwiki
 " ==========================
-map <leader>ww :Wimwiki<CR>
+map <leader>ws :Wimwiki<CR>
 
 "=============================================================================
 " Macros
