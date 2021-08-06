@@ -376,6 +376,7 @@ au FileType python nmap <Leader>r zyiw:call Refactor()<cr>mx:silent! norm gd<cr>
 au FileType python nmap <Leader>rb zyiw:call Refactor()<cr>mx:silent! norm <cr>[%V]%:s/<C-R>//<c-r>z/g<cr>`x
 " Execute python on the current line
 au FileType python nmap <leader>e :.!python <CR>
+
 " =============================================================================
 " Python Related Actions
 " =============================================================================
@@ -613,6 +614,23 @@ let g:NERDTrimTrailingWhitespace = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 0
 
+" ==========================
+" VIFM
+" ==========================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 0
+
+
 "=============================================================================
 " Macros
 "=============================================================================
@@ -620,6 +638,7 @@ let g:NERDCommentEmptyLines = 0
 " Tip: press combination CtrlV followed by key ex.Enter. in insert mode.
 " This will insert Enter code represented by ^M sign
 "=============================================================================
+map <leader>vv :Vifm<CR>
 " Line of equals
 let @-='O=x77p'
 " JS add // @flow at the start of js file
