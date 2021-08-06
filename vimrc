@@ -617,10 +617,9 @@ let g:NERDCommentEmptyLines = 0
 " ==========================
 " VIFM
 " ==========================
-map <leader>V :Vifm<CR>
-map <leader>vv :VsplitVifm<CR>
-map <leader>vh :SplitVifm<CR>
-
+map <leader>vv :Vifm<CR>
+map <leader>V :VsplitVifm<CR>
+map <leader>H :SplitVifm<CR>
 
 "=============================================================================
 " Macros
