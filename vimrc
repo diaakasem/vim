@@ -455,6 +455,7 @@ Plug 'airblade/vim-rooter'
 Plug 'othree/yajs.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'frazrepo/vim-rainbow'
+Plug 'vifm/vifm.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 " Track the engine.
 Plug 'SirVer/ultisnips'
