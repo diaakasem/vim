@@ -416,6 +416,7 @@ au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source $MYVIMRC<CR>:
 " =============================================================================
 call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
+Plug 'vimwiki/vimwiki'
 Plug 'Chiel92/vim-autoformat'
 Plug 'easymotion/vim-easymotion'
 Plug 'Xuyuanp/nerdtree-git-plugin'
