@@ -281,7 +281,7 @@ noremap <silent> <leader>q :q<CR>
 noremap <silent> <leader>Q :q<CR>
 
 " Open NerdTree
-nnoremap <leader>N :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 " Turning off highlighing
 nnoremap <leader>b :silent :nohlsearch<CR>
 nnoremap <leader>f :CtrlPMixed<CR>
@@ -290,7 +290,7 @@ nnoremap <leader>h :sp<CR>
 " Opem Most Recently Used :MRU  - Dont add comments afterwards
 nnoremap <leader>m :CtrlPMRU<CR>
 " Toggle NerdTree
-nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>N :NERDTreeToggle<CR>
 " Toggle the BufExplorer
 nnoremap <leader>o :CtrlPBuffer<CR>
 " Paste from clipboard
