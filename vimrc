@@ -380,6 +380,7 @@ au FileType python nmap <leader>e :.!python <CR>
 " =============================================================================
 " Python Related Actions
 " =============================================================================
+let g:python3_host_prog=$HOME.'/.pyenv/versions/3.9.2/bin/python3'
 au! FileType python set smartindent cinwords=ifelifelseforwhilewithtryexceptfinallydefclass
 au! FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au! FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
