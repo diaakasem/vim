@@ -642,7 +642,7 @@ let g:codi#aliases = {
 " \ 'rightalign': 0,
 let g:codi#interpreters = {
     \ 'javascript': {
-        \ 'bin': 'babel-node',
+        \ 'bin': 'babel-node'
         \ },
     \ }
 
