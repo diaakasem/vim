@@ -640,7 +640,6 @@ let g:codi#aliases = {
 let g:codi#interpreters = {
     \ 'javascript': {
         \ 'bin': 'babel-node',
-        \ 'prompt': '^\(>>>\|\.\.\.\) ',
         \ 'rightalign': 0,
         \ },
     \ }
