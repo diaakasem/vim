@@ -635,16 +635,8 @@ map <leader>ww :VimwikiIndex<CR>
 highlight CodiVirtualText guifg=#716876
 let g:codi#virtual_text_prefix = "❯ "
 let g:codi#aliases = {
-    \ 'javascript.jsx': 'javascript'
-    \ }
-
-" \ 'prompt': '^\(>>>\|\.\.\.\) ',
-" \ 'rightalign': 0,
-" let g:codi#interpreters = {
-"     \ 'javascript': {
-"         \ 'bin': 'babel-node'
-"         \ },
-"     \ }
+                   \ 'javascript.jsx': 'javascript',
+                   \ }
 
 "=============================================================================
 " Macros
