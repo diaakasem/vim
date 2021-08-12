@@ -461,10 +461,8 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'vifm/vifm.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'metakirby5/codi.vim'
-" Track the engine.
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/vim-easy-align'
-" Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -473,11 +471,11 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+call plug#end()
 "Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
 " Plug 'dbakker/vim-projectroot'
-call plug#end()
 
 " =============================================================================
 " Easy align configs
