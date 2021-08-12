@@ -416,54 +416,52 @@ au FileType vimrc nmap <buffer> <silent> <leader>v :w! <CR>:source $MYVIMRC<CR>:
 " My Bundles here: using vim-plug
 " =============================================================================
 call plug#begin('~/.vim/plugged')
-Plug 'rking/ag.vim'
-Plug 'vimwiki/vimwiki'
+
+
 Plug 'Chiel92/vim-autoformat'
-Plug 'easymotion/vim-easymotion'
+Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-scripts/bash-support.vim'
+Plug 'airblade/vim-rooter'
+Plug 'ajh17/VimCompletesMe'
+Plug 'arzg/vim-colors-xcode'
 Plug 'dense-analysis/ale'
 Plug 'docunext/closetag.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-scripts/filetype.vim'
-" keep make install to install lehre 
-Plug 'heavenshell/vim-jsdoc', { 
-  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
-  \ 'do': 'make install'
-\}
+Plug 'frazrepo/vim-rainbow'
+Plug 'hashivim/vim-terraform'
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx','typescript'],  'do': 'make install' }
+Plug 'honza/vim-snippets'
+Plug 'jacoborus/tender.vim'
 Plug 'jisaacks/GitGutter'
+Plug 'junegunn/vim-easy-align'
 Plug 'kien/ctrlp.vim'
-Plug 'ajh17/VimCompletesMe'
+Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-signify'
-Plug 'vim-scripts/mru'
+Plug 'morhetz/gruvbox'
 Plug 'myusuf3/numbers.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'othree/yajs.vim'
 Plug 'posva/vim-vue'
+Plug 'rakr/vim-one'
+Plug 'rking/ag.vim'
 Plug 'rstacruz/vim-xtract'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'jacoborus/tender.vim'
-Plug 'tpope/vim-surround'
+Plug 'tomasr/molokai'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'vifm/vifm.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/bash-support.vim'
+Plug 'vim-scripts/filetype.vim'
+Plug 'vim-scripts/mru'
 Plug 'vim-scripts/vimagit'
 Plug 'vim-scripts/yaml.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'arzg/vim-colors-xcode'
-Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
-Plug 'tomasr/molokai'
-Plug 'airblade/vim-rooter'
-Plug 'othree/yajs.vim'
-Plug 'hashivim/vim-terraform'
-Plug 'frazrepo/vim-rainbow'
-Plug 'vifm/vifm.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'metakirby5/codi.vim'
-Plug 'SirVer/ultisnips'
-Plug 'junegunn/vim-easy-align'
-Plug 'honza/vim-snippets'
+Plug 'vimwiki/vimwiki'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -471,7 +469,9 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
 call plug#end()
+
 "Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
 " Plug 'jceb/vim-orgmode'
