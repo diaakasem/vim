@@ -632,17 +632,21 @@ map <leader>ww :VimwikiIndex<CR>
 " ==========================
 " Codi
 " ==========================
+function! s:pp_js(line)
+" Strip escape codes
+return substitute(a:line, "\<esc>".'\[\d\(\a\|\dm\)', '', 'g')
+endfunction
 highlight CodiVirtualText guifg=#716876
 let g:codi#virtual_text_prefix = "❯ "
 let g:codi#aliases = {
     \ 'javascript.jsx': 'javascript',
     \ }
+" \ 'rephrase': function('s:rp_js'),
 let g:codi#interpreters = {
     \ 'javascript': {
         \ 'bin': 'node',
         \ 'prompt': '^\(>\|\.\.\.\+\) ',
         \ 'preprocess': function('s:pp_js'),
-        \ 'rephrase': function('s:rp_js'),
         \ },
     \ }
 
