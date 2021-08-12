@@ -460,6 +460,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vifm/vifm.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'metakirby5/codi.vim'
 " Track the engine.
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/vim-easy-align'
