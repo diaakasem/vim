@@ -637,14 +637,14 @@ let g:codi#virtual_text_prefix = "❯ "
 let g:codi#aliases = {
     \ 'javascript.jsx': 'javascript'
     \ }
-" 
+
 " \ 'prompt': '^\(>>>\|\.\.\.\) ',
 " \ 'rightalign': 0,
-let g:codi#interpreters = {
-    \ 'javascript': {
-        \ 'bin': 'babel-node'
-        \ },
-    \ }
+" let g:codi#interpreters = {
+"     \ 'javascript': {
+"         \ 'bin': 'babel-node'
+"         \ },
+"     \ }
 
 "=============================================================================
 " Macros
