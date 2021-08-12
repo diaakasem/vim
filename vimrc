@@ -629,6 +629,15 @@ map <leader>H :SplitVifm<CR>
 " ==========================
 map <leader>ww :VimwikiIndex<CR>
 
+" ==========================
+" Codi
+" ==========================
+highlight CodiVirtualText guifg=cyan
+let g:codi#virtual_text_prefix = "❯ "
+let g:codi#aliases = {
+                   \ 'javascript.jsx': 'javascript',
+                   \ }
+
 "=============================================================================
 " Macros
 "=============================================================================
@@ -652,6 +661,7 @@ let @s='iJSON.stringify('
 " convert - muso import {... }  from models; to import DB from models;
 let @m='gg/models''0f{ca{modelsG?import oconst pa = models;0'
 let @l='gg}}}?importoimport log from ''../../../decorators/log'';0'
+
 
 " ============================================
 " Read visual block
