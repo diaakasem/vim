@@ -471,6 +471,10 @@ else
 endif
 
 call plug#end()
+autocmd VimEnter *
+  \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall | q
+  \| endif
 
 "Plug 'isRuslan/vim-es6'
 " Plug 'tomlion/vim-solidity'
