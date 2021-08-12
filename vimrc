@@ -635,7 +635,7 @@ map <leader>ww :VimwikiIndex<CR>
 highlight CodiVirtualText guifg=#716876
 let g:codi#virtual_text_prefix = "❯ "
 let g:codi#aliases = {
-    \ 'javascript.jsx': 'javascript',
+    \ 'javascript.jsx': 'javascript'
     \ }
 " 
 " \ 'prompt': '^\(>>>\|\.\.\.\) ',
