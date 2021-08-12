@@ -632,7 +632,7 @@ map <leader>ww :VimwikiIndex<CR>
 " ==========================
 " Codi
 " ==========================
-highlight CodiVirtualText guifg=purple
+highlight CodiVirtualText guifg=#716876
 let g:codi#virtual_text_prefix = "❯ "
 let g:codi#aliases = {
                    \ 'javascript.jsx': 'javascript',
